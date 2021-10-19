@@ -82,7 +82,7 @@ public class DataInputOutput{
     }
     
     // CHECK SALARY AND MAX SALARY METHODS /////////////////////////////////////
-    public boolean checkSalary(double salary){
+    /*public boolean checkSalary(double salary){
         //This method check if the salary is less than maxSalary.
         
         boolean correct = true;
@@ -104,7 +104,7 @@ public class DataInputOutput{
         }
         
         return correct;
-    }    
+    }    */
     
     public boolean checkMaxSalary(float newMaxSalary, Object obj){
         //This method check if the new Max Salary is less than a previous max salary or the maximum salary of the list.

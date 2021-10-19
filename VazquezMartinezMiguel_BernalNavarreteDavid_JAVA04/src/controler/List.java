@@ -4,7 +4,7 @@ package controler;
  * @author Miguel Maria Vazquez Martinez
  */
 
-public class List {
+public class List<T> {
     
     // CONSTRUCTOR /////////////////////////////////////////////////////////////
     public List(){
@@ -13,10 +13,10 @@ public class List {
         current = null;
     }
     
-    public void addNode(Object obj){
+    public void addNode(T item){
         //This method add a new node in the list and link both ends.
         
-        Node nd = new Node(obj);
+        Node nd = new Node(item);
         
         if(headList == null){
             headList = nd;
