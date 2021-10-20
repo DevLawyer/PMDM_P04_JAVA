@@ -19,9 +19,9 @@ public class Node<T>{
     // GETTER METHODS //////////////////////////////////////////////////////////
     public T getData(){return data;}
     
-    public Node<T> getNextNode(){return nextNode;}
+    public Node getNextNode(){return nextNode;}
     
-    public Node<T> getFormerNode(){return formerNode;}
+    public Node getFormerNode(){return formerNode;}
     
     // NODE ATTRIBUTES /////////////////////////////////////////////////////////
     private T data;
