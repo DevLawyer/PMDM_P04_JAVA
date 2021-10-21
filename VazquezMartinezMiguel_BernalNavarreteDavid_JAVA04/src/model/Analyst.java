@@ -1,9 +1,8 @@
 package model;
 /**
- *
  * @author Miguel Maria Vazquez Martinez
  */
 
-public class Analist {
+public class Analyst {
     
 }

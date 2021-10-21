@@ -4,7 +4,7 @@ package view;
  * @author Miguel Maria Vazquez Martinez
  */
 
-import controler.*;
+import controller.List;
 
 public class JFrameMain extends javax.swing.JFrame {
 
