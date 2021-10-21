@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2c789470-08ae-4419-80a2-0294d6e5c991" name="Changes" comment="2021/10/20 - MMVM - DateInterface&#10;&gt; Rename interface.&#10;&gt; Spanish constant with correct month (Calendar.MONTH+1)&#10;&gt; Add p a boolean passedOneMonth(GC);&#10;&gt; Add p a boolean passedOneQuarter(GC);&#10;&gt; Add p a boolean passedOneYear(GC);&#10;-----------------------------------------------------------">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PMDM_P04_JAVA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/controler/DataInputOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/controler/DataInputOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/JFrameMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/JFrameMain.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/JFrameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/JFrameMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/warningJDialog.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/warningJDialog.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7d00fbcc-b820-4184-bda0-46340e8af91f" />
+        <option name="url" value="https://github.com/Migvazmar/PMDM_P04_JAVA.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectId" id="1zgpI8iZSxG0lIcsUUSsJSWzhlU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="advanced.settings" />
+  </component>
+  <component name="RunManager" selected="Application.JFrameMain">
+    <configuration name="JFrameMain" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.JFrameMain" />
+      <module name="PMDM_P04_JAVA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Maven" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2c789470-08ae-4419-80a2-0294d6e5c991" name="Changes" comment="" />
+      <created>1634579508433</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634579508433</updated>
+      <workItem from="1634579510425" duration="86000" />
+      <workItem from="1634641387245" duration="1455000" />
+      <workItem from="1634649109949" duration="301000" />
+      <workItem from="1634649602257" duration="751000" />
+      <workItem from="1634729369145" duration="363000" />
+      <workItem from="1634739642117" duration="1357000" />
+      <workItem from="1634747858382" duration="5738000" />
+      <workItem from="1634831937984" duration="17000" />
+    </task>
+    <task id="LOCAL-00001" summary="2021/10/19 - MMVM - Small changes">
+      <created>1634642830704</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634642830704</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2021/10/20 - MMVM - DateInterface&#10;&gt; Rename interface.&#10;&gt; Spanish constant with correct month (Calendar.MONTH+1)&#10;&gt; Add p a boolean passedOneMonth(GC);&#10;&gt; Add p a boolean passedOneQuarter(GC);&#10;&gt; Add p a boolean passedOneYear(GC);&#10;-----------------------------------------------------------">
+      <created>1634740926728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634740926728</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2021/10/19 - MMVM - Small changes" />
+    <MESSAGE value="2021/10/20 - MMVM - DateInterface&#10;&gt; Rename interface.&#10;&gt; Spanish constant with correct month (Calendar.MONTH+1)&#10;&gt; Add p a boolean passedOneMonth(GC);&#10;&gt; Add p a boolean passedOneQuarter(GC);&#10;&gt; Add p a boolean passedOneYear(GC);&#10;-----------------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021/10/20 - MMVM - DateInterface&#10;&gt; Rename interface.&#10;&gt; Spanish constant with correct month (Calendar.MONTH+1)&#10;&gt; Add p a boolean passedOneMonth(GC);&#10;&gt; Add p a boolean passedOneQuarter(GC);&#10;&gt; Add p a boolean passedOneYear(GC);&#10;-----------------------------------------------------------" />
+  </component>
+</project>
