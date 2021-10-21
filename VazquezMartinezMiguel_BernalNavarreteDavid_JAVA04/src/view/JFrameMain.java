@@ -1,13 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
+
 /**
  *
- * @author Miguel Maria Vazquez Martinez
+ * @author migva
  */
+<<<<<<< Updated upstream
 
 import controller.List;
 
+=======
+>>>>>>> Stashed changes
 public class JFrameMain extends javax.swing.JFrame {
 
+    /**
+     * Creates new form JFrameMain
+     */
     public JFrameMain() {
         initComponents();
     }
@@ -21,22 +33,101 @@ public class JFrameMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        mainMenuBar = new javax.swing.JMenuBar();
+        menuButton = new javax.swing.JMenu();
+        addAnalistButton = new javax.swing.JMenuItem();
+        addProgrammerButton = new javax.swing.JMenuItem();
+        loadListButton = new javax.swing.JMenuItem();
+        saveListButton = new javax.swing.JMenuItem();
+        listButton = new javax.swing.JMenu();
+        navButton = new javax.swing.JMenu();
+        aboutButton = new javax.swing.JMenu();
+
+        jMenu5.setText("File");
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar2.add(jMenu6);
+
+        jMenu7.setText("File");
+        jMenuBar3.add(jMenu7);
+
+        jMenu8.setText("Edit");
+        jMenuBar3.add(jMenu8);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Aplicación");
+        setMaximumSize(new java.awt.Dimension(700, 500));
+        setMinimumSize(new java.awt.Dimension(700, 500));
+        setName("JFrameMain"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(700, 500));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 600));
+
+        mainMenuBar.setPreferredSize(new java.awt.Dimension(222, 40));
+
+        menuButton.setText("Menú");
+
+        addAnalistButton.setText("Añadir Analista");
+        menuButton.add(addAnalistButton);
+
+        addProgrammerButton.setText("Añadir Programador");
+        menuButton.add(addProgrammerButton);
+
+        loadListButton.setText("Cargar Lista");
+        menuButton.add(loadListButton);
+
+        saveListButton.setText("Guardar Lista");
+        menuButton.add(saveListButton);
+
+        mainMenuBar.add(menuButton);
+
+        listButton.setText("Listar");
+        listButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listButtonMouseClicked(evt);
+            }
+        });
+        mainMenuBar.add(listButton);
+
+        navButton.setText("Navegar");
+        mainMenuBar.add(navButton);
+
+        aboutButton.setText("Sobre App");
+        mainMenuBar.add(aboutButton);
+
+        setJMenuBar(mainMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listButtonMouseClicked
+        this.setContentPane(listPanel);
+        this.pack();
+        
+    }//GEN-LAST:event_listButtonMouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -69,13 +160,23 @@ public class JFrameMain extends javax.swing.JFrame {
         });
     }
     
-    public static List getLista(){return miLista;}
+    private JListPanel listPanel = new JListPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu aboutButton;
+    private javax.swing.JMenuItem addAnalistButton;
+    private javax.swing.JMenuItem addProgrammerButton;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenu listButton;
+    private javax.swing.JMenuItem loadListButton;
+    private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JMenu menuButton;
+    private javax.swing.JMenu navButton;
+    private javax.swing.JMenuItem saveListButton;
     // End of variables declaration//GEN-END:variables
-    
-    // Viables added - modify if you need.
-    private static List miLista = new List();           //Main list of the program.    
-    public static warningJDialog warning;               //Window for inform the user about the eventuals errors.
-
 }
