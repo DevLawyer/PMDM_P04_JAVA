@@ -178,5 +178,5 @@ public class DataInputOutput{
         return check;
     }*/
 
-    private List miLista = JFrameMain.getLista(); // Receive the list content from the JFrameMain.
+    //private List miLista = JFrameMain.getLista(); // Receive the list content from the JFrameMain.
 }
