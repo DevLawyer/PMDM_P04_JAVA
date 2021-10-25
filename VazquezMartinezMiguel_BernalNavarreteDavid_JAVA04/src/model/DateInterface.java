@@ -13,10 +13,10 @@ interface DateInterface {
     public final static int MES_DEL_ANIO = Calendar.MONTH + 1;
     public final static int ANIO = Calendar.YEAR;
 
-    public abstract boolean passedOneMonth(GregorianCalendar entryDate);
+    public abstract boolean passedOneMonth();
 
-    public abstract boolean passedOneQuarter(GregorianCalendar entryDate);
+    public abstract boolean passedOneQuarter();
 
-    public abstract boolean passedOneYear(GregorianCalendar entryDate);
+    public abstract boolean passedOneYear();
 
 }

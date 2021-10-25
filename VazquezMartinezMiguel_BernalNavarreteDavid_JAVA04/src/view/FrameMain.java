@@ -176,12 +176,18 @@ public class FrameMain extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FrameMain().setVisible(true);
             }
         });
     }
     
+    public static List getMainList(){return myList;}
+    
+    
+    // Attributes //////////////////////////////////////////////////////////////
+    private static List myList = new List();
     private ListPanel listPanel = new ListPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
