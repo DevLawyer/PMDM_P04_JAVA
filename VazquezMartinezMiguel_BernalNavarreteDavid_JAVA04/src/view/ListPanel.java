@@ -30,13 +30,11 @@ private DefaultListModel modeloLista()
         
         do{
             Employee emp = (Employee) myList.getCurrent().getData();
-            if (emp instanceof Analyst){
-                Analyst adv = (Analyst) emp;
+            if (emp instanceof Analyst adv){
                 String infoObjeto = "A " + adv.toString();
                 modelo.addElement(infoObjeto);  
 
-            }else if (emp instanceof Programmer){
-                Programmer adv = (Programmer) emp;
+            }else if (emp instanceof Programmer adv){
                 String infoObjeto = "T " + adv.toString();
                 modelo.addElement(infoObjeto);             
             }else{
@@ -93,7 +91,7 @@ private DefaultListModel modeloLista()
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private List myList = FrameMain.getMainList();
+    private final List myList = FrameMain.getMainList();
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> listPanelJList;

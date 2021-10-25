@@ -5,7 +5,7 @@ package model;
 
 public class Analyst extends Employee implements DateInterface{
 
-    public Analyst (int id, String name, float salary, float maxSalary, String entryDate){
+    public Analyst (String id, String name, String salary, String maxSalary, String entryDate){
         super(id, name, salary, maxSalary, entryDate);
     }
     
@@ -15,7 +15,6 @@ public class Analyst extends Employee implements DateInterface{
         return 0.0f;
     }
     
-    @Override
     public void updateSalary(){
         //This method must be complete.
     };
@@ -32,6 +31,26 @@ public class Analyst extends Employee implements DateInterface{
 
     @Override
     public boolean passedOneYear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void toBytes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void parseEmployee(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void calculateSalary() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

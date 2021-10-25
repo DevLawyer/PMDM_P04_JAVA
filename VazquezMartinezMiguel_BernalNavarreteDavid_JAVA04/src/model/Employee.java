@@ -16,69 +16,113 @@ package model;
  * Employee will contain the following methods:
  *      -2 Constructors.
  *      -Getters and Setters for each attribute.
+ *      -Methods to update the salary.
  *      -Abstract method toString().
  *      -Abstract method toBytes().
  *      -Abstract method parseEmployee(String).
  *      -Abstract method calculateSalary().
  *
  * This class is to be implemented without any expected use of the console.
- *
- * TO-DO: Correct methods and remove unnecessary code.
- * TO-DO: Implement all methods.
  */
 
 import java.io.Serializable;
 import java.util.*;
 import controller.*;
 
-public class Employee implements Serializable {
+public abstract class Employee implements Serializable {
     // Attributes
     protected int id;
     protected transient String name;
     protected float salary;
     protected static float maxSalary;
     protected GregorianCalendar entryDate;
-
-    public Employee(int id, String name, float salary, float maxSalary, String entryDate) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-        Employee.maxSalary = maxSalary;
-        this.entryDate = DateParser.parseDate(entryDate);
+    
+    /*------------------------------------------------------------------------*/
+    // Constructor
+    public Employee(String id, String name, String salary, String maxSalary, String entryDate) {
+        setId(id);
+        setName(name);
+        setSalary(salary);
+        setMaxSalary(maxSalary);
+        setEntryDate(entryDate);
     }    
 
-    // SETTERS METHODS /////////////////////////////////////////////////////////
-    public void setName(String name){this.name = name;}
-    
-    public void setSalary(float salary){this.salary = salary;}
-    
-    public void setMaxSalary(float newMaxSalary){maxSalary = newMaxSalary;}
-    
-    //public void setEntryDate(String dateIn){this.entryDate = DataInputOutput.readDate(dateIn);}
-    
-
-    // GETTERS METHODS /////////////////////////////////////////////////////////
-    public String getName(){return name;}
-    
-    public float getSalary(){return salary;}
-    
-    public float getMaxSalary(){return maxSalary;}
-    
-    public int getIdEmployee(){return id;}
-    
-    public String getEntryDate(){
-        //This method must be complete.
-        
-        return "";
+    /*------------------------------------------------------------------------*/
+    // Setters
+    public final void setId(String id) {
+        this.id = Integer.parseInt(id);
     }
     
-    public void updateSalary(){};
+    public final void setName(String name){
+        this.name = name;
+    }
     
-    //public String getEntryDate(){return DataInputOutput.writeDate(entryDate);}
-
-    //public String getEntryDay(){return DataInputOutput.writeDate(entryDate).substring(0, 2);}
+    public final void setSalary(String salary){
+        this.salary = Float.parseFloat(salary);
+    }
     
-    //public String getEntryMonth(){return DataInputOutput.writeDate(entryDate).substring(3, 5);}
+    public final void setMaxSalary(String newMaxSalary){
+        Employee.maxSalary = Float.parseFloat(newMaxSalary);
+    }
     
-    //public String getEntryYear(){return DataInputOutput.writeDate(entryDate).substring(6);}
+    public final void setEntryDate(String date) {
+        this.entryDate = DateParser.parseDate(date);
+    }
+    
+    /*------------------------------------------------------------------------*/
+    // Getters
+    public int getIdEmployee() {
+        return id;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public float getSalary() {
+        return salary;
+    }
+    
+    public float getMaxSalary() {
+        return maxSalary;
+    }
+    
+    public String getEntryDate() {
+        return DateParser.parseDate(this.entryDate);
+    }
+    
+    /*------------------------------------------------------------------------*/
+    // Additional methods.
+    
+    /*---------------------------*/
+    public void updateSalary(String newSalary) {
+        // Replaces the salary with the parsed float of the given string.
+        this.salary = Float.parseFloat(newSalary);
+    }
+    
+    public void updateSalary() {
+        // Increments salary in 50.
+        this.salary += 50f;
+    }
+    
+    /*---------------------------*/
+    public String getEntryDay() {
+        return DateParser.parseDate(entryDate).substring(0, 2);
+    }
+    
+    public String getEntryMonth() {
+        return DateParser.parseDate(entryDate).substring(3, 5);
+    }
+    
+    public String getEntryYear() {
+        return DateParser.parseDate(entryDate).substring(6);
+    }
+    
+    // Abstract methods
+    @Override
+    public abstract String toString ();
+    public abstract void toBytes();
+    public abstract void parseEmployee(String s);
+    public abstract void calculateSalary();
+    
 }

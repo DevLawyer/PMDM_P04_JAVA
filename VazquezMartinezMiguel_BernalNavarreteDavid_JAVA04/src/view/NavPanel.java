@@ -295,21 +295,21 @@ public class NavPanel extends javax.swing.JPanel {
         
         Employee emp = (Employee)obj;
         
-        if(emp instanceof Analyst){
-            /**Firstly, if the input object was an analyst 
-             * and one year has passed since the entry date, 
+        if(emp instanceof Analyst auxA){
+            /**
+             * Firstly, if the input object was an analyst
+             * and one year has passed since the entry date,
              * enable will switch true.
              */
-            Analyst auxA = (Analyst)emp;
-            enable = auxA.passedOneYear();
+                        enable = auxA.passedOneYear();
             
-        } else if(emp instanceof Programmer){
-            /**Secondly, if the input object was a programmer 
-             * and one month has passed since the entry date, 
+        } else if(emp instanceof Programmer auxP){
+            /**
+             * Secondly, if the input object was a programmer
+             * and one month has passed since the entry date,
              * enable will switch true.
              */
-            Programmer auxP = (Programmer)emp;
-            enable = auxP.passedOneMonth();
+                        enable = auxP.passedOneMonth();
             
         }
         
@@ -322,16 +322,12 @@ public class NavPanel extends javax.swing.JPanel {
          * the corresponding method of analyst or programmer class, is called to update the salary.
          */
         
-        Employee emp = (Employee)myList.getCurrent().getData();
+        Employee emp = (Employee) myList.getCurrent().getData();
         
-        if(emp instanceof Analyst){
-            Analyst auxA = (Analyst)emp;
+        if(emp instanceof Analyst auxA)
             auxA.updateSalary();
-            
-        }else if (emp instanceof Programmer){
-            Programmer auxP = (Programmer)emp;
-            auxP.updateSalary();   
-        }
+        else if (emp instanceof Programmer auxP)
+            auxP.updateSalary();
     }//GEN-LAST:event_updateSalaryButtonActionPerformed
 
     private void numberFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldShowActionPerformed
