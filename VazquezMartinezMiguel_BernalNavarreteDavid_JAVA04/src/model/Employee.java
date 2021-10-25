@@ -47,7 +47,7 @@ public class Employee implements Serializable {
         this.entryDate = DateParser.parseDate(entryDate);
     }    
 
-        // SETTERS METHODS /////////////////////////////////////////////////////////
+    // SETTERS METHODS /////////////////////////////////////////////////////////
     public void setName(String name){this.name = name;}
     
     public void setSalary(float salary){this.salary = salary;}
@@ -65,6 +65,14 @@ public class Employee implements Serializable {
     public float getMaxSalary(){return maxSalary;}
     
     public int getIdEmployee(){return id;}
+    
+    public String getEntryDate(){
+        //This method must be complete.
+        
+        return "";
+    }
+    
+    public void updateSalary(){};
     
     //public String getEntryDate(){return DataInputOutput.writeDate(entryDate);}
 

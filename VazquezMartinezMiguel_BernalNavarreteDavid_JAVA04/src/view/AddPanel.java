@@ -17,6 +17,22 @@ public class AddPanel extends javax.swing.JPanel {
     public AddPanel() {
         initComponents();
     }
+    
+    public void optionSelectedAnalyst(){
+        optionSelected = false;
+    }
+    
+    public void optionSelectedProgrammer(){
+        optionSelected = true;
+    }    
+    
+    private void optionSelected(){
+        if(optionSelected){
+            //Change for Programmer.
+        }else{
+            //Change for Analyst.
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,7 +68,8 @@ public class AddPanel extends javax.swing.JPanel {
                 .addContainerGap(330, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private boolean optionSelected; //Determine the label text. False for Analyst and True for Programmer.
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

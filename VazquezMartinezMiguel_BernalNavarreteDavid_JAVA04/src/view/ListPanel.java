@@ -5,6 +5,10 @@
  */
 package view;
 
+import controller.List;
+import javax.swing.DefaultListModel;
+import model.*;
+
 /**
  *
  * @author migva
@@ -17,6 +21,31 @@ public class ListPanel extends javax.swing.JPanel {
     public ListPanel() {
         initComponents();
     }
+    
+private DefaultListModel modeloLista()
+    {
+        
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        myList.resetCurrent();
+        
+        do{
+            Employee emp = (Employee) myList.getCurrent().getData();
+            if (emp instanceof Analyst){
+                Analyst adv = (Analyst) emp;
+                String infoObjeto = "A " + adv.toString();
+                modelo.addElement(infoObjeto);  
+
+            }else if (emp instanceof Programmer){
+                Programmer adv = (Programmer) emp;
+                String infoObjeto = "T " + adv.toString();
+                modelo.addElement(infoObjeto);             
+            }else{
+                modelo.addElement("No hay elementos");
+            }
+            myList.moveForward();
+        }while(myList.getCurrent() != myList.getEndList());
+        return modelo;
+    }       
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,7 +93,8 @@ public class ListPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    private List myList = FrameMain.getMainList();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> listPanelJList;
     private javax.swing.JScrollPane listPanelScroll;

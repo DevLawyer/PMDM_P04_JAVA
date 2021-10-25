@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 /**
@@ -41,7 +36,7 @@ public class FrameMain extends javax.swing.JFrame {
         loadListButton = new javax.swing.JMenuItem();
         saveListButton = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        addAnalistButton = new javax.swing.JMenuItem();
+        addAnalystButton = new javax.swing.JMenuItem();
         addProgrammerButton = new javax.swing.JMenuItem();
         listButton = new javax.swing.JMenu();
         navButton = new javax.swing.JMenu();
@@ -92,16 +87,26 @@ public class FrameMain extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\addIcon.png")); // NOI18N
         jMenu1.setText("Añadir");
 
-        addAnalistButton.setBackground(new java.awt.Color(204, 204, 204));
-        addAnalistButton.setForeground(new java.awt.Color(0, 0, 0));
-        addAnalistButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\emptyIcon.png")); // NOI18N
-        addAnalistButton.setText("Analista");
-        jMenu1.add(addAnalistButton);
+        addAnalystButton.setBackground(new java.awt.Color(204, 204, 204));
+        addAnalystButton.setForeground(new java.awt.Color(0, 0, 0));
+        addAnalystButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\emptyIcon.png")); // NOI18N
+        addAnalystButton.setText("Analista");
+        addAnalystButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAnalystButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(addAnalystButton);
 
         addProgrammerButton.setBackground(new java.awt.Color(204, 204, 204));
         addProgrammerButton.setForeground(new java.awt.Color(0, 0, 0));
         addProgrammerButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\emptyIcon.png")); // NOI18N
         addProgrammerButton.setText("Programador");
+        addProgrammerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProgrammerButtonActionPerformed(evt);
+            }
+        });
         jMenu1.add(addProgrammerButton);
 
         mainMenuBar.add(jMenu1);
@@ -121,6 +126,11 @@ public class FrameMain extends javax.swing.JFrame {
 
         aboutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\infoIcon.png")); // NOI18N
         aboutButton.setText("Sobre App");
+        aboutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutButtonMouseClicked(evt);
+            }
+        });
         mainMenuBar.add(aboutButton);
 
         setJMenuBar(mainMenuBar);
@@ -145,6 +155,23 @@ public class FrameMain extends javax.swing.JFrame {
         this.pack();
         
     }//GEN-LAST:event_listButtonMouseClicked
+
+    private void addAnalystButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnalystButtonActionPerformed
+        this.setContentPane(addPanel);
+        this.pack();
+        addPanel.optionSelectedAnalyst();
+    }//GEN-LAST:event_addAnalystButtonActionPerformed
+
+    private void addProgrammerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProgrammerButtonActionPerformed
+        this.setContentPane(addPanel);
+        this.pack();
+        addPanel.optionSelectedProgrammer();
+    }//GEN-LAST:event_addProgrammerButtonActionPerformed
+
+    private void aboutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutButtonMouseClicked
+        this.setContentPane(aboutPanel);
+        this.pack();
+    }//GEN-LAST:event_aboutButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -189,10 +216,12 @@ public class FrameMain extends javax.swing.JFrame {
     // Attributes //////////////////////////////////////////////////////////////
     private static List myList = new List();
     private ListPanel listPanel = new ListPanel();
+    private AddPanel addPanel = new AddPanel();
+    private AboutPanel aboutPanel = new AboutPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutButton;
-    private javax.swing.JMenuItem addAnalistButton;
+    private javax.swing.JMenuItem addAnalystButton;
     private javax.swing.JMenuItem addProgrammerButton;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;

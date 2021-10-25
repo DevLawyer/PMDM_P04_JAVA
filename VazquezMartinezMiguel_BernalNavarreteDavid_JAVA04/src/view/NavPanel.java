@@ -9,8 +9,8 @@ import controller.List;
 import model.*;
 
 /**
- *
- * @author migva
+ * This panel contains the design of navigation screen to show the list information.
+ * 
  */
 public class NavPanel extends javax.swing.JPanel {
 
@@ -300,14 +300,16 @@ public class NavPanel extends javax.swing.JPanel {
              * and one year has passed since the entry date, 
              * enable will switch true.
              */
-            enable = (Analyst)emp.passedOneYear();
+            Analyst auxA = (Analyst)emp;
+            enable = auxA.passedOneYear();
             
         } else if(emp instanceof Programmer){
             /**Secondly, if the input object was a programmer 
              * and one month has passed since the entry date, 
              * enable will switch true.
              */
-            enable = (Programmer)emp.passedOneMonth();
+            Programmer auxP = (Programmer)emp;
+            enable = auxP.passedOneMonth();
             
         }
         
@@ -323,13 +325,12 @@ public class NavPanel extends javax.swing.JPanel {
         Employee emp = (Employee)myList.getCurrent().getData();
         
         if(emp instanceof Analyst){
-            
-            (Analyst)emp.updateSalary();
+            Analyst auxA = (Analyst)emp;
+            auxA.updateSalary();
             
         }else if (emp instanceof Programmer){
-            
-            (Programmer)emp.updateSalary();
-            
+            Programmer auxP = (Programmer)emp;
+            auxP.updateSalary();   
         }
     }//GEN-LAST:event_updateSalaryButtonActionPerformed
 
@@ -345,17 +346,17 @@ public class NavPanel extends javax.swing.JPanel {
         Employee emp = (Employee) obj;
         
         if(emp instanceof Analyst) {
-            
+            Analyst auxA = (Analyst) obj;
             empTypeLabelShow.setText("Analista");
-            plusExtraFieldShow.setText((Analyst)emp.getPlusSalary());    // This method must be implements in Analyst class.
-            otherFieldShow.setText((Analyst)emp.);                       // This method must be declare and implements in Analyst class.
+            plusExtraFieldShow.setText(String.valueOf(auxA.getPlusSalary()));   // This method must be implements in Analyst class.
+            //otherFieldShow.setText((Analyst)emp.);                            // This method must be declare and implements in Analyst class.
             
             
         }else if(emp instanceof Programmer){
-            
+            Programmer auxP = (Programmer) obj;
             empTypeLabelShow.setText("Programador");
-            plusExtraFieldShow.setText((Analyst)emp.getExtraSalary());   // This method must be implements in Analyst class.
-            otherFieldShow.setText((Analyst)emp.);                       // This method must be declare and implements in Programmer class.
+            plusExtraFieldShow.setText(String.valueOf(auxP.getExtraSalary()));  // This method must be implements in Analyst class.
+            //otherFieldShow.setText((Analyst)emp.);                            // This method must be declare and implements in Programmer class.
         }
         
         showCommonAtributes(emp);
@@ -370,7 +371,7 @@ public class NavPanel extends javax.swing.JPanel {
     }
     
     // Attributes //////////////////////////////////////////////////////////////
-    List myList = FrameMain.getMainList(); // Main list get from FramenMain class. 
+    private List myList = FrameMain.getMainList(); // Main list get from FramenMain class. 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel empTypeLabelShow;
