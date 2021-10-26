@@ -93,19 +93,6 @@ public abstract class Employee implements Serializable {
     
     /*------------------------------------------------------------------------*/
     // Additional methods.
-    
-    /*---------------------------*/
-    public void updateSalary(String newSalary) {
-        // Replaces the salary with the parsed float of the given string.
-        this.salary = Float.parseFloat(newSalary);
-    }
-    
-    public void updateSalary() {
-        // Increments salary in 50.
-        this.salary += 50f;
-    }
-    
-    /*---------------------------*/
     public String getEntryDay() {
         return DateParser.parseDate(entryDate).substring(0, 2);
     }
@@ -123,6 +110,6 @@ public abstract class Employee implements Serializable {
     public abstract String toString ();
     public abstract void toBytes();
     public abstract void parseEmployee(String s);
-    public abstract void calculateSalary();
+    public abstract void updateSalary();
     
 }
