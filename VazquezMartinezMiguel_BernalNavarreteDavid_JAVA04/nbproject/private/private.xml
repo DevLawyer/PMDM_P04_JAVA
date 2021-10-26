@@ -2,18 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="UD07">
-            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/model/DateInterface.java</file>
-            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/controller/List.java</file>
-            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/model/Employee.java</file>
-            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/controller/DataInputOutput.java</file>
-            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/controller/Node.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/migva/Google%20Drive/08%20DAM/2%20Curso/02%20PMDM/P04/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/FrameMain.java</file>
             <file>file:/C:/Users/migva/Google%20Drive/08%20DAM/2%20Curso/02%20PMDM/P04/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/controller/updateSaveData.java</file>
             <file>file:/C:/Users/migva/Google%20Drive/08%20DAM/2%20Curso/02%20PMDM/P04/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/AddPanel.java</file>
             <file>file:/C:/Users/migva/Google%20Drive/08%20DAM/2%20Curso/02%20PMDM/P04/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/view/NavPanel.java</file>
+        </group>
+        <group name="UD07">
+            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/model/Programmer.java</file>
+            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/model/Employee.java</file>
+            <file>file:/C:/Users/David/Documents/PMDM_P04_JAVA/VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04/src/model/Analyst.java</file>
         </group>
     </open-files>
 </project-private>
