@@ -16,11 +16,10 @@ package model;
  * Employee will contain the following methods:
  *      -2 Constructors.
  *      -Getters and Setters for each attribute.
- *      -Methods to update the salary.
  *      -Abstract method toString().
- *      -Abstract method toBytes().
+ *      -Abstract method toBinary().
  *      -Abstract method parseEmployee(String).
- *      -Abstract method calculateSalary().
+ *      -Abstract method udpateSalary().
  *
  * This class is to be implemented without any expected use of the console.
  */
@@ -105,11 +104,23 @@ public abstract class Employee implements Serializable {
         return DateParser.parseDate(entryDate).substring(6);
     }
     
+    public static void parseEmployee(String s) {
+        String[] data = s.split(";");
+        
+        if (data[0].equals("Analyst")) {
+            new Analyst(data[1], data[2], data[3], data[4], data[5],
+            data[6], data[7]);
+        } else if (data[0].equals("Programmer")) {
+            new Programmer(data[1], data[2], data[3], data[4], data[5],
+            data[6], data[7]);
+        } else {
+            // Throw not supported type.
+        }
+    }
+    
     // Abstract methods
     @Override
     public abstract String toString ();
-    public abstract void toBytes();
-    public abstract void parseEmployee(String s);
     public abstract void updateSalary();
     
 }

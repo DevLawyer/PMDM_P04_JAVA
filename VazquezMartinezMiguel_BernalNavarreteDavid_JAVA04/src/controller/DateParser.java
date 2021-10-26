@@ -8,6 +8,8 @@ import java.util.GregorianCalendar;
 
 /**
  * This class is used to turn String objects to GregorianCalendar objects and vice versa.
+ * It also has the tools required to check if a certain amount of time has passed
+ * between two dates.
  */
 public class DateParser {
     /**
@@ -65,5 +67,29 @@ public class DateParser {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    public static boolean passedMonth() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static boolean passedQuarter() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static boolean passedYear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static boolean passedMonth(GregorianCalendar entryDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static boolean passedQuarter(GregorianCalendar entryDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static boolean passedYear(GregorianCalendar entryDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

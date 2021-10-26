@@ -344,14 +344,14 @@ public class NavPanel extends javax.swing.JPanel {
         if(emp instanceof Analyst) {
             Analyst auxA = (Analyst) obj;
             empTypeLabelShow.setText("Analista");
-            plusExtraFieldShow.setText(String.valueOf(auxA.getPlusSalary()));   // This method must be implements in Analyst class.
+            plusExtraFieldShow.setText(String.valueOf(Analyst.getAnnualPlus()));  
             //otherFieldShow.setText((Analyst)emp.);                            // This method must be declare and implements in Analyst class.
             
             
         }else if(emp instanceof Programmer){
             Programmer auxP = (Programmer) obj;
             empTypeLabelShow.setText("Programador");
-            plusExtraFieldShow.setText(String.valueOf(auxP.getExtraSalary()));  // This method must be implements in Analyst class.
+            plusExtraFieldShow.setText(String.valueOf(auxP.getMonthlyPlus())); 
             //otherFieldShow.setText((Analyst)emp.);                            // This method must be declare and implements in Programmer class.
         }
         
