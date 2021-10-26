@@ -13,9 +13,9 @@ import view.FrameMain;
  */
 public class updateSaveData {
     
-    public static void updateFromFile(List updateList){
+    public static List updateFromFile(){
         //This method charge in updateList the information contained in a data.dat file in case that this exist.
-        
+        List updateList = null;
         File inputFile = new File("data.dat");
         try {
             if(inputFile.exists()){
@@ -33,6 +33,7 @@ public class updateSaveData {
         } catch (ClassNotFoundException ex){
             JOptionPane.showMessageDialog(auxFrame, "ERROR al cargar la información.");
         }
+        return updateList;
     }
     
     public static void saveInFile(List saveList){

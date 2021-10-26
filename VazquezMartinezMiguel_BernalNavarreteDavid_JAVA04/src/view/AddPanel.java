@@ -5,6 +5,8 @@
  */
 package view;
 
+import controller.List;
+
 /**
  *
  * @author migva
@@ -20,17 +22,37 @@ public class AddPanel extends javax.swing.JPanel {
     
     public void optionSelectedAnalyst(){
         optionSelected = false;
+        header.setText("ANALISTA");
+        plusExtraLabelAdd.setText("Plus salarial:");        
     }
     
     public void optionSelectedProgrammer(){
         optionSelected = true;
+        header.setText("PROGRAMADOR");
+        plusExtraLabelAdd.setText("Salario extra:");
     }    
     
     private void optionSelected(){
         if(optionSelected){
-            //Change for Programmer.
+            //Programmer option.
+            newList();
+
+            
         }else{
-            //Change for Analyst.
+            //Analyst option.
+            newList();
+
+            
+        }
+
+    }
+   
+    
+    
+    
+    private void newList(){
+        if(mainList == null){
+            mainList = new List();
         }
     }
 
@@ -43,35 +65,241 @@ public class AddPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        header = new javax.swing.JLabel();
+        numberLabelAdd = new javax.swing.JLabel();
+        numberFieldAdd = new javax.swing.JTextField();
+        nameLabelAdd = new javax.swing.JLabel();
+        nameFieldAdd = new javax.swing.JTextField();
+        salaryLabelAdd = new javax.swing.JLabel();
+        salaryFieldAdd = new javax.swing.JTextField();
+        maxSalaryLabelAdd = new javax.swing.JLabel();
+        maxSalaryFieldAdd = new javax.swing.JTextField();
+        entryDateLabelAdd = new javax.swing.JLabel();
+        entryDateFieldAdd = new javax.swing.JTextField();
+        plusExtraLabelAdd = new javax.swing.JLabel();
+        plusExtraFieldAdd = new javax.swing.JTextField();
+        otherLabelAdd = new javax.swing.JLabel();
+        otherFieldAdd = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        AddButton = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(700, 500));
         setMinimumSize(new java.awt.Dimension(700, 500));
         setPreferredSize(new java.awt.Dimension(700, 500));
 
-        jButton1.setText("jButton1");
+        header.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        header.setForeground(new java.awt.Color(0, 0, 0));
+        header.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        header.setText("Cabecera");
+
+        numberLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        numberLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        numberLabelAdd.setText("Número:");
+
+        numberFieldAdd.setEditable(false);
+        numberFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        numberFieldAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberFieldAddActionPerformed(evt);
+            }
+        });
+
+        nameLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        nameLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        nameLabelAdd.setText("Nombre:");
+
+        nameFieldAdd.setEditable(false);
+        nameFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        nameFieldAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldAddActionPerformed(evt);
+            }
+        });
+
+        salaryLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        salaryLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        salaryLabelAdd.setText("Sueldo:");
+
+        salaryFieldAdd.setEditable(false);
+        salaryFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        salaryFieldAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryFieldAddActionPerformed(evt);
+            }
+        });
+
+        maxSalaryLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        maxSalaryLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        maxSalaryLabelAdd.setText("Sueldo máximo:");
+
+        maxSalaryFieldAdd.setEditable(false);
+        maxSalaryFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        maxSalaryFieldAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxSalaryFieldAddActionPerformed(evt);
+            }
+        });
+
+        entryDateLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        entryDateLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        entryDateLabelAdd.setText("Fecha Alta:");
+
+        entryDateFieldAdd.setEditable(false);
+        entryDateFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+
+        plusExtraLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        plusExtraLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        plusExtraLabelAdd.setText("Plus/Extra:");
+
+        plusExtraFieldAdd.setEditable(false);
+        plusExtraFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+
+        otherLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        otherLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        otherLabelAdd.setText("Other:");
+
+        otherFieldAdd.setEditable(false);
+        otherFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+
+        jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
+
+        AddButton.setBackground(new java.awt.Color(204, 204, 204));
+        AddButton.setForeground(new java.awt.Color(0, 0, 0));
+        AddButton.setText("Añadir");
+        AddButton.setBorder(null);
+        AddButton.setBorderPainted(false);
+        AddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AddButton.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
+
+        jSeparator3.setPreferredSize(new java.awt.Dimension(200, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jButton1)
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(maxSalaryLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numberLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salaryLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entryDateLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plusExtraLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(otherLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(otherFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plusExtraFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entryDateFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salaryFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numberFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxSalaryFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jButton1)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numberLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numberFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salaryLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salaryFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maxSalaryLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maxSalaryFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(entryDateLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entryDateFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(plusExtraLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plusExtraFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(otherLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(otherFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void numberFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberFieldAddActionPerformed
+
+    private void nameFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldAddActionPerformed
+        //UNUSED ELEMENT
+    }//GEN-LAST:event_nameFieldAddActionPerformed
+
+    private void salaryFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldAddActionPerformed
+        //UNUSED ELEMENT
+    }//GEN-LAST:event_salaryFieldAddActionPerformed
+
+    private void maxSalaryFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxSalaryFieldAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maxSalaryFieldAddActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+
+    }//GEN-LAST:event_AddButtonActionPerformed
     
     private boolean optionSelected; //Determine the label text. False for Analyst and True for Programmer.
-
+    private List mainList = FrameMain.getMainList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton AddButton;
+    private javax.swing.JTextField entryDateFieldAdd;
+    private javax.swing.JLabel entryDateLabelAdd;
+    private javax.swing.JLabel header;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField maxSalaryFieldAdd;
+    private javax.swing.JLabel maxSalaryLabelAdd;
+    private javax.swing.JTextField nameFieldAdd;
+    private javax.swing.JLabel nameLabelAdd;
+    private javax.swing.JTextField numberFieldAdd;
+    private javax.swing.JLabel numberLabelAdd;
+    private javax.swing.JTextField otherFieldAdd;
+    private javax.swing.JLabel otherLabelAdd;
+    private javax.swing.JTextField plusExtraFieldAdd;
+    private javax.swing.JLabel plusExtraLabelAdd;
+    private javax.swing.JTextField salaryFieldAdd;
+    private javax.swing.JLabel salaryLabelAdd;
     // End of variables declaration//GEN-END:variables
 }

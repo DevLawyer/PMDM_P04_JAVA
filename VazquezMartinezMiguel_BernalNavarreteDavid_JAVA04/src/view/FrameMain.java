@@ -6,6 +6,7 @@ package view;
  */
 
 import controller.List;
+import controller.updateSaveData;
 
 public class FrameMain extends javax.swing.JFrame {
 
@@ -61,7 +62,7 @@ public class FrameMain extends javax.swing.JFrame {
         setName("JFrameMain"); // NOI18N
         setPreferredSize(new java.awt.Dimension(700, 500));
         setResizable(false);
-        setSize(new java.awt.Dimension(800, 600));
+        setSize(new java.awt.Dimension(700, 500));
 
         mainMenuBar.setBackground(new java.awt.Color(204, 204, 204));
         mainMenuBar.setForeground(new java.awt.Color(0, 0, 0));
@@ -72,6 +73,11 @@ public class FrameMain extends javax.swing.JFrame {
         loadListButton.setBackground(new java.awt.Color(204, 204, 204));
         loadListButton.setForeground(new java.awt.Color(0, 0, 0));
         loadListButton.setText("Cargar Lista");
+        loadListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadListButtonActionPerformed(evt);
+            }
+        });
         menuButton.add(loadListButton);
 
         saveListButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -114,6 +120,11 @@ public class FrameMain extends javax.swing.JFrame {
         mainMenuBar.add(listButton);
 
         navButton.setText("Navegar");
+        navButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                navButtonMouseClicked(evt);
+            }
+        });
         mainMenuBar.add(navButton);
 
         aboutButton.setText("Sobre App");
@@ -130,7 +141,7 @@ public class FrameMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,6 +174,15 @@ public class FrameMain extends javax.swing.JFrame {
         this.setContentPane(aboutPanel);
         this.pack();
     }//GEN-LAST:event_aboutButtonMouseClicked
+
+    private void loadListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadListButtonActionPerformed
+        myList = updateSaveData.updateFromFile();
+    }//GEN-LAST:event_loadListButtonActionPerformed
+
+    private void navButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navButtonMouseClicked
+        this.setContentPane(navPanel);
+        this.pack();
+    }//GEN-LAST:event_navButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,10 +225,11 @@ public class FrameMain extends javax.swing.JFrame {
     
     
     // Attributes //////////////////////////////////////////////////////////////
-    private static List myList = new List();
+    private static List myList;
     private ListPanel listPanel = new ListPanel();
     private AddPanel addPanel = new AddPanel();
     private AboutPanel aboutPanel = new AboutPanel();
+    private NavPanel navPanel = new NavPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutButton;

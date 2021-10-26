@@ -22,7 +22,7 @@ public class ListPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-private DefaultListModel modeloLista()
+    private DefaultListModel modeloLista()
     {
         
         DefaultListModel<String> modelo = new DefaultListModel<>();

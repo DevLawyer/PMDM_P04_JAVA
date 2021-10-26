@@ -66,6 +66,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cargar Lista"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadListButtonActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="saveListButton">
               <Properties>
@@ -127,6 +130,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Navegar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="navButtonMouseClicked"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="aboutButton">
           <Properties>
@@ -154,7 +160,7 @@
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[800, 600]"/>
+      <Dimension value="[700, 500]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -177,7 +183,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="700" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
