@@ -6,10 +6,8 @@ package view;
  */
 
 import controller.List;
-import controller.SortLists;
 import controller.updateSaveData;
 import javax.swing.JPanel;
-import model.*;
 
 
 public class FrameMain extends javax.swing.JFrame {
@@ -45,8 +43,7 @@ public class FrameMain extends javax.swing.JFrame {
         addButton = new javax.swing.JMenu();
         addAnalystButton = new javax.swing.JMenuItem();
         addProgrammerButton = new javax.swing.JMenuItem();
-        listMenuButton = new javax.swing.JMenu();
-        showList = new javax.swing.JMenuItem();
+        listButton = new javax.swing.JMenu();
         sortList = new javax.swing.JMenuItem();
         navButton = new javax.swing.JMenu();
         aboutButton = new javax.swing.JMenu();
@@ -123,30 +120,17 @@ public class FrameMain extends javax.swing.JFrame {
 
         mainMenuBar.add(addButton);
 
-        listMenuButton.setText("Listar");
-        listMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        listButton.setText("Listar");
+        listButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listMenuButtonMouseClicked(evt);
+                listButtonMouseClicked(evt);
             }
         });
 
-        showList.setText("Mostrar Listado");
-        showList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showListActionPerformed(evt);
-            }
-        });
-        listMenuButton.add(showList);
+        sortList.setText("Ordenar Lista");
+        listButton.add(sortList);
 
-        sortList.setText("Ordenar Listado");
-        sortList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortListActionPerformed(evt);
-            }
-        });
-        listMenuButton.add(sortList);
-
-        mainMenuBar.add(listMenuButton);
+        mainMenuBar.add(listButton);
 
         navButton.setText("Navegar");
         navButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,9 +165,9 @@ public class FrameMain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMenuButtonMouseClicked
-             
-    }//GEN-LAST:event_listMenuButtonMouseClicked
+    private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listButtonMouseClicked
+        changePanel(new ListPanel());        
+    }//GEN-LAST:event_listButtonMouseClicked
 
     private void addAnalystButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnalystButtonActionPerformed
         changePanel(addPanel);
@@ -212,14 +196,6 @@ public class FrameMain extends javax.swing.JFrame {
     private void saveListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveListButtonActionPerformed
         updateSaveData.saveInFile();
     }//GEN-LAST:event_saveListButtonActionPerformed
-
-    private void showListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showListActionPerformed
-        changePanel(new ListPanel());
-    }//GEN-LAST:event_showListActionPerformed
-
-    private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
-        SortLists sort = new SortLists();
-    }//GEN-LAST:event_sortListActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,20 +232,6 @@ public class FrameMain extends javax.swing.JFrame {
                 new FrameMain().setVisible(true);
             }
         });
-    
-        Analyst al1 = new Analyst("1","Paco", "1500", "2000","01/01/2020");
-        myList.addNode(al1, al1.getIdEmployee());
-        Programmer pro1 = new Programmer("5","Pepe", "1500", "2000","01/01/2020");
-        myList.addNode(pro1, pro1.getIdEmployee());
-        Analyst al2 = new Analyst("2","Maria", "1500", "2000","01/01/2020");
-        myList.addNode(al2, al2.getIdEmployee());
-        Programmer pro2 = new Programmer("4","Andrés", "1500", "2000", "01/01/2020");
-        myList.addNode(pro2, pro2.getIdEmployee());
-        Programmer pro3 = new Programmer("3","Luis","1500", "2000", "01/01/2020");
-        myList.addNode(pro3, pro3.getIdEmployee());
-        Analyst al3 = new Analyst("6","Marta","1500", "2000","01/01/2020");
-        myList.addNode(al3, al3.getIdEmployee());
-    
     }
     
     public static List getMainList(){
@@ -298,13 +260,12 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenu listMenuButton;
+    private javax.swing.JMenu listButton;
     private javax.swing.JMenuItem loadListButton;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenu menuButton;
     private javax.swing.JMenu navButton;
     private javax.swing.JMenuItem saveListButton;
-    private javax.swing.JMenuItem showList;
     private javax.swing.JMenuItem sortList;
     // End of variables declaration//GEN-END:variables
 }
