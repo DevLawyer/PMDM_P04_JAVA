@@ -14,9 +14,27 @@ package model;
  *      -Salaries.
  */
 
+import model.*;
+
 public class MyExceptions extends Exception{
     
-    public MyExceptions() {}
+    public MyExceptions(int errorCode) {
+        /**
+         * Shows on console which error ocurred
+         */
+        switch(errorCode) {
+            case 1 -> {
+                invalidDateMessage();
+            }
+            case 2 -> {
+                invalidSalaryMessage();
+            }
+            case 3 -> {
+                invalidIDMessage();
+            }
+            
+        }
+    }
     
     public MyExceptions(String message){super (message);}
 
@@ -26,6 +44,8 @@ public class MyExceptions extends Exception{
          * DateParser.parseDate(string).
          * The correct format is: "DD/MM/YYYY"
          */
+        if( !(date.matches("\\d{2}/\\d{2}/\\d{4}")) )
+            throw new MyExceptions(1);
     }
 
     public static void checkSalary(float salary) throws MyExceptions {
@@ -33,6 +53,8 @@ public class MyExceptions extends Exception{
          * Checks if the given float is a valid salary in the Employee class context.
          * A valid salary is a float that is above 0f and below the maxSalary variable.
          */
+        if (salary > Employee.maxSalary)
+            throw new MyExceptions(2);
     }
 
     public static void checkID(int id) throws MyExceptions {

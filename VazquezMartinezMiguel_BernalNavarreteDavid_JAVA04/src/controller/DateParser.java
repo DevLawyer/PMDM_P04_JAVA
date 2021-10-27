@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
+ * 
+ * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
  * This class is used to turn String objects to GregorianCalendar objects and vice versa.
  * It also has the tools required to check if a certain amount of time has passed
  * between two dates.
@@ -18,6 +22,7 @@ public class DateParser {
      */
     static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
+    /*------------------------------------------------------------------------*/
     // Converts from a String to a GregorianCalendar.
     public static GregorianCalendar parseDate(String date) {
         /** Strig parameter must have the following format: DD/MM/YYYY
@@ -46,7 +51,7 @@ public class DateParser {
 
         return cal;
     }
-
+    /*------------------------------------------------------------------------*/
     // Converts from GregorianCalendar to String.
     public static String parseDate(GregorianCalendar cal) {
         /**
@@ -69,7 +74,7 @@ public class DateParser {
             return null;
         }
     }
-
+    /*------------------------------------------------------------------------*/
     public static boolean passedMonth(GregorianCalendar entryDate) {
         /**
          * Checks whether or not a month has passed between the given date
@@ -88,6 +93,7 @@ public class DateParser {
                 (actualDay >= entryDay));
     }
 
+    /*------------------------------------------------------------------------*/
     public static boolean passedQuarter(GregorianCalendar entryDate) {
         /**
          * Checks whether or not 4 months have passed between the given date
@@ -105,7 +111,8 @@ public class DateParser {
         return (((actualMonth + (11 * (actualYear - entryYear))) - entryMonth) % 4 == 0 &&
                 (actualDay >= entryDay));
     }
-
+    
+    /*------------------------------------------------------------------------*/
     public static boolean passedYear(GregorianCalendar entryDate) {
         /**
          * Checks whether or not a year has passed between the given date
