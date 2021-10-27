@@ -3,6 +3,7 @@ package controller;
 import model.MyExceptions;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -69,27 +70,58 @@ public class DateParser {
         }
     }
 
-    public static boolean passedMonth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static boolean passedQuarter() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static boolean passedYear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public static boolean passedMonth(GregorianCalendar entryDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /**
+         * Checks whether or not a month has passed between the given date
+         * and the current date.
+         */
+        GregorianCalendar now = new GregorianCalendar();
+        
+        int actualYear = now.get(Calendar.YEAR),
+                entryYear = now.get(Calendar.YEAR);
+        int actualMonth = now.get(Calendar.MONTH), 
+                entryMonth = entryDate.get(Calendar.MONTH);
+        int actualDay = now.get(Calendar.DAY_OF_MONTH), 
+                entryDay = entryDate.get(Calendar.DAY_OF_MONTH);
+        
+        return (((actualMonth + (11 * (actualYear - entryYear))) - entryMonth) >= 1 && 
+                (actualDay >= entryDay));
     }
 
     public static boolean passedQuarter(GregorianCalendar entryDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /**
+         * Checks whether or not 4 months have passed between the given date
+         * and the current date.
+         */
+        GregorianCalendar now = new GregorianCalendar();
+        
+        int actualYear = now.get(Calendar.YEAR),
+                entryYear = now.get(Calendar.YEAR);
+        int actualMonth = now.get(Calendar.MONTH), 
+                entryMonth = entryDate.get(Calendar.MONTH);
+        int actualDay = now.get(Calendar.DAY_OF_MONTH), 
+                entryDay = entryDate.get(Calendar.DAY_OF_MONTH);
+        
+        return (((actualMonth + (11 * (actualYear - entryYear))) - entryMonth) % 4 == 0 &&
+                (actualDay >= entryDay));
     }
 
     public static boolean passedYear(GregorianCalendar entryDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /**
+         * Checks whether or not a year has passed between the given date
+         * and the current date.
+         */
+        GregorianCalendar now = new GregorianCalendar();
+        
+        int actualYear = now.get(Calendar.YEAR),
+                entryYear = now.get(Calendar.YEAR);
+        int actualMonth = now.get(Calendar.MONTH), 
+                entryMonth = entryDate.get(Calendar.MONTH);
+        int actualDay = now.get(Calendar.DAY_OF_MONTH), 
+                entryDay = entryDate.get(Calendar.DAY_OF_MONTH);
+        
+        return ((actualYear > entryYear) &&
+                ((actualMonth + (11 * (actualYear - entryYear))) >= entryMonth) &&
+                (actualDay >= entryDay));
     }
 }

@@ -104,18 +104,19 @@ public abstract class Employee implements Serializable {
         return DateParser.parseDate(entryDate).substring(6);
     }
     
-    public static void parseEmployee(String s) {
+    public static Employee parseEmployee(String s) {
         String[] data = s.split(";");
+        Employee res;
         
-        if (data[0].equals("Analyst")) {
-            new Analyst(data[1], data[2], data[3], data[4], data[5],
-            data[6], data[7]);
-        } else if (data[0].equals("Programmer")) {
-            new Programmer(data[1], data[2], data[3], data[4], data[5],
-            data[6], data[7]);
-        } else {
-            // Throw not supported type.
+        switch (data[0]) {
+            case "Analyst" -> res = new Analyst(data[1], data[2], data[3], data[4], data[5],
+                        data[6], data[7]);
+            case "Programmer" -> res = new Programmer(data[1], data[2], data[3], data[4], data[5],
+                        data[6], data[7]);
+            default -> { res = null;
+            }
         }
+        return res;
     }
     
     // Abstract methods
