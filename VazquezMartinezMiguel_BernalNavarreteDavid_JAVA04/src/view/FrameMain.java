@@ -218,7 +218,9 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_showListActionPerformed
 
     private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
+        sortDialog = new sortJDialog(this, true);
         SortLists sort = new SortLists();
+        sortDialog.setVisible(true);
     }//GEN-LAST:event_sortListActionPerformed
 
     /**
@@ -286,6 +288,7 @@ public class FrameMain extends javax.swing.JFrame {
     private static List myList = new List();
     private AddPanel addPanel = new AddPanel();
     private AboutPanel aboutPanel = new AboutPanel();
+    public static sortJDialog sortDialog;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutButton;
