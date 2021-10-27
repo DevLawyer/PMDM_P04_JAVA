@@ -6,6 +6,7 @@ import java.util.*;
  *
  * @author Miguel Maria Vazquez Martinez
  */
+
 interface DateInterface {
 
     public final static int DIA_DEL_MES = Calendar.DAY_OF_MONTH;
