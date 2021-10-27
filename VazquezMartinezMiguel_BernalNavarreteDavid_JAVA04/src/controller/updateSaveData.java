@@ -25,9 +25,9 @@ public class updateSaveData {
 
             while(auxO != null){
                 if(auxO instanceof Analyst auxA){
-                    myList.addNode(auxA);
+                    myList.addNode(auxA, auxA.getIdEmployee());
                 } else if(auxO instanceof Programmer auxP){
-                    myList.addNode(auxP);
+                    myList.addNode(auxP, auxP.getIdEmployee());
                 }
                 
                 auxO = ois.readObject();

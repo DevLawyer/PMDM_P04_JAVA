@@ -12,6 +12,7 @@ public class List<T> {
         endList = null;
         current = null;
     }
+<<<<<<< Updated upstream
 
     public void addNode(T item) {
         //This method adds a new node in the list and links both ends.
@@ -19,6 +20,15 @@ public class List<T> {
         Node nd = new Node(item);
 
         if (headList == null) {
+=======
+    
+    public void addNode(T item, int index){
+        //This method add a new node in the list and link both ends.
+        
+        Node nd = new Node(item, index);
+        
+        if(headList == null){
+>>>>>>> Stashed changes
             headList = nd;
             endList = nd;
             current = nd;
