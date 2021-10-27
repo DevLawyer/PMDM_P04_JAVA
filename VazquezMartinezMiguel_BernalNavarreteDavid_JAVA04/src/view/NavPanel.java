@@ -1,12 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
 import controller.List;
 import model.*;
 
 /**
- * This panel contains the design of the navigation screen to show the list
- * information.
- *
+ * This panel contains the design of navigation screen to show the list information.
+ * 
  */
 public class NavPanel extends javax.swing.JPanel {
 
@@ -15,8 +19,8 @@ public class NavPanel extends javax.swing.JPanel {
      */
     public NavPanel() {
         initComponents();
-
-        if (myList.isEmpty()) {
+        
+        if(myList.getHeadList() == null){
             forwardButton.setEnabled(false);
             goBackButton.setEnabled(false);
             updateSalaryButton.setEnabled(false);
@@ -131,9 +135,19 @@ public class NavPanel extends javax.swing.JPanel {
 
         salaryFieldShow.setEditable(false);
         salaryFieldShow.setBackground(new java.awt.Color(204, 204, 204));
+        salaryFieldShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryFieldShowActionPerformed(evt);
+            }
+        });
 
         nameFieldShow.setEditable(false);
         nameFieldShow.setBackground(new java.awt.Color(204, 204, 204));
+        nameFieldShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldShowActionPerformed(evt);
+            }
+        });
 
         updateSalaryButton.setBackground(new java.awt.Color(204, 204, 204));
         updateSalaryButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -260,7 +274,7 @@ public class NavPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
-        //Action of the back button press.
+        //Definition of the back button pulsation perform.
 
         myList.goBack();
         showEmployee(myList.getCurrent().getData());
@@ -269,50 +283,59 @@ public class NavPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_goBackButtonActionPerformed
 
     private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
-        //Action of the forward button press.
-
+        //Definition of the forward button pulsation perform.
+        
         myList.moveForward();
         showEmployee(myList.getCurrent().getData());
         enableUpdateSalaryButton(myList.getCurrent().getData());
 
     }//GEN-LAST:event_forwardButtonActionPerformed
+    
+    private void salaryFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldShowActionPerformed
+        //UNUSED ELEMENT
+    }//GEN-LAST:event_salaryFieldShowActionPerformed
 
-    private void enableUpdateSalaryButton(Object obj) {
+    private void nameFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldShowActionPerformed
+        //UNUSED ELEMENT
+    }//GEN-LAST:event_nameFieldShowActionPerformed
+
+    private void enableUpdateSalaryButton(Object obj){
         boolean enable = false; // Default value to enable update salary button.
-
-        Employee emp = (Employee) obj;
-
-        if (emp instanceof Analyst auxA) {
+        
+        Employee emp = (Employee)obj;
+        
+        if(emp instanceof Analyst auxA){
             /**
-             * Firstly, if the input object was an analyst and one year has
-             * passed since the entry date, enable will switch true.
+             * Firstly, if the input object was an analyst
+             * and one year has passed since the entry date,
+             * enable will switch true.
              */
             enable = auxA.passedOneYear();
-
-        } else if (emp instanceof Programmer auxP) {
+            
+        } else if(emp instanceof Programmer auxP){
             /**
-             * Secondly, if the input object was a programmer and one month has
-             * passed since the entry date, enable will switch true.
+             * Secondly, if the input object was a programmer
+             * and one month has passed since the entry date,
+             * enable will switch true.
              */
             enable = auxP.passedOneMonth();
-
+            
         }
-
+        
         updateSalaryButton.setEnabled(enable);
     }
-
+    
     private void updateSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSalaryButtonActionPerformed
         /**
-         * When the update salary button is enable, according to the instance of
-         * currect object of the list, the corresponding method of analyst or
-         * programmer class, is called to update the salary.
+         * When the update salary button is enable, according to the instance of currect object of the list,
+         * the corresponding method of analyst or programmer class, is called to update the salary.
          */
-
+        
         Employee emp = (Employee) myList.getCurrent().getData();
-
-        if (emp instanceof Analyst auxA) {
+        
+        if(emp instanceof Analyst auxA){
             auxA.updateSalary();
-        } else if (emp instanceof Programmer auxP) {
+        }else if (emp instanceof Programmer auxP){
             auxP.updateSalary();
         }
     }//GEN-LAST:event_updateSalaryButtonActionPerformed
@@ -328,35 +351,35 @@ public class NavPanel extends javax.swing.JPanel {
     private void projectExtraHFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectExtraHFieldShowActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_projectExtraHFieldShowActionPerformed
-
-    private void showEmployee(Object obj) {
+    
+    private void showEmployee(Object obj){
         Employee emp = (Employee) obj;
-
-        if (emp instanceof Analyst auxA) {
+        
+        if(emp instanceof Analyst auxA) {
             empTypeLabelShow.setText("Analista");
-            plusExtraFieldShow.setText(String.valueOf(Analyst.getAnnualPlus()));
+            plusExtraFieldShow.setText(String.valueOf(Analyst.getAnnualPlus()));  
             projectExtraHLabelShow.setText("Proyecto:");
             projectExtraHFieldShow.setText(auxA.getProjectName());
-
-        } else if (emp instanceof Programmer auxP) {
+            
+        }else if(emp instanceof Programmer auxP){
             empTypeLabelShow.setText("Programador");
-            plusExtraFieldShow.setText(String.valueOf(auxP.getMonthlyPlus()));
+            plusExtraFieldShow.setText(String.valueOf(auxP.getMonthlyPlus())); 
             projectExtraHLabelShow.setText("Horas extra:");
             projectExtraHFieldShow.setText(String.valueOf(auxP.getExtraHours()));
 
         }
-
+        
         showCommonAtributes(emp);
     }
-
-    private void showCommonAtributes(Employee emp) {
+    
+    private void showCommonAtributes(Employee emp){
         numberFieldShow.setText(String.valueOf(emp.getIdEmployee()));
         nameFieldShow.setText(emp.getName());
         salaryFieldShow.setText(String.valueOf(emp.getSalary()));
         maxSalaryFieldShow.setText(String.valueOf(emp.getMaxSalary()));
         entryDateFieldShow.setText(emp.getEntryDate());
     }
-
+    
     // Attributes //////////////////////////////////////////////////////////////
     private List myList = FrameMain.getMainList(); // Main list get from FramenMain class. 
 
