@@ -57,7 +57,7 @@ public class updateSaveData {
                 FileOutputStream fos = new FileOutputStream("data.dat");
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 
-                myList.resetCurrent();
+                myList.currentToHead();
                 
                 do{
                     oos.writeObject(myList.getCurrent().getData());

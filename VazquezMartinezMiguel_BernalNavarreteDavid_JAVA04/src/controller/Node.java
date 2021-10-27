@@ -15,6 +15,10 @@ public class Node<T> {
     }
     
     //SETTER METHODS ///////////////////////////////////////////////////////////
+    public void setData(T data){
+        this.data = data;
+    }
+    
     public void setNextNode(Node nextNode){
         this.nextNode = nextNode;
     }

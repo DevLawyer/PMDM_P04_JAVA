@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import model.*;
 import view.FrameMain;
 
@@ -13,8 +14,11 @@ import view.FrameMain;
 public class SortLists {
     
     public SortLists(){
-        insertInsaneNumberOfRecords();
-        copyToCollection();
+        //insertInsaneNumberOfRecords();
+        //copyToCollection();
+        sortOwnList();
+        //sortCollection();
+        JOptionPane.showMessageDialog(auxFrame, "Se ha ordenado el listado.");
     }
     
     private void insertInsaneNumberOfRecords(){
@@ -36,38 +40,69 @@ public class SortLists {
     }
     
     private void copyToCollection(){
-        myList.resetCurrent();
-        cpyList.add(myList.getCurrent());
+        myList.currentToHead();
+        cpyList.add(myList.getCurrent().getData());
 
         do{
             myList.moveForward();
-            cpyList.add(myList.getCurrent());
+            cpyList.add(myList.getCurrent().getClass());
         }while(myList.getCurrent() != myList.getEndList());
     }
     
     private void sortOwnList(){
+   
+        Employee auxObj = null;
+        Node auxNode = null;
+        myList.currentToHead();
         
+        ownListTime = System.currentTimeMillis();
+        while(myList.getCurrent() != myList.getEndList()){
+            
+            auxNode = myList.getCurrent().getNextNode();
+            
+            while(auxNode != null){
+                
+                if(myList.getCurrent().getIndex() > auxNode.getIndex()){
+                    
+                    auxObj = (Employee)myList.getCurrent().getData();
+                    myList.getCurrent().setData(auxNode.getData());
+                    myList.getCurrent().setIndex(auxNode.getIndex());
+                    auxNode.setData(auxObj);
+                    auxNode.setIndex(auxObj.getIdEmployee());
+                    
+                }
+                
+                auxNode = auxNode.getNextNode();
+            }
+
+            myList.moveForward();
+        }
+        ownListTime = System.currentTimeMillis() - ownListTime;
     }
     
     private void sortCollection(){
+        collectionTime = System.currentTimeMillis();
+        
         cpyList.sort(new Comparator<Employee>() {
-
             @Override
             public int compare(Employee p1, Employee p2) {
-               return p1.getIdEmployee().compareTo(p2.getIdEmployee());
+               return p1.getIdEmployee() - (p2.getIdEmployee());
             }});
+        
+        collectionTime = System.currentTimeMillis() - collectionTime;
     }
     
-    public static int getOwnListTime(){
+    public static long getOwnListTime(){
         return ownListTime;
     }
     
-    public static int getCollectionTime(){
+    public static long getCollectionTime(){
         return collectionTime;
     }
     
-    private static int ownListTime;
-    private static int collectionTime;
+    private static long ownListTime;
+    private static long collectionTime;
     private List myList = FrameMain.getMainList();
     private ArrayList cpyList = new ArrayList();
+    private static FrameMain auxFrame;
 }
