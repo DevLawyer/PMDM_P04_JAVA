@@ -6,7 +6,6 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import model.*;
 import view.FrameMain;
-import view.sortJDialog;
 
 /**
  *
@@ -19,8 +18,7 @@ public class SortLists {
         //copyToCollection();
         sortOwnList();
         //sortCollection();
-
-        
+        JOptionPane.showMessageDialog(auxFrame, "Se ha ordenado el listado.");
     }
     
     private void insertInsaneNumberOfRecords(){
@@ -48,7 +46,7 @@ public class SortLists {
         do{
             myList.moveForward();
             cpyList.add(myList.getCurrent().getClass());
-        }while(myList.getCurrent() != myList.getEndList());
+        }while(myList.getCurrent().hasNext());
     }
     
     private void sortOwnList(){
@@ -94,6 +92,13 @@ public class SortLists {
         collectionTime = System.currentTimeMillis() - collectionTime;
     }
 
+    public static long getOwnListTime(){
+        return ownListTime;
+    }
+    
+    public static long getCollectionTime(){
+        return collectionTime;
+    }
     
     private static long ownListTime;
     private static long collectionTime;

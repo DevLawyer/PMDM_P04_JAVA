@@ -31,7 +31,7 @@ public class ListPanel extends javax.swing.JPanel {
             model.addElement("No hay elementos");
         }else{
             model.removeAllElements();
-            myList.resetCurrent();
+            myList.currentToHead();
             
             do{
                 Employee emp = (Employee) myList.getCurrent().getData();

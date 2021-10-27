@@ -45,8 +45,7 @@ public class FrameMain extends javax.swing.JFrame {
         addButton = new javax.swing.JMenu();
         addAnalystButton = new javax.swing.JMenuItem();
         addProgrammerButton = new javax.swing.JMenuItem();
-        listMenuButton = new javax.swing.JMenu();
-        showList = new javax.swing.JMenuItem();
+        listButton = new javax.swing.JMenu();
         sortList = new javax.swing.JMenuItem();
         navButton = new javax.swing.JMenu();
         aboutButton = new javax.swing.JMenu();
@@ -123,30 +122,17 @@ public class FrameMain extends javax.swing.JFrame {
 
         mainMenuBar.add(addButton);
 
-        listMenuButton.setText("Listar");
-        listMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        listButton.setText("Listar");
+        listButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listMenuButtonMouseClicked(evt);
+                listButtonMouseClicked(evt);
             }
         });
 
-        showList.setText("Mostrar Listado");
-        showList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showListActionPerformed(evt);
-            }
-        });
-        listMenuButton.add(showList);
+        sortList.setText("Ordenar Lista");
+        listButton.add(sortList);
 
-        sortList.setText("Ordenar Listado");
-        sortList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortListActionPerformed(evt);
-            }
-        });
-        listMenuButton.add(sortList);
-
-        mainMenuBar.add(listMenuButton);
+        mainMenuBar.add(listButton);
 
         navButton.setText("Navegar");
         navButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,6 +208,10 @@ public class FrameMain extends javax.swing.JFrame {
         SortLists sort = new SortLists();
         sortDialog.setVisible(true);
     }//GEN-LAST:event_sortListActionPerformed
+
+    private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -301,13 +291,12 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenu listMenuButton;
+    private javax.swing.JMenu listButton;
     private javax.swing.JMenuItem loadListButton;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenu menuButton;
     private javax.swing.JMenu navButton;
     private javax.swing.JMenuItem saveListButton;
-    private javax.swing.JMenuItem showList;
     private javax.swing.JMenuItem sortList;
     // End of variables declaration//GEN-END:variables
 }

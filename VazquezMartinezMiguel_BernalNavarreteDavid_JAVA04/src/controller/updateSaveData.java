@@ -1,9 +1,6 @@
 package controller;
 
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.*;
 import model.*;
 import view.FrameMain;
@@ -37,11 +34,7 @@ public class updateSaveData {
             
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(auxFrame, "ERROR fichero no encontrado.");
-        } catch (ClassNotFoundException ex){
-            JOptionPane.showMessageDialog(auxFrame, "ERROR clase no encontrada.");
-        } catch (EOFException ex){
-            
-        } catch (IOException ex){
+        } catch (ClassNotFoundException | IOException ex){
             JOptionPane.showMessageDialog(auxFrame, "ERROR clase no encontrada.");
         }
         
@@ -57,14 +50,15 @@ public class updateSaveData {
                 FileOutputStream fos = new FileOutputStream("data.dat");
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 
-                myList.resetCurrent();
+                myList.currentToHead();
                 
                 do{
                     oos.writeObject(myList.getCurrent().getData());
                     myList.moveForward();
-                }while(myList.getCurrent() != myList.getEndList());
+                }while(myList.getCurrent().hasNext());
 
                 oos.close();
+                fos.close();
                 
                 JOptionPane.showMessageDialog(auxFrame, "Información guardada.");
             } catch (IOException ex){
