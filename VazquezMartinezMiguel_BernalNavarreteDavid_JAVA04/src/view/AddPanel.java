@@ -45,7 +45,7 @@ public class AddPanel extends javax.swing.JPanel {
                     plusExtraFieldAdd.getText(), 
                     projectExtraHFieldAdd.getText());
             
-            myList.addNode(pgm);
+            myList.addNode(pgm, pgm.getIdEmployee());
             
         }else{
             //Analyst option.
@@ -59,7 +59,7 @@ public class AddPanel extends javax.swing.JPanel {
                     plusExtraFieldAdd.getText(), 
                     projectExtraHFieldAdd.getText());
             
-            myList.addNode(alt);
+            myList.addNode(alt, alt.getIdEmployee());
         }
         
         cleanFields();
