@@ -57,37 +57,6 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="listPanelJList">
           <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="27">
-                <StringItem index="0" value="Item 1 | Item1.1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-                <StringItem index="4" value="Item 5"/>
-                <StringItem index="5" value="Item 6"/>
-                <StringItem index="6" value="Item 7"/>
-                <StringItem index="7" value="Item "/>
-                <StringItem index="8" value="Item "/>
-                <StringItem index="9" value="Item "/>
-                <StringItem index="10" value="Item "/>
-                <StringItem index="11" value="Item "/>
-                <StringItem index="12" value="Item "/>
-                <StringItem index="13" value="Item "/>
-                <StringItem index="14" value="Item "/>
-                <StringItem index="15" value="Item "/>
-                <StringItem index="16" value="Item "/>
-                <StringItem index="17" value="Item "/>
-                <StringItem index="18" value="Item "/>
-                <StringItem index="19" value="Item "/>
-                <StringItem index="20" value="Item "/>
-                <StringItem index="21" value="Item "/>
-                <StringItem index="22" value="Item "/>
-                <StringItem index="23" value="Item "/>
-                <StringItem index="24" value="Item "/>
-                <StringItem index="25" value="Item "/>
-                <StringItem index="26" value="Item "/>
-              </StringArray>
-            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[400, 200]"/>
             </Property>

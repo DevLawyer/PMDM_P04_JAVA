@@ -20,29 +20,35 @@ public class ListPanel extends javax.swing.JPanel {
      */
     public ListPanel() {
         initComponents();
+        listPanelJList.setModel(modelList());
     }
     
-    private DefaultListModel modeloLista()
+    private DefaultListModel modelList()
     {
+        DefaultListModel<String> model = new DefaultListModel<>();
         
-        DefaultListModel<String> modelo = new DefaultListModel<>();
-        myList.resetCurrent();
-        
-        do{
-            Employee emp = (Employee) myList.getCurrent().getData();
-            if (emp instanceof Analyst adv){
-                String infoObjeto = "A " + adv.toString();
-                modelo.addElement(infoObjeto);  
+        if(myList.getHeadList() == null){
+            model.addElement("No hay elementos");
+        }else{
+            model.removeAllElements();
+            myList.resetCurrent();
+            
+            do{
+                Employee emp = (Employee) myList.getCurrent().getData();
 
-            }else if (emp instanceof Programmer adv){
-                String infoObjeto = "T " + adv.toString();
-                modelo.addElement(infoObjeto);             
-            }else{
-                modelo.addElement("No hay elementos");
-            }
-            myList.moveForward();
-        }while(myList.getCurrent() != myList.getEndList());
-        return modelo;
+                if (emp instanceof Analyst adv){
+                    model.addElement(adv.toString());  
+
+                }else if (emp instanceof Programmer pgm){
+                    model.addElement(pgm.toString());             
+                }else{
+
+                }
+                myList.moveForward();
+            }while(myList.getCurrent() != myList.getEndList());            
+        }
+        
+        return model;
     }       
 
     /**
@@ -63,11 +69,6 @@ public class ListPanel extends javax.swing.JPanel {
 
         listPanelScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        listPanelJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1 | Item1.1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item ", "Item " };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listPanelJList.setMaximumSize(new java.awt.Dimension(400, 200));
         listPanelJList.setMinimumSize(new java.awt.Dimension(400, 200));
         listPanelJList.setPreferredSize(new java.awt.Dimension(400, 300));

@@ -7,6 +7,8 @@ package view;
 
 import controller.List;
 import controller.updateSaveData;
+import javax.swing.JPanel;
+
 
 public class FrameMain extends javax.swing.JFrame {
 
@@ -15,6 +17,8 @@ public class FrameMain extends javax.swing.JFrame {
      */
     public FrameMain() {
         initComponents();
+        changePanel(aboutPanel);
+        pack();
     }
 
     /**
@@ -36,10 +40,11 @@ public class FrameMain extends javax.swing.JFrame {
         menuButton = new javax.swing.JMenu();
         loadListButton = new javax.swing.JMenuItem();
         saveListButton = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        addButton = new javax.swing.JMenu();
         addAnalystButton = new javax.swing.JMenuItem();
         addProgrammerButton = new javax.swing.JMenuItem();
         listButton = new javax.swing.JMenu();
+        sortList = new javax.swing.JMenuItem();
         navButton = new javax.swing.JMenu();
         aboutButton = new javax.swing.JMenu();
 
@@ -60,7 +65,6 @@ public class FrameMain extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(700, 500));
         setMinimumSize(new java.awt.Dimension(700, 500));
         setName("JFrameMain"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(700, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(700, 500));
 
@@ -83,11 +87,16 @@ public class FrameMain extends javax.swing.JFrame {
         saveListButton.setBackground(new java.awt.Color(204, 204, 204));
         saveListButton.setForeground(new java.awt.Color(0, 0, 0));
         saveListButton.setText("Guardar Lista");
+        saveListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveListButtonActionPerformed(evt);
+            }
+        });
         menuButton.add(saveListButton);
 
         mainMenuBar.add(menuButton);
 
-        jMenu1.setText("Añadir");
+        addButton.setText("Añadir");
 
         addAnalystButton.setBackground(new java.awt.Color(204, 204, 204));
         addAnalystButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -97,7 +106,7 @@ public class FrameMain extends javax.swing.JFrame {
                 addAnalystButtonActionPerformed(evt);
             }
         });
-        jMenu1.add(addAnalystButton);
+        addButton.add(addAnalystButton);
 
         addProgrammerButton.setBackground(new java.awt.Color(204, 204, 204));
         addProgrammerButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,9 +116,9 @@ public class FrameMain extends javax.swing.JFrame {
                 addProgrammerButtonActionPerformed(evt);
             }
         });
-        jMenu1.add(addProgrammerButton);
+        addButton.add(addProgrammerButton);
 
-        mainMenuBar.add(jMenu1);
+        mainMenuBar.add(addButton);
 
         listButton.setText("Listar");
         listButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,6 +126,10 @@ public class FrameMain extends javax.swing.JFrame {
                 listButtonMouseClicked(evt);
             }
         });
+
+        sortList.setText("Ordenar Lista");
+        listButton.add(sortList);
+
         mainMenuBar.add(listButton);
 
         navButton.setText("Navegar");
@@ -153,14 +166,11 @@ public class FrameMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listButtonMouseClicked
-        this.setContentPane(listPanel);
-        this.pack();
-        
+        changePanel(new ListPanel());        
     }//GEN-LAST:event_listButtonMouseClicked
 
     private void addAnalystButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnalystButtonActionPerformed
-        this.setContentPane(addPanel);
-        this.pack();
+        changePanel(addPanel);
         addPanel.optionSelectedAnalyst();
     }//GEN-LAST:event_addAnalystButtonActionPerformed
 
@@ -171,18 +181,21 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_addProgrammerButtonActionPerformed
 
     private void aboutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutButtonMouseClicked
-        this.setContentPane(aboutPanel);
-        this.pack();
+        changePanel(aboutPanel);
     }//GEN-LAST:event_aboutButtonMouseClicked
 
     private void loadListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadListButtonActionPerformed
-        myList = updateSaveData.updateFromFile();
+        updateSaveData.updateFromFile();
     }//GEN-LAST:event_loadListButtonActionPerformed
 
     private void navButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navButtonMouseClicked
-        this.setContentPane(navPanel);
-        this.pack();
+        changePanel(new NavPanel());
+
     }//GEN-LAST:event_navButtonMouseClicked
+
+    private void saveListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveListButtonActionPerformed
+        updateSaveData.saveInFile();
+    }//GEN-LAST:event_saveListButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,21 +234,26 @@ public class FrameMain extends javax.swing.JFrame {
         });
     }
     
-    public static List getMainList(){return myList;}
+    public static List getMainList(){
+        return myList;
+    }
+    
+    public void changePanel(JPanel showPanel){
+        setContentPane(showPanel);
+        pack();        
+    }
     
     
     // Attributes //////////////////////////////////////////////////////////////
-    private static List myList;
-    private ListPanel listPanel = new ListPanel();
+    private static List myList = new List();
     private AddPanel addPanel = new AddPanel();
     private AboutPanel aboutPanel = new AboutPanel();
-    private NavPanel navPanel = new NavPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutButton;
     private javax.swing.JMenuItem addAnalystButton;
+    private javax.swing.JMenu addButton;
     private javax.swing.JMenuItem addProgrammerButton;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -248,5 +266,6 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JMenu menuButton;
     private javax.swing.JMenu navButton;
     private javax.swing.JMenuItem saveListButton;
+    private javax.swing.JMenuItem sortList;
     // End of variables declaration//GEN-END:variables
 }

@@ -57,11 +57,11 @@
                                   <Component id="salaryLabelShow" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Component id="entryDateLabelShow" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Component id="plusExtraLabelShow" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="otherLabelShow" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="projectExtraHLabelShow" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="otherFieldShow" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="projectExtraHFieldShow" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Component id="plusExtraFieldShow" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Component id="entryDateFieldShow" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                   <Component id="salaryFieldShow" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
@@ -117,8 +117,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="otherLabelShow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="otherFieldShow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="projectExtraHLabelShow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="projectExtraHFieldShow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="29" max="32767" attributes="0"/>
               <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
@@ -196,7 +196,7 @@
         <Property name="text" type="java.lang.String" value="Plus/Extra:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="otherLabelShow">
+    <Component class="javax.swing.JLabel" name="projectExtraHLabelShow">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="12" style="1"/>
@@ -264,13 +264,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="forwardButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="otherFieldShow">
+    <Component class="javax.swing.JTextField" name="projectExtraHFieldShow">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="projectExtraHFieldShowActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="plusExtraFieldShow">
       <Properties>

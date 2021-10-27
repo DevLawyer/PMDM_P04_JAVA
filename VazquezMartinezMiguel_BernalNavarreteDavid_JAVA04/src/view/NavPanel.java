@@ -19,6 +19,12 @@ public class NavPanel extends javax.swing.JPanel {
      */
     public NavPanel() {
         initComponents();
+        
+        if(myList.getHeadList() == null){
+            forwardButton.setEnabled(false);
+            goBackButton.setEnabled(false);
+            updateSalaryButton.setEnabled(false);
+        }
     }
 
     /**
@@ -36,11 +42,11 @@ public class NavPanel extends javax.swing.JPanel {
         salaryLabelShow = new javax.swing.JLabel();
         entryDateLabelShow = new javax.swing.JLabel();
         plusExtraLabelShow = new javax.swing.JLabel();
-        otherLabelShow = new javax.swing.JLabel();
+        projectExtraHLabelShow = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         goBackButton = new javax.swing.JButton();
         forwardButton = new javax.swing.JButton();
-        otherFieldShow = new javax.swing.JTextField();
+        projectExtraHFieldShow = new javax.swing.JTextField();
         plusExtraFieldShow = new javax.swing.JTextField();
         entryDateFieldShow = new javax.swing.JTextField();
         salaryFieldShow = new javax.swing.JTextField();
@@ -79,9 +85,9 @@ public class NavPanel extends javax.swing.JPanel {
         plusExtraLabelShow.setForeground(new java.awt.Color(0, 0, 0));
         plusExtraLabelShow.setText("Plus/Extra:");
 
-        otherLabelShow.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        otherLabelShow.setForeground(new java.awt.Color(0, 0, 0));
-        otherLabelShow.setText("Other:");
+        projectExtraHLabelShow.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        projectExtraHLabelShow.setForeground(new java.awt.Color(0, 0, 0));
+        projectExtraHLabelShow.setText("Other:");
 
         jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
 
@@ -113,8 +119,13 @@ public class NavPanel extends javax.swing.JPanel {
             }
         });
 
-        otherFieldShow.setEditable(false);
-        otherFieldShow.setBackground(new java.awt.Color(204, 204, 204));
+        projectExtraHFieldShow.setEditable(false);
+        projectExtraHFieldShow.setBackground(new java.awt.Color(204, 204, 204));
+        projectExtraHFieldShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projectExtraHFieldShowActionPerformed(evt);
+            }
+        });
 
         plusExtraFieldShow.setEditable(false);
         plusExtraFieldShow.setBackground(new java.awt.Color(204, 204, 204));
@@ -203,10 +214,10 @@ public class NavPanel extends javax.swing.JPanel {
                                     .addComponent(salaryLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(entryDateLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(plusExtraLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(otherLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(projectExtraHLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(otherFieldShow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(projectExtraHFieldShow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(plusExtraFieldShow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(entryDateFieldShow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(salaryFieldShow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,8 +260,8 @@ public class NavPanel extends javax.swing.JPanel {
                     .addComponent(plusExtraFieldShow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(otherLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(otherFieldShow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(projectExtraHLabelShow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projectExtraHFieldShow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -264,21 +275,19 @@ public class NavPanel extends javax.swing.JPanel {
 
     private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
         //Definition of the back button pulsation perform.
-        Object obj = myList.getCurrent().getData();
-        
+
         myList.goBack();
-        showEmployee(obj);
-        enableUpdateSalaryButton(obj);
+        showEmployee(myList.getCurrent().getData());
+        enableUpdateSalaryButton(myList.getCurrent().getData());
 
     }//GEN-LAST:event_goBackButtonActionPerformed
 
     private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
         //Definition of the forward button pulsation perform.
-        Object obj = myList.getCurrent().getData();
         
         myList.moveForward();
         showEmployee(myList.getCurrent().getData());
-        enableUpdateSalaryButton(obj);
+        enableUpdateSalaryButton(myList.getCurrent().getData());
 
     }//GEN-LAST:event_forwardButtonActionPerformed
     
@@ -301,7 +310,7 @@ public class NavPanel extends javax.swing.JPanel {
              * and one year has passed since the entry date,
              * enable will switch true.
              */
-                        enable = auxA.passedOneYear();
+            enable = auxA.passedOneYear();
             
         } else if(emp instanceof Programmer auxP){
             /**
@@ -309,7 +318,7 @@ public class NavPanel extends javax.swing.JPanel {
              * and one month has passed since the entry date,
              * enable will switch true.
              */
-                        enable = auxP.passedOneMonth();
+            enable = auxP.passedOneMonth();
             
         }
         
@@ -324,10 +333,11 @@ public class NavPanel extends javax.swing.JPanel {
         
         Employee emp = (Employee) myList.getCurrent().getData();
         
-        if(emp instanceof Analyst auxA)
+        if(emp instanceof Analyst auxA){
             auxA.updateSalary();
-        else if (emp instanceof Programmer auxP)
+        }else if (emp instanceof Programmer auxP){
             auxP.updateSalary();
+        }
     }//GEN-LAST:event_updateSalaryButtonActionPerformed
 
     private void numberFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldShowActionPerformed
@@ -337,22 +347,26 @@ public class NavPanel extends javax.swing.JPanel {
     private void maxSalaryFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxSalaryFieldShowActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_maxSalaryFieldShowActionPerformed
+
+    private void projectExtraHFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectExtraHFieldShowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_projectExtraHFieldShowActionPerformed
     
     private void showEmployee(Object obj){
         Employee emp = (Employee) obj;
         
-        if(emp instanceof Analyst) {
-            Analyst auxA = (Analyst) obj;
+        if(emp instanceof Analyst auxA) {
             empTypeLabelShow.setText("Analista");
             plusExtraFieldShow.setText(String.valueOf(Analyst.getAnnualPlus()));  
-            //otherFieldShow.setText((Analyst)emp.);                            // This method must be declare and implements in Analyst class.
+            projectExtraHLabelShow.setText("Proyecto:");
+            projectExtraHFieldShow.setText(auxA.getProjectName());
             
-            
-        }else if(emp instanceof Programmer){
-            Programmer auxP = (Programmer) obj;
+        }else if(emp instanceof Programmer auxP){
             empTypeLabelShow.setText("Programador");
             plusExtraFieldShow.setText(String.valueOf(auxP.getMonthlyPlus())); 
-            //otherFieldShow.setText((Analyst)emp.);                            // This method must be declare and implements in Programmer class.
+            projectExtraHLabelShow.setText("Horas extra:");
+            projectExtraHFieldShow.setText(String.valueOf(auxP.getExtraHours()));
+
         }
         
         showCommonAtributes(emp);
@@ -363,7 +377,7 @@ public class NavPanel extends javax.swing.JPanel {
         nameFieldShow.setText(emp.getName());
         salaryFieldShow.setText(String.valueOf(emp.getSalary()));
         maxSalaryFieldShow.setText(String.valueOf(emp.getMaxSalary()));
-        entryDateFieldShow.setText(emp.getEntryDate());                     // This method must be declare and implements in Employee class.
+        entryDateFieldShow.setText(emp.getEntryDate());
     }
     
     // Attributes //////////////////////////////////////////////////////////////
@@ -383,10 +397,10 @@ public class NavPanel extends javax.swing.JPanel {
     private javax.swing.JLabel nameLabelShow;
     private javax.swing.JTextField numberFieldShow;
     private javax.swing.JLabel numberLabelShow;
-    private javax.swing.JTextField otherFieldShow;
-    private javax.swing.JLabel otherLabelShow;
     private javax.swing.JTextField plusExtraFieldShow;
     private javax.swing.JLabel plusExtraLabelShow;
+    private javax.swing.JTextField projectExtraHFieldShow;
+    private javax.swing.JLabel projectExtraHLabelShow;
     private javax.swing.JTextField salaryFieldShow;
     private javax.swing.JLabel salaryLabelShow;
     private javax.swing.JButton updateSalaryButton;

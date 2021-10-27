@@ -37,19 +37,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="maxSalaryLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="nameLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="numberLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="idLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="salaryLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="entryDateLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="plusExtraLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="otherLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="projectExtraHLabelAdd" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="otherFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="projectExtraHFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="plusExtraFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="entryDateFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="salaryFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="numberFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="idFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="maxSalaryFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="nameFieldAdd" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
@@ -80,8 +80,8 @@
               <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="numberLabelAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="numberFieldAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="idLabelAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="idFieldAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -110,8 +110,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="otherLabelAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="otherFieldAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="projectExtraHLabelAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="projectExtraHFieldAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
@@ -135,7 +135,7 @@
         <Property name="text" type="java.lang.String" value="Cabecera"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="numberLabelAdd">
+    <Component class="javax.swing.JLabel" name="idLabelAdd">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="12" style="1"/>
@@ -146,15 +146,17 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="numberFieldAdd">
+    <Component class="javax.swing.JTextField" name="idFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numberFieldAddActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idFieldAddActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabelAdd">
@@ -170,9 +172,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="nameFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Events>
@@ -192,9 +196,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="salaryFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Events>
@@ -214,9 +220,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="maxSalaryFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Events>
@@ -236,9 +244,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="entryDateFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
     </Component>
@@ -255,13 +265,15 @@
     </Component>
     <Component class="javax.swing.JTextField" name="plusExtraFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="otherLabelAdd">
+    <Component class="javax.swing.JLabel" name="projectExtraHLabelAdd">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="12" style="1"/>
@@ -272,11 +284,13 @@
         <Property name="text" type="java.lang.String" value="Other:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="otherFieldAdd">
+    <Component class="javax.swing.JTextField" name="projectExtraHFieldAdd">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
     </Component>

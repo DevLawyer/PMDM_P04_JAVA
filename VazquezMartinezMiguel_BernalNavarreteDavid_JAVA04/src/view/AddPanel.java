@@ -6,6 +6,8 @@
 package view;
 
 import controller.List;
+import javax.swing.JOptionPane;
+import model.*;
 
 /**
  *
@@ -23,36 +25,81 @@ public class AddPanel extends javax.swing.JPanel {
     public void optionSelectedAnalyst(){
         optionSelected = false;
         header.setText("ANALISTA");
-        plusExtraLabelAdd.setText("Plus salarial:");        
+        plusExtraLabelAdd.setText("Plus salarial:"); 
+        projectExtraHLabelAdd.setText("Proyecto:");
     }
     
     public void optionSelectedProgrammer(){
         optionSelected = true;
         header.setText("PROGRAMADOR");
         plusExtraLabelAdd.setText("Salario extra:");
+        projectExtraHLabelAdd.setText("Horas extra:");
     }    
     
-    private void optionSelected(){
+    private void addOptionSelected(){
         if(optionSelected){
             //Programmer option.
             newList();
-
+            
+            Programmer pgm = new Programmer(
+                    idFieldAdd.getText(), 
+                    nameFieldAdd.getText(), 
+                    salaryFieldAdd.getText(), 
+                    maxSalaryFieldAdd.getText(), 
+                    entryDateFieldAdd.getText(), 
+                    plusExtraFieldAdd.getText(), 
+                    projectExtraHFieldAdd.getText());
+            
+            myList.addNode(pgm);
             
         }else{
             //Analyst option.
             newList();
-
+            Analyst alt = new Analyst(
+                    idFieldAdd.getText(), 
+                    nameFieldAdd.getText(), 
+                    salaryFieldAdd.getText(), 
+                    maxSalaryFieldAdd.getText(), 
+                    entryDateFieldAdd.getText(), 
+                    plusExtraFieldAdd.getText(), 
+                    projectExtraHFieldAdd.getText());
             
+            myList.addNode(alt);
         }
-
+        
+        cleanFields();
+        
     }
    
+    private boolean checkFields(){
+        if(                    
+            !idFieldAdd.getText().equals("") ||
+            !nameFieldAdd.getText().equals("") || 
+            !salaryFieldAdd.getText().equals("") || 
+            !maxSalaryFieldAdd.getText().equals("") || 
+            !entryDateFieldAdd.getText().equals("") ||
+            !plusExtraFieldAdd.getText().equals("") ||
+            !projectExtraHFieldAdd.getText().equals(""))
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
     
-    
+    private void cleanFields(){
+        idFieldAdd.setText("");
+        nameFieldAdd.setText("");
+        salaryFieldAdd.setText("");
+        maxSalaryFieldAdd.setText("");
+        entryDateFieldAdd.setText("");
+        plusExtraFieldAdd.setText("");
+        projectExtraHFieldAdd.setText("");   
+    }
     
     private void newList(){
-        if(mainList == null){
-            mainList = new List();
+        if(myList == null){
+            myList = new List();
         }
     }
 
@@ -66,8 +113,8 @@ public class AddPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         header = new javax.swing.JLabel();
-        numberLabelAdd = new javax.swing.JLabel();
-        numberFieldAdd = new javax.swing.JTextField();
+        idLabelAdd = new javax.swing.JLabel();
+        idFieldAdd = new javax.swing.JTextField();
         nameLabelAdd = new javax.swing.JLabel();
         nameFieldAdd = new javax.swing.JTextField();
         salaryLabelAdd = new javax.swing.JLabel();
@@ -78,8 +125,8 @@ public class AddPanel extends javax.swing.JPanel {
         entryDateFieldAdd = new javax.swing.JTextField();
         plusExtraLabelAdd = new javax.swing.JLabel();
         plusExtraFieldAdd = new javax.swing.JTextField();
-        otherLabelAdd = new javax.swing.JLabel();
-        otherFieldAdd = new javax.swing.JTextField();
+        projectExtraHLabelAdd = new javax.swing.JLabel();
+        projectExtraHFieldAdd = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         AddButton = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
@@ -94,15 +141,15 @@ public class AddPanel extends javax.swing.JPanel {
         header.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         header.setText("Cabecera");
 
-        numberLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        numberLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
-        numberLabelAdd.setText("Número:");
+        idLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        idLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        idLabelAdd.setText("Número:");
 
-        numberFieldAdd.setEditable(false);
-        numberFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
-        numberFieldAdd.addActionListener(new java.awt.event.ActionListener() {
+        idFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        idFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
+        idFieldAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numberFieldAddActionPerformed(evt);
+                idFieldAddActionPerformed(evt);
             }
         });
 
@@ -110,8 +157,8 @@ public class AddPanel extends javax.swing.JPanel {
         nameLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
         nameLabelAdd.setText("Nombre:");
 
-        nameFieldAdd.setEditable(false);
-        nameFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        nameFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        nameFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
         nameFieldAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldAddActionPerformed(evt);
@@ -122,8 +169,8 @@ public class AddPanel extends javax.swing.JPanel {
         salaryLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
         salaryLabelAdd.setText("Sueldo:");
 
-        salaryFieldAdd.setEditable(false);
-        salaryFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        salaryFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        salaryFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
         salaryFieldAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salaryFieldAddActionPerformed(evt);
@@ -134,8 +181,8 @@ public class AddPanel extends javax.swing.JPanel {
         maxSalaryLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
         maxSalaryLabelAdd.setText("Sueldo máximo:");
 
-        maxSalaryFieldAdd.setEditable(false);
-        maxSalaryFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        maxSalaryFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        maxSalaryFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
         maxSalaryFieldAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 maxSalaryFieldAddActionPerformed(evt);
@@ -146,22 +193,22 @@ public class AddPanel extends javax.swing.JPanel {
         entryDateLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
         entryDateLabelAdd.setText("Fecha Alta:");
 
-        entryDateFieldAdd.setEditable(false);
-        entryDateFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        entryDateFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        entryDateFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
 
         plusExtraLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         plusExtraLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
         plusExtraLabelAdd.setText("Plus/Extra:");
 
-        plusExtraFieldAdd.setEditable(false);
-        plusExtraFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        plusExtraFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        plusExtraFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
 
-        otherLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        otherLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
-        otherLabelAdd.setText("Other:");
+        projectExtraHLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        projectExtraHLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
+        projectExtraHLabelAdd.setText("Other:");
 
-        otherFieldAdd.setEditable(false);
-        otherFieldAdd.setBackground(new java.awt.Color(204, 204, 204));
+        projectExtraHFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
+        projectExtraHFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
 
         jSeparator2.setPreferredSize(new java.awt.Dimension(200, 10));
 
@@ -192,18 +239,18 @@ public class AddPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(maxSalaryLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numberLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(salaryLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(entryDateLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(plusExtraLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(otherLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(projectExtraHLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(otherFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(projectExtraHFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(plusExtraFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(entryDateFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(salaryFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numberFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(maxSalaryFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameFieldAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -226,8 +273,8 @@ public class AddPanel extends javax.swing.JPanel {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numberLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numberFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,8 +297,8 @@ public class AddPanel extends javax.swing.JPanel {
                     .addComponent(plusExtraFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(otherLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(otherFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(projectExtraHLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projectExtraHFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -260,9 +307,9 @@ public class AddPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numberFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldAddActionPerformed
+    private void idFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numberFieldAddActionPerformed
+    }//GEN-LAST:event_idFieldAddActionPerformed
 
     private void nameFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldAddActionPerformed
         //UNUSED ELEMENT
@@ -277,28 +324,34 @@ public class AddPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_maxSalaryFieldAddActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-
+        if(checkFields()){
+            addOptionSelected();
+        }else{
+            JOptionPane.showMessageDialog(auxFrame, "Falta información por añadir.");
+        }
     }//GEN-LAST:event_AddButtonActionPerformed
     
     private boolean optionSelected; //Determine the label text. False for Analyst and True for Programmer.
-    private List mainList = FrameMain.getMainList();
+    private List myList = FrameMain.getMainList();
+    private static FrameMain auxFrame;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JTextField entryDateFieldAdd;
     private javax.swing.JLabel entryDateLabelAdd;
     private javax.swing.JLabel header;
+    private javax.swing.JTextField idFieldAdd;
+    private javax.swing.JLabel idLabelAdd;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField maxSalaryFieldAdd;
     private javax.swing.JLabel maxSalaryLabelAdd;
     private javax.swing.JTextField nameFieldAdd;
     private javax.swing.JLabel nameLabelAdd;
-    private javax.swing.JTextField numberFieldAdd;
-    private javax.swing.JLabel numberLabelAdd;
-    private javax.swing.JTextField otherFieldAdd;
-    private javax.swing.JLabel otherLabelAdd;
     private javax.swing.JTextField plusExtraFieldAdd;
     private javax.swing.JLabel plusExtraLabelAdd;
+    private javax.swing.JTextField projectExtraHFieldAdd;
+    private javax.swing.JLabel projectExtraHLabelAdd;
     private javax.swing.JTextField salaryFieldAdd;
     private javax.swing.JLabel salaryLabelAdd;
     // End of variables declaration//GEN-END:variables

@@ -1,10 +1,12 @@
 package controller;
+
+
 /**
  *
  * @author Miguel Maria Vazquez Martinez
  */
 
-public class Node<T>{
+public class Node<T> {
     
     // CONSTRUCTOR /////////////////////////////////////////////////////////////
     public Node(T item){this.data = item;}
