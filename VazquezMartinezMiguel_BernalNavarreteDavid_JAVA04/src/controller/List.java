@@ -13,13 +13,12 @@ public class List<T> {
         current = null;
     }
 
-    public void addNode(T item, int index){
-        //This method add a new node in the list and link both ends.
-        
-        Node nd = new Node(item, index);
-        
-        if(headList == null){
+    public void addNode(T item) {
+        //This method adds a new node in the list and links both ends.
 
+        Node nd = new Node(item);
+
+        if (headList == null) {
             headList = nd;
             endList = nd;
             current = nd;
@@ -50,15 +49,11 @@ public class List<T> {
         }
     }
 
-    public void currentToHead() {
+    public void resetCurrent() {
         //When this method is called, it will move the current pointer to the head of the list.
         current = headList;
     }
-    
-    public void currentToEnd(){
-        current = endList;
-    }
-    
+
     // GETTER METHODS //////////////////////////////////////////////////////////
     public Node getCurrent() {
         return current;

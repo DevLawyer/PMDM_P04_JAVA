@@ -31,15 +31,20 @@ public class ListPanel extends javax.swing.JPanel {
             model.addElement("No hay elementos");
         }else{
             model.removeAllElements();
-            myList.currentToHead();
-            
-            model.addElement(myList.getCurrent().getData().toString());  
+            myList.resetCurrent();
             
             do{
+                Employee emp = (Employee) myList.getCurrent().getData();
 
+                if (emp instanceof Analyst adv){
+                    model.addElement(adv.toString());  
+
+                }else if (emp instanceof Programmer pgm){
+                    model.addElement(pgm.toString());             
+                }else{
+
+                }
                 myList.moveForward();
-                model.addElement(myList.getCurrent().getData().toString());  
-         
             }while(myList.getCurrent() != myList.getEndList());            
         }
         

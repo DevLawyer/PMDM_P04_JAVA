@@ -25,9 +25,9 @@ public class updateSaveData {
 
             while(auxO != null){
                 if(auxO instanceof Analyst auxA){
-                    myList.addNode(auxA, auxA.getIdEmployee());
+                    myList.addNode(auxA);
                 } else if(auxO instanceof Programmer auxP){
-                    myList.addNode(auxP, auxP.getIdEmployee());
+                    myList.addNode(auxP);
                 }
                 
                 auxO = ois.readObject();
@@ -57,7 +57,7 @@ public class updateSaveData {
                 FileOutputStream fos = new FileOutputStream("data.dat");
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 
-                myList.currentToHead();
+                myList.resetCurrent();
                 
                 do{
                     oos.writeObject(myList.getCurrent().getData());
