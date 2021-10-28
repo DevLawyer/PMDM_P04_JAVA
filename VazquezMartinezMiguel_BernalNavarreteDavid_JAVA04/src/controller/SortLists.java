@@ -11,16 +11,15 @@ import view.FrameMain;
  *
  * @author Miguel Maria Vazquez Martinez
  * @author David Bernal Navarrete
- * 
- * Class SortLists:
- * This class is used to fill our List with data, copy it to an ArrayList,
- * and calculate the difference in time elapsed while sorting each one of them.
+ *
+ * Class SortLists: This class is used to fill our List with data, copy it to an
+ * ArrayList, and calculate the difference in time elapsed while sorting each
+ * one of them.
  */
 public class SortLists {
 
     /*------------------------------------------------------------------------*/
     // Attributes
-    
     // Time elapsed for our own list's sorting.
     private static long ownListTime;
     // Time elapsed for the Collection ArayList's sorting.
@@ -53,13 +52,27 @@ public class SortLists {
         for (int i = 0; i < 12500; i++) {
             //Adding a new Analyst.
             rand = Integer.toString(r.nextInt(60000 - 1000) + 1000);
-            Analyst auxA = new Analyst(rand, "Analyst" + i + 1, "0", "1", "10/10/2010");
-            myList.addNode(auxA, auxA.getIdEmployee());
+            Analyst auxA;
+            try {
+                auxA = new Analyst(rand, "Analyst" + i + 1, "0", "1", "10/10/2010");
+                myList.addNode(auxA, auxA.getIdEmployee());
+            } catch (MyExceptions ex) {
+                // This code is never gonna get into this catch
+                System.out.println("Error introduciendo un Analista aleatorio.");
+                ex.showMessage();
+            }
 
             //Adding a new Programmer.
             rand = Integer.toString(r.nextInt(60000 - 1000) + 1000);
-            Programmer auxP = new Programmer(rand, "Programmer" + i + 1, "0", "1", "10/10/2010");
-            myList.addNode(auxP, auxP.getIdEmployee());
+            Programmer auxP;
+            try {
+                auxP = new Programmer(rand, "Programmer" + i + 1, "0", "1", "10/10/2010");
+                myList.addNode(auxP, auxP.getIdEmployee());
+            } catch (MyExceptions ex) {
+                // This code is never gonna get into this catch
+                System.out.println("Error introduciendo un Programador aleatorio.");
+                ex.showMessage();
+            }
         }
 
     }

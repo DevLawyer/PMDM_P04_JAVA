@@ -5,6 +5,9 @@ package view;
  */
 
 import controller.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.*;
 
 /**
@@ -333,9 +336,17 @@ public class NavPanel extends javax.swing.JPanel {
         Employee emp = (Employee) myList.getCurrent().getData();
         
         if(emp instanceof Analyst auxA){
-            auxA.updateSalary();
+            try {
+                auxA.updateSalary();
+            } catch (MyExceptions ex) {
+                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+            }
         }else if (emp instanceof Programmer auxP){
-            auxP.updateSalary();
+            try {
+                auxP.updateSalary();
+            } catch (MyExceptions ex) {
+                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+            }
         }
     }//GEN-LAST:event_updateSalaryButtonActionPerformed
 
@@ -381,6 +392,7 @@ public class NavPanel extends javax.swing.JPanel {
     
     // Attributes //////////////////////////////////////////////////////////////
     private List myList = FrameMain.getMainList(); // Main list retrieved from FramenMain class. 
+    private static FrameMain auxFrame;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel empTypeLabelShow;

@@ -28,12 +28,13 @@ public class Programmer extends Employee implements DateInterface{
     /*------------------------------------------------------------------------*/
     // Constructors
     
-    public Programmer (String id, String name, String salary, String maxSalary, String entryDate){
+    public Programmer (String id, String name, String salary, String maxSalary, 
+            String entryDate) throws MyExceptions {
         super(id, name, salary, maxSalary, entryDate);
     }
     
     public Programmer (String id, String name, String salary, String maxSalary, 
-            String entryDate, String monthlyPlus, String extraHours){
+            String entryDate, String monthlyPlus, String extraHours) throws MyExceptions {
         super(id, name, salary, maxSalary, entryDate);
         setMonthlyPlus(monthlyPlus);
         setExtraHours(extraHours);
@@ -65,9 +66,11 @@ public class Programmer extends Employee implements DateInterface{
     // Inherited abstract methods from Employee
     
     @Override
-    public void updateSalary(){
-        if (passedOneMonth())
+    public void updateSalary() throws MyExceptions {
+        if (passedOneMonth()) {
+            MyExceptions.checkSalary(this.salary + Programmer.monthlyPlus);
             this.salary += Programmer.monthlyPlus;
+        }
     }
     
     @Override

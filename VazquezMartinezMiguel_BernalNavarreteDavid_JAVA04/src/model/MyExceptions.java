@@ -52,15 +52,34 @@ public class MyExceptions extends Exception {
         }
     }
 
+    public static void checkSalary(String salary) throws MyExceptions {
+        /**
+         * Checks if the given float is a valid salary in the Employee class
+         * context. A valid salary is a float that is above 0f and below the
+         * maxSalary variable.
+         */
+        float sal;
+        try {
+            sal = Float.parseFloat(salary);
+            
+            if (sal > Employee.maxSalary) 
+                throw new MyExceptions(2);
+        }
+        catch (NumberFormatException ex) {
+            throw new MyExceptions(2);
+        }   
+    }
+    
     public static void checkSalary(float salary) throws MyExceptions {
         /**
          * Checks if the given float is a valid salary in the Employee class
          * context. A valid salary is a float that is above 0f and below the
          * maxSalary variable.
          */
-        if (salary > Employee.maxSalary) {
+        
+        if (salary > Employee.maxSalary) 
             throw new MyExceptions(2);
-        }
+        
     }
 
     /*------------------------------------------------------------------------*/

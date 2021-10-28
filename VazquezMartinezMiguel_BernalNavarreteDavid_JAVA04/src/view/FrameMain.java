@@ -216,11 +216,13 @@ public class FrameMain extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -247,20 +249,25 @@ public class FrameMain extends javax.swing.JFrame {
                 new FrameMain().setVisible(true);
             }
         });
-
-        Analyst al1 = new Analyst("1", "Paco", "1500", "2000", "01/01/2020");
-        myList.addNode(al1, al1.getIdEmployee());
-        Programmer pro1 = new Programmer("5", "Pepe", "1500", "2000", "01/01/2020");
-        myList.addNode(pro1, pro1.getIdEmployee());
-        Analyst al2 = new Analyst("2", "Maria", "1500", "2000", "01/01/2020");
-        myList.addNode(al2, al2.getIdEmployee());
-        Programmer pro2 = new Programmer("4", "Andrés", "1500", "2000", "01/01/2020");
-        myList.addNode(pro2, pro2.getIdEmployee());
-        Programmer pro3 = new Programmer("3", "Luis", "1500", "2000", "01/01/2020");
-        myList.addNode(pro3, pro3.getIdEmployee());
-        Analyst al3 = new Analyst("6", "Marta", "1500", "2000", "01/01/2020");
-        myList.addNode(al3, al3.getIdEmployee());
-
+        
+        try {
+            Analyst al1 = new Analyst("1", "Paco", "1500", "2000", "01/01/2020");
+            myList.addNode(al1, al1.getIdEmployee());
+            Programmer pro1 = new Programmer("5", "Pepe", "1500", "2000", "01/01/2020");
+            myList.addNode(pro1, pro1.getIdEmployee());
+            Analyst al2 = new Analyst("2", "Maria", "1500", "2000", "01/01/2020");
+            myList.addNode(al2, al2.getIdEmployee());
+            Programmer pro2 = new Programmer("4", "Andrés", "1500", "2000", "01/01/2020");
+            myList.addNode(pro2, pro2.getIdEmployee());
+            Programmer pro3 = new Programmer("3", "Luis", "1500", "2000", "01/01/2020");
+            myList.addNode(pro3, pro3.getIdEmployee());
+            Analyst al3 = new Analyst("6", "Marta", "1500", "2000", "01/01/2020");
+            myList.addNode(al3, al3.getIdEmployee());
+            
+        } catch (MyExceptions ex) {
+            // Execution should never come inside this catch
+            ex.showMessage();
+        }
     }
 
     public static List getMainList() {
