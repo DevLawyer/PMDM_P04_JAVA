@@ -3,6 +3,8 @@ package view;
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
  */
 
 import controller.List;
@@ -122,13 +124,13 @@ public class FrameMain extends javax.swing.JFrame {
         mainMenuBar.add(addButton);
 
         listButton.setText("Listar");
-        listButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listButtonMouseClicked(evt);
-            }
-        });
 
         sortList.setText("Ordenar Lista");
+        sortList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortListActionPerformed(evt);
+            }
+        });
         listButton.add(sortList);
 
         mainMenuBar.add(listButton);
@@ -137,6 +139,11 @@ public class FrameMain extends javax.swing.JFrame {
         navButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 navButtonMouseClicked(evt);
+            }
+        });
+        navButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                navButtonActionPerformed(evt);
             }
         });
         mainMenuBar.add(navButton);
@@ -167,7 +174,7 @@ public class FrameMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMenuButtonMouseClicked
-
+        // Unused method.
     }//GEN-LAST:event_listMenuButtonMouseClicked
 
     private void addAnalystButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnalystButtonActionPerformed
@@ -199,7 +206,7 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_saveListButtonActionPerformed
 
     private void showListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showListActionPerformed
-        changePanel(new ListPanel());
+        // Unused Method.
     }//GEN-LAST:event_showListActionPerformed
 
     private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
@@ -208,9 +215,9 @@ public class FrameMain extends javax.swing.JFrame {
         sortDialog.setVisible(true);
     }//GEN-LAST:event_sortListActionPerformed
 
-    private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listButtonMouseClicked
+    private void navButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navButtonActionPerformed
+        changePanel(new ListPanel());
+    }//GEN-LAST:event_navButtonActionPerformed
 
     /**
      * @param args the command line arguments
