@@ -145,11 +145,6 @@ public class FrameMain extends javax.swing.JFrame {
         mainMenuBar.add(listButton);
 
         navButton.setText("Navegar");
-        navButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                navButtonMouseClicked(evt);
-            }
-        });
         navButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 navButtonActionPerformed(evt);
@@ -205,11 +200,6 @@ public class FrameMain extends javax.swing.JFrame {
         updateSaveData.updateFromFile();
     }//GEN-LAST:event_loadListButtonActionPerformed
 
-    private void navButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navButtonMouseClicked
-        changePanel(new NavPanel());
-
-    }//GEN-LAST:event_navButtonMouseClicked
-
     private void saveListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveListButtonActionPerformed
         updateSaveData.saveInFile();
     }//GEN-LAST:event_saveListButtonActionPerformed
@@ -226,9 +216,9 @@ public class FrameMain extends javax.swing.JFrame {
         sortDialog.setVisible(true);
     }//GEN-LAST:event_sortListActionPerformed
 
-    private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listButtonMouseClicked
+    private void navButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navButtonActionPerformed
+        changePanel(new NavPanel());
+    }//GEN-LAST:event_navButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,6 +270,7 @@ public class FrameMain extends javax.swing.JFrame {
             Analyst al3 = new Analyst("6","Marta","1500", "2000","01/01/2020");
             myList.addNode(al3, al3.getIdEmployee());
         } catch (MyExceptions ex) {
+            JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
             ex.showMessage();
         }
     
@@ -300,6 +291,7 @@ public class FrameMain extends javax.swing.JFrame {
     private AddPanel addPanel = new AddPanel();
     private AboutPanel aboutPanel = new AboutPanel();
     public static sortJDialog sortDialog;
+    private static FrameMain auxFrame;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutButton;

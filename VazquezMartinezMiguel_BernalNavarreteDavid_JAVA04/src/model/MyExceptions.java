@@ -90,7 +90,7 @@ public class MyExceptions extends Exception {
          */
         message = "Error - Fecha no válida. \n Por favor, introduzca una fecha con formato \"DD/MM/YYYY\"";
         System.out.println("Error - Fecha no v\\u00e1lida. \n"
-                + "                           Por favor, introduzca una fecha con formato \"DD/MM/YYYY\"");
+                + "Por favor, introduzca una fecha con formato \"DD/MM/YYYY\"");
     }
 
     public static final void invalidSalaryMessage() {
