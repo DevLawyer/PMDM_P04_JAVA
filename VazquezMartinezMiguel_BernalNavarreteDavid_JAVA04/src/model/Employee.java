@@ -33,7 +33,7 @@ public abstract class Employee implements Serializable {
     protected int id;
     protected transient String name;
     protected float salary;
-    protected static float maxSalary;
+    protected static float maxSalary = 0;
     protected GregorianCalendar entryDate;
     
     /*------------------------------------------------------------------------*/
@@ -58,7 +58,8 @@ public abstract class Employee implements Serializable {
     }
     
     public final void setSalary(String salary) throws MyExceptions {
-        MyExceptions.checkSalary(salary);
+        if (!(maxSalary == 0))
+            MyExceptions.checkSalary(salary);
         this.salary = Float.parseFloat(salary);
     }
     
@@ -67,8 +68,12 @@ public abstract class Employee implements Serializable {
     }
     
     public final void setEntryDate(String date) throws MyExceptions {
-        MyExceptions.checkDate(date);
-        this.entryDate = DateParser.parseDate(date);
+        // We check whether the date is alright, if it is an empty string ("")
+        // we assign it the system date; else we just throw an exception.
+        if (MyExceptions.checkDate(date))
+            this.entryDate = DateParser.parseDate(date);
+        else 
+            this.entryDate = new GregorianCalendar();
     }
     
     /*------------------------------------------------------------------------*/

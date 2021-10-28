@@ -9,7 +9,6 @@ package model;
  * handling. Uses a variety of personalized methods for the various kinds of
  * errors generated in the code. Checks: -Employee IDs. -Dates. -Salaries.
  */
-
 public class MyExceptions extends Exception {
 
     /*------------------------------------------------------------------------*/
@@ -41,14 +40,20 @@ public class MyExceptions extends Exception {
     }
 
     /*------------------------------------------------------------------------*/
-    public static void checkDate(String date) throws MyExceptions {
+    public static boolean checkDate(String date) throws MyExceptions {
         /**
          * Checks a string to see if it has a correct format to convert it to a
          * GregorianCalendar using DateParser.parseDate(string). The correct
          * format is: "DD/MM/YYYY"
          */
         if (!(date.matches("\\d{2}/\\d{2}/\\d{4}"))) {
-            throw new MyExceptions(1);
+            if (date.equals("")) {
+                return false;
+            } else {
+                throw new MyExceptions(1);
+            }
+        } else {
+            return true;
         }
     }
 
@@ -61,25 +66,26 @@ public class MyExceptions extends Exception {
         float sal;
         try {
             sal = Float.parseFloat(salary);
-            
-            if (sal > Employee.maxSalary) 
+
+            if (sal > Employee.maxSalary) {
                 throw new MyExceptions(2);
-        }
-        catch (NumberFormatException ex) {
+            }
+        } catch (NumberFormatException ex) {
             throw new MyExceptions(2);
-        }   
+        }
     }
-    
+
     public static void checkSalary(float salary) throws MyExceptions {
         /**
          * Checks if the given float is a valid salary in the Employee class
          * context. A valid salary is a float that is above 0f and below the
          * maxSalary variable.
          */
-        
-        if (salary > Employee.maxSalary) 
+
+        if (salary > Employee.maxSalary) {
             throw new MyExceptions(2);
-        
+        }
+
     }
 
     /*------------------------------------------------------------------------*/
