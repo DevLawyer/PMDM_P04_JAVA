@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.List;
@@ -11,7 +6,7 @@ import model.*;
 
 /**
  *
- * @author migva
+ * @author Miguel Maria Vazquez Martinez
  */
 public class AddPanel extends javax.swing.JPanel {
 
@@ -21,84 +16,88 @@ public class AddPanel extends javax.swing.JPanel {
     public AddPanel() {
         initComponents();
     }
-    
-    public void optionSelectedAnalyst(){
+
+    public void optionSelectedAnalyst() {
         optionSelected = false;
         header.setText("ANALISTA");
-        plusExtraLabelAdd.setText("Plus salarial:"); 
+        plusExtraLabelAdd.setText("Plus salarial:");
         projectExtraHLabelAdd.setText("Proyecto:");
     }
-    
-    public void optionSelectedProgrammer(){
+
+    public void optionSelectedProgrammer() {
         optionSelected = true;
         header.setText("PROGRAMADOR");
         plusExtraLabelAdd.setText("Salario extra:");
         projectExtraHLabelAdd.setText("Horas extra:");
-    }    
-    
-    private void addOptionSelected(){
-        if(optionSelected){
+    }
+
+    private void addOptionSelected() {
+        if (optionSelected) {
             //Programmer option.
             newList();
-            
-            Programmer pgm = new Programmer(
-                    idFieldAdd.getText(), 
-                    nameFieldAdd.getText(), 
-                    salaryFieldAdd.getText(), 
-                    maxSalaryFieldAdd.getText(), 
-                    entryDateFieldAdd.getText(), 
-                    plusExtraFieldAdd.getText(), 
-                    projectExtraHFieldAdd.getText());
-            
-            myList.addNode(pgm);
-            
-        }else{
+            try {
+                Programmer pgm = new Programmer(
+                        idFieldAdd.getText(),
+                        nameFieldAdd.getText(),
+                        salaryFieldAdd.getText(),
+                        maxSalaryFieldAdd.getText(),
+                        entryDateFieldAdd.getText(),
+                        plusExtraFieldAdd.getText(),
+                        projectExtraHFieldAdd.getText());
+
+                myList.addNode(pgm);
+            } catch (MyExceptions ex) {
+                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+                ex.showMessage();
+            }
+
+        } else {
             //Analyst option.
             newList();
-            Analyst alt = new Analyst(
-                    idFieldAdd.getText(), 
-                    nameFieldAdd.getText(), 
-                    salaryFieldAdd.getText(), 
-                    maxSalaryFieldAdd.getText(), 
-                    entryDateFieldAdd.getText(), 
-                    plusExtraFieldAdd.getText(), 
-                    projectExtraHFieldAdd.getText());
-            
-            myList.addNode(alt);
+            Analyst alt = null;
+            try {
+                alt = new Analyst(
+                        idFieldAdd.getText(),
+                        nameFieldAdd.getText(),
+                        salaryFieldAdd.getText(),
+                        maxSalaryFieldAdd.getText(),
+                        entryDateFieldAdd.getText(),
+                        plusExtraFieldAdd.getText(),
+                        projectExtraHFieldAdd.getText());
+
+                myList.addNode(alt);
+            } catch (MyExceptions ex) {
+                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+                ex.showMessage();
+            }
         }
-        
+
         cleanFields();
-        
+
     }
-   
-    private boolean checkFields(){
-        if(                    
-            !idFieldAdd.getText().equals("") ||
-            !nameFieldAdd.getText().equals("") || 
-            !salaryFieldAdd.getText().equals("") || 
-            !maxSalaryFieldAdd.getText().equals("") || 
-            !entryDateFieldAdd.getText().equals("") ||
-            !plusExtraFieldAdd.getText().equals("") ||
-            !projectExtraHFieldAdd.getText().equals(""))
-        {
-            return true;
-        }else{
-            return false;
-        }
+
+    private boolean checkFields() {
+        return !idFieldAdd.getText().equals("")
+                || !nameFieldAdd.getText().equals("")
+                || !salaryFieldAdd.getText().equals("")
+                || !maxSalaryFieldAdd.getText().equals("")
+                || !entryDateFieldAdd.getText().equals("")
+                || !plusExtraFieldAdd.getText().equals("")
+                || !projectExtraHFieldAdd.getText().equals("");
     }
-    
-    private void cleanFields(){
+
+    private void cleanFields() {
         idFieldAdd.setText("");
         nameFieldAdd.setText("");
         salaryFieldAdd.setText("");
         maxSalaryFieldAdd.setText("");
         entryDateFieldAdd.setText("");
         plusExtraFieldAdd.setText("");
-        projectExtraHFieldAdd.setText("");   
+        projectExtraHFieldAdd.setText("");
     }
-    
-    private void newList(){
-        if(myList == null){
+
+    private void newList() {
+        if (myList == null) {
             myList = new List();
         }
     }
@@ -147,11 +146,6 @@ public class AddPanel extends javax.swing.JPanel {
 
         idFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
         idFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
-        idFieldAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idFieldAddActionPerformed(evt);
-            }
-        });
 
         nameLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         nameLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
@@ -159,11 +153,6 @@ public class AddPanel extends javax.swing.JPanel {
 
         nameFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
         nameFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
-        nameFieldAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldAddActionPerformed(evt);
-            }
-        });
 
         salaryLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         salaryLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
@@ -171,11 +160,6 @@ public class AddPanel extends javax.swing.JPanel {
 
         salaryFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
         salaryFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
-        salaryFieldAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salaryFieldAddActionPerformed(evt);
-            }
-        });
 
         maxSalaryLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         maxSalaryLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
@@ -183,11 +167,6 @@ public class AddPanel extends javax.swing.JPanel {
 
         maxSalaryFieldAdd.setBackground(new java.awt.Color(255, 255, 255));
         maxSalaryFieldAdd.setForeground(new java.awt.Color(0, 0, 0));
-        maxSalaryFieldAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxSalaryFieldAddActionPerformed(evt);
-            }
-        });
 
         entryDateLabelAdd.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         entryDateLabelAdd.setForeground(new java.awt.Color(0, 0, 0));
@@ -307,34 +286,18 @@ public class AddPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idFieldAddActionPerformed
-
-    private void nameFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldAddActionPerformed
-        //UNUSED ELEMENT
-    }//GEN-LAST:event_nameFieldAddActionPerformed
-
-    private void salaryFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldAddActionPerformed
-        //UNUSED ELEMENT
-    }//GEN-LAST:event_salaryFieldAddActionPerformed
-
-    private void maxSalaryFieldAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxSalaryFieldAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maxSalaryFieldAddActionPerformed
-
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        if(checkFields()){
+        if (checkFields()) {
             addOptionSelected();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(auxFrame, "Falta información por añadir.");
         }
     }//GEN-LAST:event_AddButtonActionPerformed
-    
+
     private boolean optionSelected; //Determine the label text. False for Analyst and True for Programmer.
     private List myList = FrameMain.getMainList();
     private static FrameMain auxFrame;
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JTextField entryDateFieldAdd;

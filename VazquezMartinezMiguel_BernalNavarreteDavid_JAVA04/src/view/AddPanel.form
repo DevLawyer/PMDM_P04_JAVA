@@ -155,9 +155,6 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idFieldAddActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabelAdd">
       <Properties>
@@ -179,9 +176,6 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameFieldAddActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="salaryLabelAdd">
       <Properties>
@@ -203,9 +197,6 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salaryFieldAddActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="maxSalaryLabelAdd">
       <Properties>
@@ -227,9 +218,6 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxSalaryFieldAddActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="entryDateLabelAdd">
       <Properties>

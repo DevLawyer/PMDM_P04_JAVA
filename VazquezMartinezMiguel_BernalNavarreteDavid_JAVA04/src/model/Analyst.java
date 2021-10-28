@@ -28,12 +28,13 @@ public class Analyst extends Employee implements DateInterface{
     /*------------------------------------------------------------------------*/
     // Constructors
     
-    public Analyst(String id, String name, String salary, String maxSalary, String entryDate){
+    public Analyst(String id, String name, String salary, String maxSalary,
+            String entryDate) throws MyExceptions {
         super(id, name, salary, maxSalary, entryDate);
     }
     
     public Analyst(String id, String name, String salary, String maxSalary,
-            String entryDate, String annualPlus, String projectName){
+            String entryDate, String annualPlus, String projectName) throws MyExceptions {
         super(id, name, salary, maxSalary, entryDate);
         setAnnualPlus(annualPlus);
         setProjectName(projectName);
@@ -67,14 +68,16 @@ public class Analyst extends Employee implements DateInterface{
     @Override
     public String toString() {
         return "Analyst;" + this.name + ";" + this.id + ";" + this.salary + ";" 
-                + Analyst.maxSalary + ";"  + this.entryDate + ";"  
+                + Analyst.maxSalary + ";"  + DateParser.parseDate(this.entryDate) + ";"  
                 + Analyst.annualPlus + ";" + this.projectName;
     }
     
     @Override
-    public void updateSalary(){
-        if (passedOneYear())
+    public void updateSalary() throws MyExceptions {
+        if (passedOneYear()) {
+            MyExceptions.checkSalary(this.salary + Analyst.annualPlus);
             this.salary += (this.salary * Analyst.annualPlus);
+        }
     }
     
     /*------------------------------------------------------------------------*/

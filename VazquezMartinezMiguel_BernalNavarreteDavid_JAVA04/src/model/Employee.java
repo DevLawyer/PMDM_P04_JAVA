@@ -38,7 +38,8 @@ public abstract class Employee implements Serializable {
     
     /*------------------------------------------------------------------------*/
     // Constructor
-    public Employee(String id, String name, String salary, String maxSalary, String entryDate) {
+    public Employee(String id, String name, String salary, String maxSalary, 
+            String entryDate) throws MyExceptions {
         setId(id);
         setName(name);
         setSalary(salary);
@@ -52,19 +53,21 @@ public abstract class Employee implements Serializable {
         this.id = Integer.parseInt(id);
     }
     
-    public final void setName(String name){
+    public final void setName(String name) {
         this.name = name;
     }
     
-    public final void setSalary(String salary){
+    public final void setSalary(String salary) throws MyExceptions {
+        MyExceptions.checkSalary(salary);
         this.salary = Float.parseFloat(salary);
     }
     
-    public final void setMaxSalary(String newMaxSalary){
+    public final void setMaxSalary(String newMaxSalary) {
         Employee.maxSalary = Float.parseFloat(newMaxSalary);
     }
     
-    public final void setEntryDate(String date) {
+    public final void setEntryDate(String date) throws MyExceptions {
+        MyExceptions.checkDate(date);
         this.entryDate = DateParser.parseDate(date);
     }
     
@@ -106,15 +109,18 @@ public abstract class Employee implements Serializable {
     
     public static Employee parseEmployee(String s) {
         String[] data = s.split(";");
-        Employee res;
-        
-        switch (data[0]) {
-            case "Analyst" -> res = new Analyst(data[1], data[2], data[3], data[4], data[5],
-                        data[6], data[7]);
-            case "Programmer" -> res = new Programmer(data[1], data[2], data[3], data[4], data[5],
-                        data[6], data[7]);
-            default -> { res = null;
+        Employee res = null;
+        try {
+            switch (data[0]) {
+                case "Analyst" -> res = new Analyst(data[1], data[2], data[3], data[4], data[5],
+                            data[6], data[7]);
+                case "Programmer" -> res = new Programmer(data[1], data[2], data[3], data[4], data[5],
+                            data[6], data[7]);
+                default -> { res = null;
+                }
             }
+        } catch (MyExceptions ex) {
+            ex.showMessage();
         }
         return res;
     }
@@ -122,6 +128,6 @@ public abstract class Employee implements Serializable {
     // Abstract methods
     @Override
     public abstract String toString ();
-    public abstract void updateSalary();
+    public abstract void updateSalary() throws MyExceptions ;
     
 }
