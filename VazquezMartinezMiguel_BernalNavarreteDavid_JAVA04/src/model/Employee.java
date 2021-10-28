@@ -58,8 +58,10 @@ public abstract class Employee implements Serializable {
     }
     
     public final void setSalary(String salary) throws MyExceptions {
-        if (!(maxSalary == 0))
+        if (!(maxSalary == 0)) {
             MyExceptions.checkSalary(salary);
+            this.salary = Float.parseFloat(salary);
+        }
         else 
             this.salary = Float.parseFloat(salary);
     }
