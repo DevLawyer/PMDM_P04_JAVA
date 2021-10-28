@@ -14,7 +14,7 @@ public class MyExceptions extends Exception {
 
     /*------------------------------------------------------------------------*/
     // Attributes
-    private String message;
+    private static String message;
 
     /*------------------------------------------------------------------------*/
     // Constructor
@@ -64,7 +64,7 @@ public class MyExceptions extends Exception {
     }
 
     /*------------------------------------------------------------------------*/
-    public final void invalidDateMessage() {
+    public static final void invalidDateMessage() {
         /**
          * Shows an error message for when the format of the date string, or the
          * values of the fields in the date string are invalid.
@@ -74,7 +74,7 @@ public class MyExceptions extends Exception {
                 + "                           Por favor, introduzca una fecha con formato \"DD/MM/YYYY\"");
     }
 
-    public final void invalidSalaryMessage() {
+    public static final void invalidSalaryMessage() {
         /**
          * Shows an error message for when the salary is invalid.
          */
@@ -82,7 +82,7 @@ public class MyExceptions extends Exception {
         System.out.println("Error - Salario no válido. \nPor favor, introduzca un salario válido.");
     }
 
-    public final void invalidIDMessage() {
+    public static final void invalidIDMessage() {
         /**
          * Shows an error message for when the ID is invalid.
          */
