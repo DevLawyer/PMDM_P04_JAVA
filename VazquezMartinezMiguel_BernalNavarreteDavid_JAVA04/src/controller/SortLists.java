@@ -33,6 +33,7 @@ public class SortLists {
     public SortLists() {
         insertInsaneNumberOfRecords();
         copyToCollection();
+        System.out.println("Ordenando ...");
         sortOwnList();
         sortCollection();
         JOptionPane.showMessageDialog(auxFrame, "Se ha ordenado el listado.");
@@ -46,21 +47,19 @@ public class SortLists {
         String rand;
 
         for (int i = 0; i < 12500; i++) {
-            //Adding a new Analyst.
             try {
+                //Adding a new Analyst.
                 rand = Integer.toString(r.nextInt(60000 - 1000) + 1000);
-                Analyst auxA = new Analyst(rand, "Analyst" + i + 1, "0", "1", "10/10/2010");
+                Analyst auxA = new Analyst(rand, "Analyst"+i+1, "1500", "2000", "10/10/2010");
                 myList.addNode(auxA, auxA.getIdEmployee());
-            } catch (MyExceptions ex) {
-                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
-                ex.showMessage();
-            }
-
-            //Adding a new Programmer.
-            try {
+                System.out.println(auxA);
+                
+                //Adding a new Programmer.
                 rand = Integer.toString(r.nextInt(60000 - 1000) + 1000);
-                Programmer auxP = new Programmer(rand, "Programmer" + i + 1, "0", "1", "10/10/2010");
+                Programmer auxP = new Programmer(rand, "Programmer"+i+1, "1500", "2000", "10/10/2010");
                 myList.addNode(auxP, auxP.getIdEmployee());
+                System.out.println(auxP);
+                
             } catch (MyExceptions ex) {
                 JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
                 ex.showMessage();

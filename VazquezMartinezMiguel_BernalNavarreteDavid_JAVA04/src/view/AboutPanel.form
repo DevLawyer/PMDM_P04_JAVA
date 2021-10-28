@@ -140,7 +140,7 @@
           <Font name="Verdana" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Version?"/>
+        <Property name="text" type="java.lang.String" value="1.0_EvilGit_20211029"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

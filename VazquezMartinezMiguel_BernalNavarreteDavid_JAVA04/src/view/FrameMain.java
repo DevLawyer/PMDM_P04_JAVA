@@ -156,6 +156,11 @@ public class FrameMain extends javax.swing.JFrame {
 
         navButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\navIcon.png")); // NOI18N
         navButton.setText("Navegar");
+        navButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                navButtonMouseClicked(evt);
+            }
+        });
         navButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 navButtonActionPerformed(evt);
@@ -229,8 +234,12 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_sortListActionPerformed
 
     private void navButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navButtonActionPerformed
-        changePanel(new NavPanel());
+        
     }//GEN-LAST:event_navButtonActionPerformed
+
+    private void navButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navButtonMouseClicked
+        changePanel(new NavPanel());
+    }//GEN-LAST:event_navButtonMouseClicked
 
     /**
      * @param args the command line arguments

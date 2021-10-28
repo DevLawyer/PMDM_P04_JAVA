@@ -65,7 +65,7 @@ public class AboutPanel extends javax.swing.JPanel {
 
         labelVersion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         labelVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelVersion.setText("Version?");
+        labelVersion.setText("1.0_EvilGit_20211029");
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\ccIcon.png")); // NOI18N
 
