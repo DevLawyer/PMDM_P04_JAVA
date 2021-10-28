@@ -23,7 +23,7 @@ public class ListPanel extends javax.swing.JPanel {
         listPanelJList.setModel(modelList());
     }
 
-    private DefaultListModel modelList() {
+    public DefaultListModel modelList() {
 
         if (myList.getHeadList() == null) {
             model.addElement("No hay elementos");
@@ -43,7 +43,7 @@ public class ListPanel extends javax.swing.JPanel {
 
                 }
                 myList.moveForward();
-            } while (myList.getCurrent() != myList.getEndList());
+            } while (myList.getCurrent().hasNext());
         }
 
         return model;
@@ -125,35 +125,15 @@ public class ListPanel extends javax.swing.JPanel {
 
         numberFieldList.setEditable(false);
         numberFieldList.setBackground(new java.awt.Color(204, 204, 204));
-        numberFieldList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numberFieldListActionPerformed(evt);
-            }
-        });
 
         nameFieldList.setEditable(false);
         nameFieldList.setBackground(new java.awt.Color(204, 204, 204));
-        nameFieldList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldListActionPerformed(evt);
-            }
-        });
 
         salaryFieldList.setEditable(false);
         salaryFieldList.setBackground(new java.awt.Color(204, 204, 204));
-        salaryFieldList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salaryFieldListActionPerformed(evt);
-            }
-        });
 
         maxSalaryFieldList.setEditable(false);
         maxSalaryFieldList.setBackground(new java.awt.Color(204, 204, 204));
-        maxSalaryFieldList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxSalaryFieldListActionPerformed(evt);
-            }
-        });
 
         entryDateFieldList.setEditable(false);
         entryDateFieldList.setBackground(new java.awt.Color(204, 204, 204));
@@ -171,11 +151,6 @@ public class ListPanel extends javax.swing.JPanel {
 
         projectExtraHFieldList.setEditable(false);
         projectExtraHFieldList.setBackground(new java.awt.Color(204, 204, 204));
-        projectExtraHFieldList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                projectExtraHFieldListActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -251,26 +226,6 @@ public class ListPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numberFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numberFieldListActionPerformed
-
-    private void nameFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldListActionPerformed
-        //UNUSED ELEMENT
-    }//GEN-LAST:event_nameFieldListActionPerformed
-
-    private void salaryFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldListActionPerformed
-        //UNUSED ELEMENT
-    }//GEN-LAST:event_salaryFieldListActionPerformed
-
-    private void maxSalaryFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxSalaryFieldListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maxSalaryFieldListActionPerformed
-
-    private void projectExtraHFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectExtraHFieldListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_projectExtraHFieldListActionPerformed
-
     private void listPanelJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listPanelJListMouseClicked
         //String nombre = (String) this.
     }//GEN-LAST:event_listPanelJListMouseClicked
@@ -303,7 +258,6 @@ public class ListPanel extends javax.swing.JPanel {
             projectExtraHFieldList.setText(selected[7]);
 
         }
-
     }//GEN-LAST:event_listPanelJListValueChanged
 
     private final List myList = FrameMain.getMainList();
@@ -323,8 +277,6 @@ public class ListPanel extends javax.swing.JPanel {
     private javax.swing.JTextField plusExtraFieldList;
     private javax.swing.JLabel plusExtraLabelList;
     private javax.swing.JTextField projectExtraHFieldList;
-    private javax.swing.JTextField projectExtraHFieldShow;
-    private javax.swing.JTextField projectExtraHFieldShow1;
     private javax.swing.JLabel projectExtraHLabelList;
     private javax.swing.JTextField salaryFieldList;
     private javax.swing.JLabel salaryLabelList;

@@ -226,9 +226,6 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numberFieldListActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="nameFieldList">
       <Properties>
@@ -237,9 +234,6 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameFieldListActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="salaryFieldList">
       <Properties>
@@ -248,9 +242,6 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salaryFieldListActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="maxSalaryFieldList">
       <Properties>
@@ -259,9 +250,6 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxSalaryFieldListActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="entryDateFieldList">
       <Properties>
@@ -308,9 +296,6 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="projectExtraHFieldListActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
