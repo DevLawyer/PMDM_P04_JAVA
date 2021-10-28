@@ -29,7 +29,7 @@ public class SortLists {
             //Adding a new Analyst.
             try{
                 rand = Integer.toString(r.nextInt(60000-1000)+1000);
-                Analyst auxA = new Analyst(rand, "Analyst"+i+1, "0", "1", "10/10/2010");
+                Analyst auxA = new Analyst(rand, "Analyst"+i+1, "1", "2", "10/10/2010");
                 myList.addNode(auxA, auxA.getIdEmployee());
             } catch (MyExceptions ex) {
                 JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
@@ -39,7 +39,7 @@ public class SortLists {
             //Adding a new Programmer.
             try{
                 rand = Integer.toString(r.nextInt(60000-1000)+1000);
-                Programmer auxP = new Programmer(rand, "Programmer"+i+1, "0", "1", "10/10/2010");
+                Programmer auxP = new Programmer(rand, "Programmer"+i+1, "1", "2", "10/10/2010");
                 myList.addNode(auxP, auxP.getIdEmployee());
             } catch (MyExceptions ex) {
                 JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
@@ -52,11 +52,13 @@ public class SortLists {
     private void copyToCollection(){
         myList.currentToHead();
         cpyList.add(myList.getCurrent().getData());
-
-        do{
-            myList.moveForward();
-            cpyList.add(myList.getCurrent().getData());
-        }while(myList.getCurrent().hasNext());
+        
+        if(myList.getHeadList() != null){
+            do{
+                myList.moveForward();
+                cpyList.add(myList.getCurrent().getData());
+            }while(myList.getCurrent().hasNext());
+        }
     }
     
     private void sortOwnList(){
