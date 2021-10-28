@@ -1,4 +1,5 @@
 package view;
+
 /**
  *
  * @author Miguel Maria Vazquez Martinez
@@ -9,8 +10,8 @@ import javax.swing.*;
 public class sortJDialog extends JDialog {
 
     /**
-     * Creates new form warningJDialog
-     * This class create a window to inform the user about an error in the program execution.
+     * Creates new form warningJDialog This class create a window to inform the
+     * user about an error in the program execution.
      */
     // CONSTRUCTOR /////////////////////////////////////////////////////////////
     public sortJDialog(java.awt.Frame parent, boolean modal) {
@@ -18,7 +19,6 @@ public class sortJDialog extends JDialog {
         initComponents();
         setLocationRelativeTo(parent);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,12 +110,12 @@ public class sortJDialog extends JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void setMessageSortedList(String message){
+
+    public void setMessageSortedList(String message) {
         this.messageListSortDialog.setText(message);
     }
-    
-    public void setMessageSortedArrayList(String message){
+
+    public void setMessageSortedArrayList(String message) {
         this.messageArrayListSortDialog.setText(message);
     }
 

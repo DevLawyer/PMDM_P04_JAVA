@@ -2,7 +2,7 @@ package view;
 
 /**
  *
- * @author migva
+ * @author Miguel Maria Vazquez Martinez
  */
 public class AboutPanel extends javax.swing.JPanel {
 

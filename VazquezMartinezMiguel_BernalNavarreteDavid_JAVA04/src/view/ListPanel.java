@@ -1,10 +1,10 @@
 package view;
+
 /**
  *
  * @author Miguel Maria Vazquez Martinez
  */
 
-import java.util.*;
 import controller.List;
 import javax.swing.DefaultListModel;
 import model.*;
@@ -22,33 +22,32 @@ public class ListPanel extends javax.swing.JPanel {
         initComponents();
         listPanelJList.setModel(modelList());
     }
-    
-    private DefaultListModel modelList()
-    {
-        
-        if(myList.getHeadList() == null){
+
+    private DefaultListModel modelList() {
+
+        if (myList.getHeadList() == null) {
             model.addElement("No hay elementos");
-        }else{
+        } else {
             model.removeAllElements();
             myList.currentToHead();
-            
-            do{
+
+            do {
                 Employee emp = (Employee) myList.getCurrent().getData();
 
-                if (emp instanceof Analyst alt){
-                    model.addElement(alt.toString());  
+                if (emp instanceof Analyst alt) {
+                    model.addElement(alt.toString());
 
-                }else if (emp instanceof Programmer pgm){
-                    model.addElement(pgm.toString());             
-                }else{
+                } else if (emp instanceof Programmer pgm) {
+                    model.addElement(pgm.toString());
+                } else {
 
                 }
                 myList.moveForward();
-            }while(myList.getCurrent() != myList.getEndList());            
+            } while (myList.getCurrent() != myList.getEndList());
         }
-        
+
         return model;
-    }       
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -273,43 +272,43 @@ public class ListPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_projectExtraHFieldListActionPerformed
 
     private void listPanelJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listPanelJListMouseClicked
-       //String nombre = (String) this.
+        //String nombre = (String) this.
     }//GEN-LAST:event_listPanelJListMouseClicked
 
     private void listPanelJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPanelJListValueChanged
         String[] selected = listPanelJList.getSelectedValue().split(";");
-        
+
         numberFieldList.setText(selected[2]);
         nameFieldList.setText(selected[1]);
         salaryFieldList.setText(selected[3]);
         maxSalaryFieldList.setText(selected[4]);
         entryDateFieldList.setText(selected[5]);
-                
-        if(selected[0].equals("Analyst")){
+
+        if (selected[0].equals("Analyst")) {
             typeLabelList.setText("ANALISTA");
-            
+
             plusExtraLabelList.setText("Plus");
             plusExtraFieldList.setText(selected[6]);
-                    
+
             projectExtraHLabelList.setText("Proyecto");
             projectExtraHFieldList.setText(selected[7]);
-                    
-        } else if (selected[0].equals("Programmer")){
+
+        } else if (selected[0].equals("Programmer")) {
             typeLabelList.setText("PROGRAMADOR");
-            
+
             plusExtraLabelList.setText("Salario extra:");
             plusExtraFieldList.setText(selected[6]);
-                    
+
             projectExtraHLabelList.setText("Horas extra:");
             projectExtraHFieldList.setText(selected[7]);
-            
+
         }
-    
+
     }//GEN-LAST:event_listPanelJListValueChanged
 
     private final List myList = FrameMain.getMainList();
     private DefaultListModel<String> model = new DefaultListModel<>();
-            
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField entryDateFieldList;
     private javax.swing.JLabel entryDateLabelList;

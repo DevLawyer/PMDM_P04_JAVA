@@ -7,6 +7,7 @@ import model.*;
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
  */
 public class AddPanel extends javax.swing.JPanel {
 

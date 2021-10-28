@@ -2,7 +2,8 @@ package view;
 
 /**
  *
- * @author migva
+ * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
  */
 
 import controller.List;
