@@ -5,14 +5,16 @@ package view;
  */
 
 import javax.swing.*;
+import model.MyExceptions;
 
 public class sortJDialog extends JDialog {
 
     /**
      * Creates new form warningJDialog
-     * This class create a window to inform the user about an error in the program execution.
+     * This class creates a window to inform the user about an error in the program execution.
      */
-    // CONSTRUCTOR /////////////////////////////////////////////////////////////
+    /*------------------------------------------------------------------------*/
+    // Constructor
     public sortJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -111,8 +113,8 @@ public class sortJDialog extends JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    public void setMessage(String message){
-        this.listLabelSortDialog.setText(message);
+    public void setMessage(MyExceptions ex){
+        this.listLabelSortDialog.setText(ex.getMessage());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

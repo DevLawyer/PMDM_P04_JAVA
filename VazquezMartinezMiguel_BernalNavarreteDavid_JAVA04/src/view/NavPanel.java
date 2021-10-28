@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
+/**
+ *
+ * @author Miguel Maria Vazquez Martinez
+ */
 
 import controller.List;
 import model.*;
@@ -381,7 +380,7 @@ public class NavPanel extends javax.swing.JPanel {
     }
     
     // Attributes //////////////////////////////////////////////////////////////
-    private List myList = FrameMain.getMainList(); // Main list get from FramenMain class. 
+    private List myList = FrameMain.getMainList(); // Main list retrieved from FramenMain class. 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel empTypeLabelShow;

@@ -88,11 +88,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\ccIcon.png"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>

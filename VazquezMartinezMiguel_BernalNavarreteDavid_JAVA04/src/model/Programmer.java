@@ -73,7 +73,7 @@ public class Programmer extends Employee implements DateInterface{
     @Override
     public String toString() {
         return "Programmer;" + this.name + ";" + this.id + ";" + this.salary + ";" 
-                + Programmer.maxSalary + ";"  + this.entryDate + ";"  
+                + Programmer.maxSalary + ";"  + DateParser.parseDate(this.entryDate) + ";"  
                 + Programmer.monthlyPlus + ";" + this.extraHours;
     }
     

@@ -2,7 +2,7 @@ package view;
 
 /**
  *
- * @author migva
+ * @author Miguel Maria Vazquez Martinez
  */
 
 import controller.List;
@@ -10,7 +10,6 @@ import controller.SortLists;
 import controller.updateSaveData;
 import javax.swing.JPanel;
 import model.*;
-
 
 public class FrameMain extends javax.swing.JFrame {
 
@@ -168,7 +167,7 @@ public class FrameMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMenuButtonMouseClicked
-             
+
     }//GEN-LAST:event_listMenuButtonMouseClicked
 
     private void addAnalystButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnalystButtonActionPerformed
@@ -248,32 +247,31 @@ public class FrameMain extends javax.swing.JFrame {
                 new FrameMain().setVisible(true);
             }
         });
-    
-        Analyst al1 = new Analyst("1","Paco", "1500", "2000","01/01/2020");
+
+        Analyst al1 = new Analyst("1", "Paco", "1500", "2000", "01/01/2020");
         myList.addNode(al1, al1.getIdEmployee());
-        Programmer pro1 = new Programmer("5","Pepe", "1500", "2000","01/01/2020");
+        Programmer pro1 = new Programmer("5", "Pepe", "1500", "2000", "01/01/2020");
         myList.addNode(pro1, pro1.getIdEmployee());
-        Analyst al2 = new Analyst("2","Maria", "1500", "2000","01/01/2020");
+        Analyst al2 = new Analyst("2", "Maria", "1500", "2000", "01/01/2020");
         myList.addNode(al2, al2.getIdEmployee());
-        Programmer pro2 = new Programmer("4","Andrés", "1500", "2000", "01/01/2020");
+        Programmer pro2 = new Programmer("4", "Andrés", "1500", "2000", "01/01/2020");
         myList.addNode(pro2, pro2.getIdEmployee());
-        Programmer pro3 = new Programmer("3","Luis","1500", "2000", "01/01/2020");
+        Programmer pro3 = new Programmer("3", "Luis", "1500", "2000", "01/01/2020");
         myList.addNode(pro3, pro3.getIdEmployee());
-        Analyst al3 = new Analyst("6","Marta","1500", "2000","01/01/2020");
+        Analyst al3 = new Analyst("6", "Marta", "1500", "2000", "01/01/2020");
         myList.addNode(al3, al3.getIdEmployee());
-    
+
     }
-    
-    public static List getMainList(){
+
+    public static List getMainList() {
         return myList;
     }
-    
-    public void changePanel(JPanel showPanel){
+
+    public final void changePanel(JPanel showPanel) {
         setContentPane(showPanel);
-        pack();        
+        pack();
     }
-    
-    
+
     // Attributes //////////////////////////////////////////////////////////////
     private static List myList = new List();
     private AddPanel addPanel = new AddPanel();

@@ -7,10 +7,20 @@ import view.FrameMain;
 
 
 /**
- * This class is used tu implements de methods which update data from a file or save data in a file.
+ * 
+ * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
+ * This class is used to implement the methods which update data 
+ * from a file or save data in a file.
  */
 public class updateSaveData {
+    /*------------------------------------------------------------------------*/
+    // Attributes
+    private static FrameMain auxFrame;
+    private static List myList = FrameMain.getMainList();
     
+    /*------------------------------------------------------------------------*/
     public static void updateFromFile(){
         //This method charge in updatedList the information contained in a data.dat file in case that this exist.
         
@@ -40,6 +50,7 @@ public class updateSaveData {
         
     }
     
+    /*------------------------------------------------------------------------*/
     public static void saveInFile(){
         //This method save in a data.dat file the information which is contained in saveList. The file will be overwride if the file already exist.
         
@@ -66,7 +77,4 @@ public class updateSaveData {
             }
         }
     }
-    
-    private static FrameMain auxFrame;
-    private static List myList = FrameMain.getMainList();
 }
