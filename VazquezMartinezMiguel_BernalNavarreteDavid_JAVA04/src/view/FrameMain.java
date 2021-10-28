@@ -46,6 +46,7 @@ public class FrameMain extends javax.swing.JFrame {
         addAnalystButton = new javax.swing.JMenuItem();
         addProgrammerButton = new javax.swing.JMenuItem();
         listButton = new javax.swing.JMenu();
+        showList = new javax.swing.JMenuItem();
         sortList = new javax.swing.JMenuItem();
         navButton = new javax.swing.JMenu();
         aboutButton = new javax.swing.JMenu();
@@ -129,7 +130,20 @@ public class FrameMain extends javax.swing.JFrame {
             }
         });
 
+        showList.setText("Mostrar Lista");
+        showList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showListActionPerformed(evt);
+            }
+        });
+        listButton.add(showList);
+
         sortList.setText("Ordenar Lista");
+        sortList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortListActionPerformed(evt);
+            }
+        });
         listButton.add(sortList);
 
         mainMenuBar.add(listButton);
@@ -168,7 +182,7 @@ public class FrameMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMenuButtonMouseClicked
-             
+        
     }//GEN-LAST:event_listMenuButtonMouseClicked
 
     private void addAnalystButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnalystButtonActionPerformed
@@ -200,12 +214,14 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_saveListButtonActionPerformed
 
     private void showListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showListActionPerformed
-        changePanel(new ListPanel());
+        changePanel(new ListPanel());        
     }//GEN-LAST:event_showListActionPerformed
 
     private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
         sortDialog = new sortJDialog(this, true);
         SortLists sort = new SortLists();
+        sortDialog.setMessageSortedList(Long.toString(SortLists.getOwnListTime())+" milisegundos.");
+        sortDialog.setMessageSortedArrayList(Long.toString(SortLists.getCollectionTime())+" milisegundos.");
         sortDialog.setVisible(true);
     }//GEN-LAST:event_sortListActionPerformed
 
@@ -297,6 +313,7 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JMenu menuButton;
     private javax.swing.JMenu navButton;
     private javax.swing.JMenuItem saveListButton;
+    private javax.swing.JMenuItem showList;
     private javax.swing.JMenuItem sortList;
     // End of variables declaration//GEN-END:variables
 }

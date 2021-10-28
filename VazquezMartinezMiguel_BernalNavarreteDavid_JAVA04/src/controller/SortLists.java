@@ -14,10 +14,10 @@ import view.FrameMain;
 public class SortLists {
     
     public SortLists(){
-        //insertInsaneNumberOfRecords();
-        //copyToCollection();
+        insertInsaneNumberOfRecords();
+        copyToCollection();
         sortOwnList();
-        //sortCollection();
+        sortCollection();
         JOptionPane.showMessageDialog(auxFrame, "Se ha ordenado el listado.");
     }
     
@@ -45,7 +45,7 @@ public class SortLists {
 
         do{
             myList.moveForward();
-            cpyList.add(myList.getCurrent().getClass());
+            cpyList.add(myList.getCurrent().getData());
         }while(myList.getCurrent().hasNext());
     }
     
@@ -83,11 +83,15 @@ public class SortLists {
     private void sortCollection(){
         collectionTime = System.currentTimeMillis();
         
-        cpyList.sort(new Comparator<Employee>() {
-            @Override
-            public int compare(Employee p1, Employee p2) {
-               return p1.getIdEmployee() - (p2.getIdEmployee());
-            }});
+        cpyList.sort(new Comparator<Employee>(){
+
+                @Override
+                public int compare(Employee p1, Employee p2) {
+                    return p1.getIdEmployee() < p2.getIdEmployee()? -1
+                            : p1.getIdEmployee() > p2.getIdEmployee()? 1
+                            :0;
+                }
+        });
         
         collectionTime = System.currentTimeMillis() - collectionTime;
     }

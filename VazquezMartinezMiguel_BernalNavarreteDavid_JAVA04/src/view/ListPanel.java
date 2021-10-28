@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.util.*;
 import controller.List;
 import javax.swing.DefaultListModel;
 import model.*;
@@ -25,7 +26,6 @@ public class ListPanel extends javax.swing.JPanel {
     
     private DefaultListModel modelList()
     {
-        DefaultListModel<String> model = new DefaultListModel<>();
         
         if(myList.getHeadList() == null){
             model.addElement("No hay elementos");
@@ -36,8 +36,8 @@ public class ListPanel extends javax.swing.JPanel {
             do{
                 Employee emp = (Employee) myList.getCurrent().getData();
 
-                if (emp instanceof Analyst adv){
-                    model.addElement(adv.toString());  
+                if (emp instanceof Analyst alt){
+                    model.addElement(alt.toString());  
 
                 }else if (emp instanceof Programmer pgm){
                     model.addElement(pgm.toString());             
@@ -62,40 +62,274 @@ public class ListPanel extends javax.swing.JPanel {
 
         listPanelScroll = new javax.swing.JScrollPane();
         listPanelJList = new javax.swing.JList<>();
+        typeLabelList = new javax.swing.JLabel();
+        numberLabelList = new javax.swing.JLabel();
+        nameLabelList = new javax.swing.JLabel();
+        salaryLabelList = new javax.swing.JLabel();
+        maxSalaryLabelList = new javax.swing.JLabel();
+        entryDateLabelList = new javax.swing.JLabel();
+        numberFieldList = new javax.swing.JTextField();
+        nameFieldList = new javax.swing.JTextField();
+        salaryFieldList = new javax.swing.JTextField();
+        maxSalaryFieldList = new javax.swing.JTextField();
+        entryDateFieldList = new javax.swing.JTextField();
+        plusExtraLabelList = new javax.swing.JLabel();
+        plusExtraFieldList = new javax.swing.JTextField();
+        projectExtraHLabelList = new javax.swing.JLabel();
+        projectExtraHFieldList = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(700, 500));
         setMinimumSize(new java.awt.Dimension(700, 500));
         setPreferredSize(new java.awt.Dimension(700, 500));
 
         listPanelScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        listPanelJList.setMaximumSize(new java.awt.Dimension(400, 200));
-        listPanelJList.setMinimumSize(new java.awt.Dimension(400, 200));
-        listPanelJList.setPreferredSize(new java.awt.Dimension(400, 300));
+        listPanelJList.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        listPanelJList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listPanelJListMouseClicked(evt);
+            }
+        });
+        listPanelJList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listPanelJListValueChanged(evt);
+            }
+        });
         listPanelScroll.setViewportView(listPanelJList);
+
+        typeLabelList.setBackground(new java.awt.Color(255, 255, 255));
+        typeLabelList.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        typeLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        typeLabelList.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        typeLabelList.setText("EMPLEADO");
+
+        numberLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        numberLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        numberLabelList.setText("Número:");
+
+        nameLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        nameLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        nameLabelList.setText("Nombre:");
+
+        salaryLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        salaryLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        salaryLabelList.setText("Sueldo:");
+
+        maxSalaryLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        maxSalaryLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        maxSalaryLabelList.setText("Sueldo máximo:");
+
+        entryDateLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        entryDateLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        entryDateLabelList.setText("Fecha Alta:");
+
+        numberFieldList.setEditable(false);
+        numberFieldList.setBackground(new java.awt.Color(204, 204, 204));
+        numberFieldList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberFieldListActionPerformed(evt);
+            }
+        });
+
+        nameFieldList.setEditable(false);
+        nameFieldList.setBackground(new java.awt.Color(204, 204, 204));
+        nameFieldList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldListActionPerformed(evt);
+            }
+        });
+
+        salaryFieldList.setEditable(false);
+        salaryFieldList.setBackground(new java.awt.Color(204, 204, 204));
+        salaryFieldList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryFieldListActionPerformed(evt);
+            }
+        });
+
+        maxSalaryFieldList.setEditable(false);
+        maxSalaryFieldList.setBackground(new java.awt.Color(204, 204, 204));
+        maxSalaryFieldList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxSalaryFieldListActionPerformed(evt);
+            }
+        });
+
+        entryDateFieldList.setEditable(false);
+        entryDateFieldList.setBackground(new java.awt.Color(204, 204, 204));
+
+        plusExtraLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        plusExtraLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        plusExtraLabelList.setText("Plus/Extra:");
+
+        plusExtraFieldList.setEditable(false);
+        plusExtraFieldList.setBackground(new java.awt.Color(204, 204, 204));
+
+        projectExtraHLabelList.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        projectExtraHLabelList.setForeground(new java.awt.Color(0, 0, 0));
+        projectExtraHLabelList.setText("Other:");
+
+        projectExtraHFieldList.setEditable(false);
+        projectExtraHFieldList.setBackground(new java.awt.Color(204, 204, 204));
+        projectExtraHFieldList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projectExtraHFieldListActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(listPanelScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(plusExtraLabelList, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(projectExtraHLabelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(plusExtraFieldList, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(projectExtraHFieldList)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(numberLabelList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nameLabelList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(salaryLabelList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(maxSalaryLabelList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(entryDateLabelList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(maxSalaryFieldList, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(salaryFieldList, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameFieldList, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numberFieldList, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(entryDateFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(typeLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(listPanelScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
-                .addComponent(listPanelScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(147, 147, 147))
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(typeLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(numberLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numberFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(salaryLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salaryFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(maxSalaryLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxSalaryFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(entryDateLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entryDateFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(plusExtraLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plusExtraFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projectExtraHLabelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(projectExtraHFieldList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(listPanelScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private final List myList = FrameMain.getMainList();
+    private void numberFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberFieldListActionPerformed
+
+    private void nameFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldListActionPerformed
+        //UNUSED ELEMENT
+    }//GEN-LAST:event_nameFieldListActionPerformed
+
+    private void salaryFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldListActionPerformed
+        //UNUSED ELEMENT
+    }//GEN-LAST:event_salaryFieldListActionPerformed
+
+    private void maxSalaryFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxSalaryFieldListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maxSalaryFieldListActionPerformed
+
+    private void projectExtraHFieldListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectExtraHFieldListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_projectExtraHFieldListActionPerformed
+
+    private void listPanelJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listPanelJListMouseClicked
+       //String nombre = (String) this.
+    }//GEN-LAST:event_listPanelJListMouseClicked
+
+    private void listPanelJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPanelJListValueChanged
+        String[] selected = listPanelJList.getSelectedValue().split(";");
+        
+        numberFieldList.setText(selected[2]);
+        nameFieldList.setText(selected[1]);
+        salaryFieldList.setText(selected[3]);
+        maxSalaryFieldList.setText(selected[4]);
+        entryDateFieldList.setText(selected[5]);
+                
+        if(selected[0].equals("Analyst")){
+            typeLabelList.setText("ANALISTA");
+            
+            plusExtraLabelList.setText("Plus");
+            plusExtraFieldList.setText(selected[6]);
+                    
+            projectExtraHLabelList.setText("Proyecto");
+            projectExtraHFieldList.setText(selected[7]);
+                    
+        } else if (selected[0].equals("Programmer")){
+            typeLabelList.setText("PROGRAMADOR");
+            
+            plusExtraLabelList.setText("Salario extra:");
+            plusExtraFieldList.setText(selected[6]);
+                    
+            projectExtraHLabelList.setText("Horas extra:");
+            projectExtraHFieldList.setText(selected[7]);
+            
+        }
     
+    }//GEN-LAST:event_listPanelJListValueChanged
+
+    private final List myList = FrameMain.getMainList();
+    private DefaultListModel<String> model = new DefaultListModel<>();
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField entryDateFieldList;
+    private javax.swing.JLabel entryDateLabelList;
     private javax.swing.JList<String> listPanelJList;
     private javax.swing.JScrollPane listPanelScroll;
+    private javax.swing.JTextField maxSalaryFieldList;
+    private javax.swing.JLabel maxSalaryLabelList;
+    private javax.swing.JTextField nameFieldList;
+    private javax.swing.JLabel nameLabelList;
+    private javax.swing.JTextField numberFieldList;
+    private javax.swing.JLabel numberLabelList;
+    private javax.swing.JTextField plusExtraFieldList;
+    private javax.swing.JLabel plusExtraLabelList;
+    private javax.swing.JTextField projectExtraHFieldList;
+    private javax.swing.JTextField projectExtraHFieldShow;
+    private javax.swing.JTextField projectExtraHFieldShow1;
+    private javax.swing.JLabel projectExtraHLabelList;
+    private javax.swing.JTextField salaryFieldList;
+    private javax.swing.JLabel salaryLabelList;
+    private javax.swing.JLabel typeLabelList;
     // End of variables declaration//GEN-END:variables
 }
