@@ -8,6 +8,7 @@ package view;
 import controller.List;
 import controller.SortLists;
 import controller.updateSaveData;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.*;
 
@@ -124,11 +125,6 @@ public class FrameMain extends javax.swing.JFrame {
         mainMenuBar.add(addButton);
 
         listButton.setText("Listar");
-        listButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listButtonMouseClicked(evt);
-            }
-        });
 
         showList.setText("Mostrar Lista");
         showList.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +148,11 @@ public class FrameMain extends javax.swing.JFrame {
         navButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 navButtonMouseClicked(evt);
+            }
+        });
+        navButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                navButtonActionPerformed(evt);
             }
         });
         mainMenuBar.add(navButton);
@@ -264,19 +265,23 @@ public class FrameMain extends javax.swing.JFrame {
                 new FrameMain().setVisible(true);
             }
         });
-    
-        Analyst al1 = new Analyst("1","Paco", "1500", "2000","01/01/2020");
-        myList.addNode(al1, al1.getIdEmployee());
-        Programmer pro1 = new Programmer("5","Pepe", "1500", "2000","01/01/2020");
-        myList.addNode(pro1, pro1.getIdEmployee());
-        Analyst al2 = new Analyst("2","Maria", "1500", "2000","01/01/2020");
-        myList.addNode(al2, al2.getIdEmployee());
-        Programmer pro2 = new Programmer("4","Andrés", "1500", "2000", "01/01/2020");
-        myList.addNode(pro2, pro2.getIdEmployee());
-        Programmer pro3 = new Programmer("3","Luis","1500", "2000", "01/01/2020");
-        myList.addNode(pro3, pro3.getIdEmployee());
-        Analyst al3 = new Analyst("6","Marta","1500", "2000","01/01/2020");
-        myList.addNode(al3, al3.getIdEmployee());
+        
+        try{
+            Analyst al1 = new Analyst("1","Paco", "1500", "2000","01/01/2020");
+            myList.addNode(al1, al1.getIdEmployee());
+            Programmer pro1 = new Programmer("5","Pepe", "1500", "2000","01/01/2020");
+            myList.addNode(pro1, pro1.getIdEmployee());
+            Analyst al2 = new Analyst("2","Maria", "1500", "2000","01/01/2020");
+            myList.addNode(al2, al2.getIdEmployee());
+            Programmer pro2 = new Programmer("4","Andrés", "1500", "2000", "01/01/2020");
+            myList.addNode(pro2, pro2.getIdEmployee());
+            Programmer pro3 = new Programmer("3","Luis","1500", "2000", "01/01/2020");
+            myList.addNode(pro3, pro3.getIdEmployee());
+            Analyst al3 = new Analyst("6","Marta","1500", "2000","01/01/2020");
+            myList.addNode(al3, al3.getIdEmployee());
+        } catch (MyExceptions ex) {
+            ex.showMessage();
+        }
     
     }
     

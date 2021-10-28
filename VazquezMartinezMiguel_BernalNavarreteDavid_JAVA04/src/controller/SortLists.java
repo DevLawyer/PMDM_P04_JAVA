@@ -27,14 +27,24 @@ public class SortLists {
         
         for(int i = 0; i < 12500; i++){
             //Adding a new Analyst.
-            rand = Integer.toString(r.nextInt(60000-1000)+1000);
-            Analyst auxA = new Analyst(rand, "Analyst"+i+1, "0", "1", "10/10/2010");
-            myList.addNode(auxA, auxA.getIdEmployee());
+            try{
+                rand = Integer.toString(r.nextInt(60000-1000)+1000);
+                Analyst auxA = new Analyst(rand, "Analyst"+i+1, "0", "1", "10/10/2010");
+                myList.addNode(auxA, auxA.getIdEmployee());
+            } catch (MyExceptions ex) {
+                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+                ex.showMessage();
+            }
             
             //Adding a new Programmer.
-            rand = Integer.toString(r.nextInt(60000-1000)+1000);
-            Programmer auxP = new Programmer(rand, "Programmer"+i+1, "0", "1", "10/10/2010");
-            myList.addNode(auxP, auxP.getIdEmployee());
+            try{
+                rand = Integer.toString(r.nextInt(60000-1000)+1000);
+                Programmer auxP = new Programmer(rand, "Programmer"+i+1, "0", "1", "10/10/2010");
+                myList.addNode(auxP, auxP.getIdEmployee());
+            } catch (MyExceptions ex) {
+                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+                ex.showMessage();
+            }
         }
         
     }
