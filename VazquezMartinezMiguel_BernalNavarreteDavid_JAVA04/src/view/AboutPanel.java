@@ -1,11 +1,16 @@
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Miguel Maria Vazquez Martinez
  */
 public class AboutPanel extends javax.swing.JPanel {
 
+    private static FrameMain auxFrame;
+    int clicks = 0;
+    
     /**
      * Creates new form MenuPanel
      */
@@ -66,6 +71,12 @@ public class AboutPanel extends javax.swing.JPanel {
         labelVersion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         labelVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelVersion.setText("1.0_EvilGit_20211029");
+        labelVersion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelVersion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelVersionMouseClicked(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\ccIcon.png")); // NOI18N
 
@@ -113,7 +124,28 @@ public class AboutPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void labelVersionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVersionMouseClicked
+        easterEGG();
+    }//GEN-LAST:event_labelVersionMouseClicked
 
+    private void easterEGG(){
+        /**
+         * Without comment.
+         */
+        
+        clicks++; //Just as it sounds.
+        
+        labelVersion.setText("1."+clicks+"_EvilGit_20211029");
+        
+        if(clicks == 10){
+            JOptionPane easterEGG = new JOptionPane();
+            easterEGG.showMessageDialog(auxFrame, "Git saca lo peor de una persona.", "EASTER EGG", JOptionPane.WARNING_MESSAGE);
+            labelVersion.setText("1.0_EvilGit_20211029");
+            clicks = 0;
+        }        
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelAuthor2;
     private javax.swing.JLabel jLabel1;

@@ -40,12 +40,12 @@ public class updateSaveData {
                 auxO = ois.readObject();
             }
             
-            JOptionPane.showMessageDialog(auxFrame, "Información cargada.");
+            JOptionPane.showMessageDialog(auxFrame, "Información cargada.", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(auxFrame, "ERROR fichero no encontrado.");
+            JOptionPane.showMessageDialog(auxFrame, "ERROR fichero no encontrado.", "ERROR", JOptionPane.ERROR_MESSAGE);
         } catch (ClassNotFoundException | IOException ex){
-            JOptionPane.showMessageDialog(auxFrame, "ERROR clase no encontrada.");
+            JOptionPane.showMessageDialog(auxFrame, "ERROR clase no encontrada.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
     }
@@ -55,7 +55,7 @@ public class updateSaveData {
         //This method save in a data.dat file the information which is contained in saveList. The file will be overwride if the file already exist.
         
         if(myList.getHeadList() == null){
-            JOptionPane.showMessageDialog(auxFrame, "ERROR no hay datos para guardar.");
+            JOptionPane.showMessageDialog(auxFrame, "ERROR no hay datos para guardar.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }else{
             try {
                 FileOutputStream fos = new FileOutputStream("data.dat");
@@ -71,9 +71,9 @@ public class updateSaveData {
                 oos.close();
                 fos.close();
                 
-                JOptionPane.showMessageDialog(auxFrame, "Información guardada.");
+                JOptionPane.showMessageDialog(auxFrame, "Información guardada.", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException ex){
-                JOptionPane.showMessageDialog(auxFrame, "ERROR al guardar la información.");
+                JOptionPane.showMessageDialog(auxFrame, "ERROR al guardar la información.", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

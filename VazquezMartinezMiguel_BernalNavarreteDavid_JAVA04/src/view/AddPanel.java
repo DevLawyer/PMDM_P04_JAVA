@@ -291,7 +291,7 @@ public class AddPanel extends javax.swing.JPanel {
         if (checkFields()) {
             addOptionSelected();
         } else {
-            JOptionPane.showMessageDialog(auxFrame, "Falta información por añadir.");
+            JOptionPane.showMessageDialog(auxFrame, "Falta información por añadir.", "ERROR", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_AddButtonActionPerformed
 
