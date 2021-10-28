@@ -53,6 +53,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\menuIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
           </Properties>
           <SubComponents>
@@ -63,6 +66,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\openIcon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cargar Lista"/>
               </Properties>
@@ -78,6 +84,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\saveIcon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar Lista"/>
               </Properties>
               <Events>
@@ -88,6 +97,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="addButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\addIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
           </Properties>
           <SubComponents>
@@ -98,6 +110,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\emptyIcon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Analista"/>
               </Properties>
@@ -113,6 +128,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\emptyIcon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Programador"/>
               </Properties>
               <Events>
@@ -123,11 +141,17 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="listButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Listar"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\listIcon.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Lista"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="showList">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\emptyIcon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Mostrar Lista"/>
               </Properties>
               <Events>
@@ -136,6 +160,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="sortList">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\emptyIcon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ordenar Lista"/>
               </Properties>
               <Events>
@@ -146,6 +173,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="navButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\navIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Navegar"/>
           </Properties>
           <Events>
@@ -154,6 +184,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="aboutButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\infoIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sobre App"/>
           </Properties>
           <Events>
