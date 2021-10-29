@@ -20,6 +20,7 @@ public class ListPanel extends javax.swing.JPanel {
      */
     public ListPanel() {
         initComponents();
+        model= new DefaultListModel<>();
         listPanelJList.setModel(modelList());
     }
 
@@ -30,7 +31,7 @@ public class ListPanel extends javax.swing.JPanel {
         } else {
             model.removeAllElements();
             myList.currentToHead();
-
+            
             do {
                 
                 Employee emp = (Employee) myList.getCurrent().getData();
@@ -254,8 +255,8 @@ public class ListPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_listPanelJListValueChanged
 
-    private final List myList = FrameMain.getMainList();
-    private DefaultListModel<String> model = new DefaultListModel<>();
+    private List myList = FrameMain.getMainList();
+    private DefaultListModel<String> model;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField entryDateFieldList;

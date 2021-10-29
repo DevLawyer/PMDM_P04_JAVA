@@ -52,13 +52,11 @@ public class SortLists {
                 rand = Integer.toString(r.nextInt(60000 - 1000) + 1000);
                 Analyst auxA = new Analyst(rand, "Analyst"+i+1, "1500", "2000", "10/10/2010");
                 myList.addNode(auxA, auxA.getIdEmployee());
-                System.out.println(auxA);
                 
                 //Adding a new Programmer.
                 rand = Integer.toString(r.nextInt(60000 - 1000) + 1000);
                 Programmer auxP = new Programmer(rand, "Programmer"+i+1, "1500", "2000", "10/10/2010");
                 myList.addNode(auxP, auxP.getIdEmployee());
-                System.out.println(auxP);
                 
             } catch (MyExceptions ex) {
                 JOptionPane.showMessageDialog(auxFrame, ex.getMessage());

@@ -35,16 +35,15 @@ public class AddPanel extends javax.swing.JPanel {
     private void addOptionSelected() {
         if (optionSelected) {
             //Programmer option.
-            newList();
             try {
                 Programmer pgm = new Programmer(
                         idFieldAdd.getText(),
                         nameFieldAdd.getText(),
                         salaryFieldAdd.getText(),
                         maxSalaryFieldAdd.getText(),
-                        entryDateFieldAdd.getText(),
-                        plusExtraFieldAdd.getText(),
-                        projectExtraHFieldAdd.getText());
+                        entryDateFieldAdd.getText());
+                       // plusExtraFieldAdd.getText(),
+                       // projectExtraHFieldAdd.getText());
 
                 myList.addNode(pgm);
             } catch (MyExceptions ex) {
@@ -54,10 +53,8 @@ public class AddPanel extends javax.swing.JPanel {
 
         } else {
             //Analyst option.
-            newList();
-            Analyst alt = null;
             try {
-                alt = new Analyst(
+                Analyst alt = new Analyst(
                         idFieldAdd.getText(),
                         nameFieldAdd.getText(),
                         salaryFieldAdd.getText(),
@@ -97,11 +94,6 @@ public class AddPanel extends javax.swing.JPanel {
         projectExtraHFieldAdd.setText("");
     }
 
-    private void newList() {
-        if (myList == null) {
-            myList = new List();
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

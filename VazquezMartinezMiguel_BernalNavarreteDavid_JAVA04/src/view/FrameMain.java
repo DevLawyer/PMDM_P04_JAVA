@@ -11,6 +11,7 @@ import controller.SortLists;
 import controller.updateSaveData;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import model.*;
 
 
@@ -235,29 +236,13 @@ public class FrameMain extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception{
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        try{
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }catch (Exception E){
+        
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -269,18 +254,18 @@ public class FrameMain extends javax.swing.JFrame {
         });
         
         try{
-            Analyst al1 = new Analyst("1","Paco", "1500", "2000","01/01/2020");
-            myList.addNode(al1, al1.getIdEmployee());
-            Programmer pro1 = new Programmer("5","Pepe", "1500", "2000","01/01/2020");
+            Programmer pro1 = new Programmer("5","Pepe", "2500", "7000","01/01/2020");
             myList.addNode(pro1, pro1.getIdEmployee());
-            Analyst al2 = new Analyst("2","Maria", "1500", "2000","01/01/2020");
+            Analyst al2 = new Analyst("2","Maria", "3500", "7000","01/01/2020");
             myList.addNode(al2, al2.getIdEmployee());
-            Programmer pro2 = new Programmer("4","Andrés", "1500", "2000", "01/01/2020");
+            Programmer pro2 = new Programmer("4","Andres", "4500", "7000", "01/01/2020");
             myList.addNode(pro2, pro2.getIdEmployee());
-            Programmer pro3 = new Programmer("3","Luis","1500", "2000", "01/01/2020");
-            myList.addNode(pro3, pro3.getIdEmployee());
-            Analyst al3 = new Analyst("6","Marta","1500", "2000","01/01/2020");
+            Analyst al1 = new Analyst("1","Paco", "1500", "7000","01/01/2020");
+            myList.addNode(al1, al1.getIdEmployee());
+            Analyst al3 = new Analyst("6","Marta","6500", "7000","01/01/2020");
             myList.addNode(al3, al3.getIdEmployee());
+            Programmer pro3 = new Programmer("3","Luis","5500", "7000", "01/01/2020");
+            myList.addNode(pro3, pro3.getIdEmployee());
         } catch (MyExceptions ex) {
             JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
             ex.showMessage();
@@ -305,6 +290,7 @@ public class FrameMain extends javax.swing.JFrame {
     public static sortJDialog sortDialog;
     private static FrameMain auxFrame;
     private static ListPanel listPanel;
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutButton;
