@@ -32,17 +32,11 @@ public class ListPanel extends javax.swing.JPanel {
             myList.currentToHead();
 
             do {
+                
                 Employee emp = (Employee) myList.getCurrent().getData();
-
-                if (emp instanceof Analyst alt) {
-                    model.addElement(alt.toString());
-
-                } else if (emp instanceof Programmer pgm) {
-                    model.addElement(pgm.toString());
-                } else {
-
-                }
+                model.addElement(emp.toString());
                 myList.moveForward();
+                
             } while (myList.getCurrent().hasNext());
         }
 
