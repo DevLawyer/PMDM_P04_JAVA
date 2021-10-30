@@ -1,14 +1,20 @@
 package view;
 
-import controller.List;
-import javax.swing.JOptionPane;
-import model.*;
-
 /**
  *
  * @author Miguel Maria Vazquez Martinez
  * @author David Bernal Navarrete
+ * 
+ * This class collects data from field test and create the choosen object by
+ * the user.
+ * 
+ * Furthermore, this class change the required labels for more information.
  */
+
+import controller.List;
+import javax.swing.JOptionPane;
+import model.*;
+
 public class AddPanel extends javax.swing.JPanel {
 
     /**
@@ -33,27 +39,22 @@ public class AddPanel extends javax.swing.JPanel {
     }
 
     private void addOptionSelected() {
-        if (optionSelected) {
-            //Programmer option.
-            try {
+        try {
+            if (optionSelected) {
+                //Programmer option.
                 Programmer pgm = new Programmer(
                         idFieldAdd.getText(),
                         nameFieldAdd.getText(),
                         salaryFieldAdd.getText(),
                         maxSalaryFieldAdd.getText(),
-                        entryDateFieldAdd.getText());
-                       // plusExtraFieldAdd.getText(),
-                       // projectExtraHFieldAdd.getText());
+                        entryDateFieldAdd.getText(),
+                        plusExtraFieldAdd.getText(),
+                        projectExtraHFieldAdd.getText());
 
                 myList.addNode(pgm);
-            } catch (MyExceptions ex) {
-                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
-                ex.showMessage();
-            }
 
-        } else {
-            //Analyst option.
-            try {
+            } else {
+                //Analyst option.
                 Analyst alt = new Analyst(
                         idFieldAdd.getText(),
                         nameFieldAdd.getText(),
@@ -64,10 +65,11 @@ public class AddPanel extends javax.swing.JPanel {
                         projectExtraHFieldAdd.getText());
 
                 myList.addNode(alt);
-            } catch (MyExceptions ex) {
-                JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
-                ex.showMessage();
             }
+        } catch (MyExceptions ex){
+            JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
         }
 
         cleanFields();

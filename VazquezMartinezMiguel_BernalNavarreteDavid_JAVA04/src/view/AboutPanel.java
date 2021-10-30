@@ -1,11 +1,23 @@
 package view;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
+ * This class show the information of the developers and link their names with
+ * her LinkedIn profile.
+ * 
+ * Furthermore, this class contains information about the license terms with
+ * link for more information.
+ * 
+ * Finally, this class contains an Easter Egg.
  */
+
+import java.awt.Desktop;
+import java.net.URI;
+import javax.swing.JOptionPane;
+
 public class AboutPanel extends javax.swing.JPanel {
 
     private static FrameMain auxFrame;
@@ -32,9 +44,9 @@ public class AboutPanel extends javax.swing.JPanel {
         labelVersionTitle = new javax.swing.JLabel();
         labelLicenseTitle = new javax.swing.JLabel();
         labelAuthor1 = new javax.swing.JLabel();
-        LabelAuthor2 = new javax.swing.JLabel();
+        labelAuthor2 = new javax.swing.JLabel();
         labelVersion = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        licenseIcon = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(0, 0, 0));
@@ -44,7 +56,13 @@ public class AboutPanel extends javax.swing.JPanel {
 
         labelLicense.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLicense.setText("https://creativecommons.org/licenses/by-nc-nd/4.0/");
+        labelLicense.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelLicense.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelLicense.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLicenseMouseClicked(evt);
+            }
+        });
 
         labelAuthors.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         labelAuthors.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -63,10 +81,22 @@ public class AboutPanel extends javax.swing.JPanel {
         labelAuthor1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         labelAuthor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAuthor1.setText("David Bernal Navarrete");
+        labelAuthor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelAuthor1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelAuthor1MouseClicked(evt);
+            }
+        });
 
-        LabelAuthor2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        LabelAuthor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelAuthor2.setText("Miguel María Vázquez Martínez");
+        labelAuthor2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        labelAuthor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelAuthor2.setText("Miguel María Vázquez Martínez");
+        labelAuthor2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelAuthor2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelAuthor2MouseClicked(evt);
+            }
+        });
 
         labelVersion.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         labelVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -78,7 +108,13 @@ public class AboutPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\migva\\Google Drive\\08 DAM\\2 Curso\\02 PMDM\\P04\\PMDM_P04_JAVA\\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\\images\\ccIcon.png")); // NOI18N
+        licenseIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ccIcon.png"))); // NOI18N
+        licenseIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        licenseIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                licenseIconMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,12 +125,12 @@ public class AboutPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(205, 205, 205)
-                        .addComponent(jLabel1))
+                        .addComponent(licenseIcon))
                     .addComponent(labelLicenseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(labelLicense, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LabelAuthor2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelAuthor2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAuthor1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelVersionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAuthors, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,7 +145,7 @@ public class AboutPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelAuthor1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelAuthor2)
+                .addComponent(labelAuthor2)
                 .addGap(50, 50, 50)
                 .addComponent(labelVersionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -117,7 +153,7 @@ public class AboutPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(labelLicenseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(licenseIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelLicense, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(86, Short.MAX_VALUE))
@@ -127,6 +163,58 @@ public class AboutPanel extends javax.swing.JPanel {
     private void labelVersionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVersionMouseClicked
         easterEGG();
     }//GEN-LAST:event_labelVersionMouseClicked
+
+    private void labelLicenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLicenseMouseClicked
+        //This method open the desktop browser with the URI of the CC license terms.
+        
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(new URI("https://creativecommons.org/licenses/by-nc-nd/4.0/"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_labelLicenseMouseClicked
+
+    private void labelAuthor1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAuthor1MouseClicked
+        //This method open the desktop browser with the URI of the LinkedIn profile of first developer.
+        
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(new URI("https://www.linkedin.com/in/david-bernal-navarrete-737358210/"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_labelAuthor1MouseClicked
+
+    private void labelAuthor2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAuthor2MouseClicked
+        //This method open the desktop browser with the URI of the LinkedIn profile of second developer.
+        
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(new URI("https://www.linkedin.com/in/miguel-m-v%C3%A1zquez-mart%C3%ADnez-5b7079112/"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_labelAuthor2MouseClicked
+
+    private void licenseIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_licenseIconMouseClicked
+        //This method open the desktop browser with the URI of the CC license terms.
+        
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(new URI("https://creativecommons.org/licenses/by-nc-nd/4.0/"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_licenseIconMouseClicked
 
     private void easterEGG(){
         /**
@@ -147,13 +235,13 @@ public class AboutPanel extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LabelAuthor2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelAuthor1;
+    private javax.swing.JLabel labelAuthor2;
     private javax.swing.JLabel labelAuthors;
     private javax.swing.JLabel labelLicense;
     private javax.swing.JLabel labelLicenseTitle;
     private javax.swing.JLabel labelVersion;
     private javax.swing.JLabel labelVersionTitle;
+    private javax.swing.JLabel licenseIcon;
     // End of variables declaration//GEN-END:variables
 }

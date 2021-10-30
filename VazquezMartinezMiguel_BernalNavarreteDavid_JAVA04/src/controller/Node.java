@@ -1,7 +1,5 @@
 package controller;
 
-import model.Employee;
-
 /**
  *
  * @author Miguel Maria Vazquez Martinez
@@ -13,6 +11,9 @@ import model.Employee;
  * contain the information of the object T given in the constructor, and also
  * have an index to make it easier to
  */
+
+import model.Employee;
+
 public class Node<T> {
 
     /*------------------------------------------------------------------------*/

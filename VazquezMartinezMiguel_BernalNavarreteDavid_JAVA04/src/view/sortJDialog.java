@@ -3,21 +3,25 @@ package view;
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
  */
 
 import javax.swing.*;
 
-public class sortJDialog extends JDialog {
+public class SortJDialog extends JDialog {
 
     /**
      * Creates new form warningJDialog This class create a window to inform the
      * user about an error in the program execution.
      */
+    
     // CONSTRUCTOR /////////////////////////////////////////////////////////////
-    public sortJDialog(java.awt.Frame parent, boolean modal) {
+    public SortJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -29,7 +33,7 @@ public class sortJDialog extends JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        warningJPanel = new javax.swing.JPanel();
+        sortJPanel = new javax.swing.JPanel();
         listLabelSortDialog = new javax.swing.JLabel();
         messageListSortDialog = new javax.swing.JLabel();
         arryListLabelSortDialog = new javax.swing.JLabel();
@@ -38,7 +42,7 @@ public class sortJDialog extends JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ERROR");
 
-        warningJPanel.setBackground(new java.awt.Color(255, 255, 255));
+        sortJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         listLabelSortDialog.setBackground(new java.awt.Color(255, 255, 255));
         listLabelSortDialog.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -64,31 +68,31 @@ public class sortJDialog extends JDialog {
         messageArrayListSortDialog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         messageArrayListSortDialog.setText("MESSAGE");
 
-        javax.swing.GroupLayout warningJPanelLayout = new javax.swing.GroupLayout(warningJPanel);
-        warningJPanel.setLayout(warningJPanelLayout);
-        warningJPanelLayout.setHorizontalGroup(
-            warningJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(warningJPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout sortJPanelLayout = new javax.swing.GroupLayout(sortJPanel);
+        sortJPanel.setLayout(sortJPanelLayout);
+        sortJPanelLayout.setHorizontalGroup(
+            sortJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sortJPanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(warningJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sortJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(messageArrayListSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(arryListLabelSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(messageListSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(listLabelSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
-        warningJPanelLayout.setVerticalGroup(
-            warningJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(warningJPanelLayout.createSequentialGroup()
+        sortJPanelLayout.setVerticalGroup(
+            sortJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sortJPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(listLabelSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(messageListSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(arryListLabelSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(messageArrayListSortDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -97,26 +101,32 @@ public class sortJDialog extends JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(warningJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(sortJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 302, Short.MAX_VALUE)
+            .addGap(0, 262, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(warningJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setMessageSortedList(String message) {
-        this.messageListSortDialog.setText(message);
+    public void setMessageSorted(String miliList, String miliArrayList) {
+        this.listLabelSortDialog.setText("Tiempo de filtrado de List:");
+        this.messageListSortDialog.setText(miliList + " milisegundos.");
+        this.arryListLabelSortDialog.setText("Tiempo de filtrado de ArrayList:");
+        this.messageArrayListSortDialog.setText(miliArrayList + " milisegundos.");
     }
 
-    public void setMessageSortedArrayList(String message) {
-        this.messageArrayListSortDialog.setText(message);
+    public void setInformation(String message){
+        this.listLabelSortDialog.setText("");
+        this.messageListSortDialog.setText("INFORMACIÓN");
+        this.arryListLabelSortDialog.setText(message);
+        this.messageArrayListSortDialog.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -124,6 +134,6 @@ public class sortJDialog extends JDialog {
     private javax.swing.JLabel listLabelSortDialog;
     private javax.swing.JLabel messageArrayListSortDialog;
     private javax.swing.JLabel messageListSortDialog;
-    private javax.swing.JPanel warningJPanel;
+    private javax.swing.JPanel sortJPanel;
     // End of variables declaration//GEN-END:variables
 }

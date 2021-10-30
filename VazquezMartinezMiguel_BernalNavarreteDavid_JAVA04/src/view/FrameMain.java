@@ -4,6 +4,8 @@ package view;
  *
  * @author Miguel Maria Vazquez Martinez
  * @author David Bernal Navarrete
+ * 
+ * MAIN CLASS OF THE PROJECT.
  */
 
 import controller.List;
@@ -13,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import model.*;
-
 
 public class FrameMain extends javax.swing.JFrame {
 
@@ -78,6 +79,7 @@ public class FrameMain extends javax.swing.JFrame {
         mainMenuBar.setForeground(new java.awt.Color(0, 0, 0));
         mainMenuBar.setPreferredSize(new java.awt.Dimension(222, 40));
 
+        menuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menuIcon.png"))); // NOI18N
         menuButton.setText("Menú");
 
         loadListButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -102,6 +104,7 @@ public class FrameMain extends javax.swing.JFrame {
 
         mainMenuBar.add(menuButton);
 
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/addIcon.png"))); // NOI18N
         addButton.setText("Añadir");
 
         addAnalystButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -126,6 +129,7 @@ public class FrameMain extends javax.swing.JFrame {
 
         mainMenuBar.add(addButton);
 
+        listButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/listIcon.png"))); // NOI18N
         listButton.setText("Lista");
 
         showList.setText("Mostrar Lista");
@@ -146,6 +150,7 @@ public class FrameMain extends javax.swing.JFrame {
 
         mainMenuBar.add(listButton);
 
+        navButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/navIcon.png"))); // NOI18N
         navButton.setText("Navegar");
         navButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -159,6 +164,7 @@ public class FrameMain extends javax.swing.JFrame {
         });
         mainMenuBar.add(navButton);
 
+        aboutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infoIcon.png"))); // NOI18N
         aboutButton.setText("Sobre App");
         aboutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -217,12 +223,8 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_showListActionPerformed
 
     private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
-        sortDialog = new sortJDialog(this, true);
-        SortLists sort = new SortLists();
-        sortDialog.setMessageSortedList(Long.toString(SortLists.getOwnListTime())+" milisegundos.");
-        sortDialog.setMessageSortedArrayList(Long.toString(SortLists.getCollectionTime())+" milisegundos.");
-        sortDialog.setVisible(true);
-        listPanel.modelList();
+        sortDialog = new SortJDialog(this, true);
+        sortLists = new SortLists();
     }//GEN-LAST:event_sortListActionPerformed
 
     private void navButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navButtonActionPerformed
@@ -239,7 +241,7 @@ public class FrameMain extends javax.swing.JFrame {
     public static void main(String args[]) throws Exception{
         /* Set the Nimbus look and feel */
         try{
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }catch (Exception E){
         
         }
@@ -287,9 +289,11 @@ public class FrameMain extends javax.swing.JFrame {
     private static List myList = new List();
     private AddPanel addPanel = new AddPanel();
     private AboutPanel aboutPanel = new AboutPanel();
-    public static sortJDialog sortDialog;
     private static FrameMain auxFrame;
     private static ListPanel listPanel;
+    private static SortLists sortLists;
+    public static SortJDialog sortDialog;
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

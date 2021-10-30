@@ -1,12 +1,5 @@
 package controller;
 
-import model.MyExceptions;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 /**
  * 
  * @author Miguel Maria Vazquez Martinez
@@ -16,6 +9,13 @@ import java.util.GregorianCalendar;
  * It also has the tools required to check if a certain amount of time has passed
  * between two dates.
  */
+
+import model.MyExceptions;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class DateParser {
     /**
      * A SimpleDateFormat will be used to format Strings.
@@ -83,7 +83,7 @@ public class DateParser {
         GregorianCalendar now = new GregorianCalendar();
         
         int actualYear = now.get(Calendar.YEAR),
-                entryYear = now.get(Calendar.YEAR);
+                entryYear = entryDate.get(Calendar.YEAR);
         int actualMonth = now.get(Calendar.MONTH), 
                 entryMonth = entryDate.get(Calendar.MONTH);
         int actualDay = now.get(Calendar.DAY_OF_MONTH), 
@@ -102,7 +102,7 @@ public class DateParser {
         GregorianCalendar now = new GregorianCalendar();
         
         int actualYear = now.get(Calendar.YEAR),
-                entryYear = now.get(Calendar.YEAR);
+                entryYear = entryDate.get(Calendar.YEAR);
         int actualMonth = now.get(Calendar.MONTH), 
                 entryMonth = entryDate.get(Calendar.MONTH);
         int actualDay = now.get(Calendar.DAY_OF_MONTH), 
@@ -121,7 +121,7 @@ public class DateParser {
         GregorianCalendar now = new GregorianCalendar();
         
         int actualYear = now.get(Calendar.YEAR),
-                entryYear = now.get(Calendar.YEAR);
+                entryYear = entryDate.get(Calendar.YEAR);
         int actualMonth = now.get(Calendar.MONTH), 
                 entryMonth = entryDate.get(Calendar.MONTH);
         int actualDay = now.get(Calendar.DAY_OF_MONTH), 

@@ -3,16 +3,18 @@ package view;
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
+ * This class contains a JScrollPane with a JList inside.
+ * 
+ * In addition, this class shows separately the information about the record
+ * selected by the user.
  */
 
 import controller.List;
 import javax.swing.DefaultListModel;
 import model.*;
 
-/**
- *
- * @author migva
- */
 public class ListPanel extends javax.swing.JPanel {
 
     /**
@@ -29,16 +31,30 @@ public class ListPanel extends javax.swing.JPanel {
         if (myList.getHeadList() == null) {
             model.addElement("No hay elementos");
         } else {
+            
             model.removeAllElements();
             myList.currentToHead();
             
-            do {
-                
-                Employee emp = (Employee) myList.getCurrent().getData();
-                model.addElement(emp.toString());
-                myList.moveForward();
-                
-            } while (myList.getCurrent().hasNext());
+            if(myList.getHeadList() != null){
+                do {
+
+                    Employee emp = (Employee) myList.getCurrent().getData();
+                    model.addElement(emp.toString());
+                    myList.moveForward();
+                    
+                    /**
+                    * This condition insert the last object into model because the
+                    * method of moveforward always keep current in the last node if
+                    * next node is null. The reason is the null pointer exception
+                    * prevention.
+                    */
+                    if(myList.getCurrent() == myList.getEndList()){
+                        emp = (Employee) myList.getCurrent().getData();
+                        model.addElement(emp.toString());
+                    }
+
+                } while (myList.getCurrent().hasNext());
+            }
         }
 
         return model;
@@ -237,10 +253,10 @@ public class ListPanel extends javax.swing.JPanel {
         if (selected[0].equals("Analyst")) {
             typeLabelList.setText("ANALISTA");
 
-            plusExtraLabelList.setText("Plus");
+            plusExtraLabelList.setText("Plus:");
             plusExtraFieldList.setText(selected[6]);
 
-            projectExtraHLabelList.setText("Proyecto");
+            projectExtraHLabelList.setText("Proyecto:");
             projectExtraHFieldList.setText(selected[7]);
 
         } else if (selected[0].equals("Programmer")) {

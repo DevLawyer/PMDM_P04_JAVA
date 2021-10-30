@@ -1,4 +1,5 @@
 package model;
+
 /**
  *
  * @author Miguel Maria Vazquez Martinez
@@ -33,7 +34,7 @@ public abstract class Employee implements Serializable {
     protected int id;
     protected transient String name;
     protected float salary;
-    protected static float maxSalary = 0;
+    protected float maxSalary = 0;
     protected GregorianCalendar entryDate;
     
     /*------------------------------------------------------------------------*/
@@ -49,25 +50,35 @@ public abstract class Employee implements Serializable {
 
     /*------------------------------------------------------------------------*/
     // Setters
-    public final void setId(String id) {
+    public final void setId(String id) throws MyExceptions {
+        MyExceptions.checkID(id);
         this.id = Integer.parseInt(id);
     }
     
-    public final void setName(String name) {
+    public final void setName(String name) throws MyExceptions {
+        MyExceptions.checkEmpty(name, "Nombre");
         this.name = name;
+
     }
     
     public final void setSalary(String salary) throws MyExceptions {
-        if (!(maxSalary == 0)) {
-            MyExceptions.checkSalary(salary);
+        if (maxSalary == 0) {
+            MyExceptions.checkEmpty(salary, "Sueldo");
+            this.salary = Float.parseFloat(salary);
+            this.maxSalary = this.salary;
+            MyExceptions.checkSalary(salary, maxSalary);
+        }
+        else
+        {
+            MyExceptions.checkSalary(salary, maxSalary);
             this.salary = Float.parseFloat(salary);
         }
-        else 
-            this.salary = Float.parseFloat(salary);
     }
     
-    public final void setMaxSalary(String newMaxSalary) {
-        Employee.maxSalary = Float.parseFloat(newMaxSalary);
+    public final void setMaxSalary(String newMaxSalary) throws MyExceptions {
+        MyExceptions.checkEmpty(newMaxSalary, "Sueldo Máximo");
+        MyExceptions.checkSalary(newMaxSalary);
+        this.maxSalary = Float.parseFloat(newMaxSalary);
     }
     
     public final void setEntryDate(String date) throws MyExceptions {

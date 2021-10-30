@@ -1,17 +1,18 @@
 package view;
+
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ * 
+ * This class allows the viewing one by one of all the records contained in the 
+ * main list and update the salary of the employee if the condition for this is true.
  */
 
 import controller.List;
 import javax.swing.JOptionPane;
 import model.*;
 
-/**
- * This panel contains the design of navigation screen to show the list information.
- * 
- */
 public class NavPanel extends javax.swing.JPanel {
 
     /**
@@ -24,6 +25,12 @@ public class NavPanel extends javax.swing.JPanel {
             forwardButton.setEnabled(false);
             goBackButton.setEnabled(false);
             updateSalaryButton.setEnabled(false);
+        }
+        
+        if(myList.getCurrent() != null){
+            myList.currentToHead();
+            showEmployee(myList.getCurrent().getData());
+            enableDisableNavButtons();
         }
     }
 
@@ -279,6 +286,7 @@ public class NavPanel extends javax.swing.JPanel {
         myList.goBack();
         showEmployee(myList.getCurrent().getData());
         enableUpdateSalaryButton(myList.getCurrent().getData());
+        enableDisableNavButtons();
 
     }//GEN-LAST:event_goBackButtonActionPerformed
 
@@ -288,8 +296,20 @@ public class NavPanel extends javax.swing.JPanel {
         myList.moveForward();
         showEmployee(myList.getCurrent().getData());
         enableUpdateSalaryButton(myList.getCurrent().getData());
+        enableDisableNavButtons();
 
     }//GEN-LAST:event_forwardButtonActionPerformed
+    
+    private void enableDisableNavButtons(){
+        if(myList.getCurrent() == myList.getEndList()){
+            forwardButton.setEnabled(false);
+        }else if(myList.getCurrent() == myList.getHeadList()){
+            goBackButton.setEnabled(false);
+        }else{
+            forwardButton.setEnabled(true);
+            goBackButton.setEnabled(true);
+        }
+    }
     
     private void salaryFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldShowActionPerformed
         //UNUSED ELEMENT
@@ -298,7 +318,7 @@ public class NavPanel extends javax.swing.JPanel {
     private void nameFieldShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldShowActionPerformed
         //UNUSED ELEMENT
     }//GEN-LAST:event_nameFieldShowActionPerformed
-
+    
     private void enableUpdateSalaryButton(Object obj){
         boolean enable = false; // Default value to enable update salary button.
         
@@ -325,6 +345,7 @@ public class NavPanel extends javax.swing.JPanel {
         updateSalaryButton.setEnabled(enable);
     }
     
+    
     private void updateSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSalaryButtonActionPerformed
         /**
          * When the update salary button is enable, according to the instance of currect object of the list,
@@ -333,15 +354,15 @@ public class NavPanel extends javax.swing.JPanel {
         
         Employee emp = (Employee) myList.getCurrent().getData();
         
-        if(emp instanceof Analyst auxA){
+        if(emp instanceof Analyst){
             try {
-                auxA.updateSalary();
+                emp.updateSalary();
             } catch (MyExceptions ex) {
                 JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
             }
-        }else if (emp instanceof Programmer auxP){
+        }else if (emp instanceof Programmer){
             try {
-                auxP.updateSalary();
+                emp.updateSalary();
             } catch (MyExceptions ex) {
                 JOptionPane.showMessageDialog(auxFrame, ex.getMessage());
             }
@@ -365,13 +386,19 @@ public class NavPanel extends javax.swing.JPanel {
         
         if(emp instanceof Analyst auxA) {
             empTypeLabelShow.setText("Analista");
-            plusExtraFieldShow.setText(String.valueOf(Analyst.getAnnualPlus()));  
+            
+            plusExtraLabelShow.setText("Plus anual:");
+            plusExtraFieldShow.setText(String.valueOf(auxA.getAnnualPlus()));  
+            
             projectExtraHLabelShow.setText("Proyecto:");
             projectExtraHFieldShow.setText(auxA.getProjectName());
             
         }else if(emp instanceof Programmer auxP){
             empTypeLabelShow.setText("Programador");
+            
+            plusExtraLabelShow.setText("Salario extra:");
             plusExtraFieldShow.setText(String.valueOf(auxP.getMonthlyPlus())); 
+            
             projectExtraHLabelShow.setText("Horas extra:");
             projectExtraHFieldShow.setText(String.valueOf(auxP.getExtraHours()));
 

@@ -13,6 +13,7 @@ package controller;
  *
  * This class also allows to check whether or not a next/previous node exists.
  */
+
 public class List<T> {
 
     /*------------------------------------------------------------------------*/

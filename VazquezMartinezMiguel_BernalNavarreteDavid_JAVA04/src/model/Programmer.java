@@ -22,7 +22,7 @@ public class Programmer extends Employee implements DateInterface{
     
     // Attributes
     
-    private static float monthlyPlus;
+    private float monthlyPlus;
     private float extraHours;
 
     /*------------------------------------------------------------------------*/
@@ -44,18 +44,26 @@ public class Programmer extends Employee implements DateInterface{
     // Setters
     
     public final void setMonthlyPlus(String monthlyPlus) {
-        Programmer.monthlyPlus = Float.parseFloat(monthlyPlus);
+        if(!monthlyPlus.equals("")){
+            this.monthlyPlus = Float.parseFloat(monthlyPlus);
+        }else{
+            this.monthlyPlus = 0;
+        }
     }
     
     public final void setExtraHours(String extraHours) {
-        this.extraHours = Float.parseFloat(extraHours);
+        if(!extraHours.equals("")){
+            this.extraHours = Float.parseFloat(extraHours);
+        }else{
+            this.extraHours = 0;
+        }
     }
     
     /*------------------------------------------------------------------------*/
     // Getters
     
     public float getMonthlyPlus(){
-        return Programmer.monthlyPlus;
+        return this.monthlyPlus;
     }
     
     public float getExtraHours() {
@@ -67,17 +75,15 @@ public class Programmer extends Employee implements DateInterface{
     
     @Override
     public void updateSalary() throws MyExceptions {
-        if (passedOneMonth()) {
-            MyExceptions.checkSalary(this.salary + Programmer.monthlyPlus);
-            this.salary += Programmer.monthlyPlus;
-        }
+        MyExceptions.checkSalary(this.salary + this.monthlyPlus, this.maxSalary);
+        this.salary += this.monthlyPlus;
     }
     
     @Override
     public String toString() {
         return "Programmer;" + this.name + ";" + this.id + ";" + this.salary + ";" 
-                + Programmer.maxSalary + ";"  + DateParser.parseDate(this.entryDate) + ";"  
-                + Programmer.monthlyPlus + ";" + this.extraHours;
+                + this.maxSalary + ";"  + DateParser.parseDate(this.entryDate) + ";"  
+                + this.monthlyPlus + ";" + this.extraHours;
     }
     
     /*------------------------------------------------------------------------*/

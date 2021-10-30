@@ -1,11 +1,13 @@
 package model;
 
-import java.util.*;
-
 /**
  *
  * @author Miguel Maria Vazquez Martinez
+ * @author David Bernal Navarrete
+ *
  */
+
+import java.util.*;
 
 interface DateInterface {
 

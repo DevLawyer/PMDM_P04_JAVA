@@ -53,6 +53,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/menuIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
           </Properties>
           <SubComponents>
@@ -88,6 +91,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="addButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/addIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
           </Properties>
           <SubComponents>
@@ -123,6 +129,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="listButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/listIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Lista"/>
           </Properties>
           <SubComponents>
@@ -146,6 +155,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="navButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/navIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Navegar"/>
           </Properties>
           <Events>
@@ -155,6 +167,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="aboutButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/infoIcon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sobre App"/>
           </Properties>
           <Events>

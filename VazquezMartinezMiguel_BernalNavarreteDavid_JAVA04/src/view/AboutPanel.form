@@ -38,14 +38,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="licenseIcon" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="labelLicenseTitle" min="-2" pref="500" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="labelLicense" min="-2" pref="300" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="LabelAuthor2" min="-2" pref="500" max="-2" attributes="0"/>
+                  <Component id="labelAuthor2" min="-2" pref="500" max="-2" attributes="0"/>
                   <Component id="labelAuthor1" min="-2" pref="500" max="-2" attributes="0"/>
                   <Component id="labelVersionTitle" min="-2" pref="500" max="-2" attributes="0"/>
                   <Component id="labelAuthors" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="labelAuthor1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="LabelAuthor2" min="-2" max="-2" attributes="0"/>
+              <Component id="labelAuthor2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="labelVersionTitle" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -71,7 +71,7 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="labelLicenseTitle" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="licenseIcon" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelLicense" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace pref="86" max="32767" attributes="0"/>
@@ -84,8 +84,14 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="https://creativecommons.org/licenses/by-nc-nd/4.0/"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelLicenseMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelAuthors">
       <Properties>
@@ -123,16 +129,28 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="David Bernal Navarrete"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelAuthor1MouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="LabelAuthor2">
+    <Component class="javax.swing.JLabel" name="labelAuthor2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Miguel Mar&#xed;a V&#xe1;zquez Mart&#xed;nez"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelAuthor2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelVersion">
       <Properties>
@@ -149,12 +167,18 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVersionMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="licenseIcon">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\migva\Google Drive\08 DAM\2 Curso\02 PMDM\P04\PMDM_P04_JAVA\VazquezMartinezMiguel_BernalNavarreteDavid_JAVA04\images\ccIcon.png"/>
+          <Image iconType="3" name="/images/ccIcon.png"/>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="licenseIconMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

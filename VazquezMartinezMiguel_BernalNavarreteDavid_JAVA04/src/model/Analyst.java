@@ -1,7 +1,5 @@
 package model;
 
-import controller.DateParser;
-
 /**
  * @author Miguel Maria Vazquez Martinez
  * @author David Bernal Navarrete
@@ -18,11 +16,13 @@ import controller.DateParser;
  * DateInterface.
  */
 
+import controller.DateParser;
+
 public class Analyst extends Employee implements DateInterface{
 
     // Attributes
     
-    private static float annualPlus;
+    private float annualPlus;
     private String projectName;
     
     /*------------------------------------------------------------------------*/
@@ -44,18 +44,26 @@ public class Analyst extends Employee implements DateInterface{
     // Setters
     
     public final void setAnnualPlus(String annualPlus) {
-        Analyst.annualPlus = Float.parseFloat(annualPlus);
+        if(!annualPlus.equals("")){
+            this.annualPlus = Float.parseFloat(annualPlus);
+        }else{
+            this.annualPlus = 0;
+        }
     }
     
     public final void setProjectName(String projectName) {
-        this.projectName = projectName;
+        if(!projectName.equals("")){
+            this.projectName = projectName;
+        }else{
+            projectName = "-";
+        }
     }
     
     /*------------------------------------------------------------------------*/
     // Getters
     
-    public static float getAnnualPlus() {
-        return Analyst.annualPlus;
+    public float getAnnualPlus() {
+        return this.annualPlus;
     }
     
     public String getProjectName() {
@@ -68,16 +76,14 @@ public class Analyst extends Employee implements DateInterface{
     @Override
     public String toString() {
         return "Analyst;" + this.name + ";" + this.id + ";" + this.salary + ";" 
-                + Analyst.maxSalary + ";"  + DateParser.parseDate(this.entryDate) + ";"  
-                + Analyst.annualPlus + ";" + this.projectName;
+                + this.maxSalary + ";"  + DateParser.parseDate(this.entryDate) + ";"  
+                + this.annualPlus + ";" + this.projectName;
     }
     
     @Override
     public void updateSalary() throws MyExceptions {
-        if (passedOneYear()) {
-            MyExceptions.checkSalary(this.salary + Analyst.annualPlus);
-            this.salary += (this.salary * Analyst.annualPlus);
-        }
+        MyExceptions.checkSalary(this.salary + this.annualPlus, this.maxSalary);
+        this.salary += (this.salary * this.annualPlus);
     }
     
     /*------------------------------------------------------------------------*/
