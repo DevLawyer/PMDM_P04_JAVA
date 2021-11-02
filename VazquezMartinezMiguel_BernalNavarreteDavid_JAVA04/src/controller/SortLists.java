@@ -146,7 +146,10 @@ public class SortLists {
             }
         });
         collectionTime = System.currentTimeMillis() - collectionTime;
-
+        
+        for(int i = 0; i < 50; ++i){
+            System.out.println(cpyList.get(i));
+        }
     }
 
     /*------------------------------------------------------------------------*/
