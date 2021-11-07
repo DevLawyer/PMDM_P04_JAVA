@@ -256,9 +256,9 @@ public class FrameMain extends javax.swing.JFrame {
         });
         
         try{
-            Programmer pro1 = new Programmer("5","Pepe", "2500", "7000","01/01/2020");
+            Programmer pro1 = new Programmer("5","Pepe", "2500", "7000","01/01/2020", "1000", "0");
             myList.addNode(pro1, pro1.getIdEmployee());
-            Analyst al2 = new Analyst("2","Maria", "3500", "7000","01/01/2020");
+            Analyst al2 = new Analyst("2","Maria", "3500", "7000","01/01/2020", "100", "H");
             myList.addNode(al2, al2.getIdEmployee());
             Programmer pro2 = new Programmer("4","Andres", "4500", "7000", "01/01/2020");
             myList.addNode(pro2, pro2.getIdEmployee());

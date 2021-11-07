@@ -128,7 +128,6 @@ public class DateParser {
                 entryDay = entryDate.get(Calendar.DAY_OF_MONTH);
         
         return ((actualYear > entryYear) &&
-                ((actualMonth + (11 * (actualYear - entryYear))) >= entryMonth) &&
-                (actualDay >= entryDay));
+                (actualMonth <= entryMonth));
     }
 }
